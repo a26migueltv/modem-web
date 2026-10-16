@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beast Acquirer Savage · Juegos · modem</title>
+  <meta name="description" content="Ficha de Beast Acquirer Savage: galería, datos, tráiler y requisitos del sistema.">
+  <link rel="icon" href="img/logo/modem-icono-negro.svg" type="image/svg+xml">
+
+  <!-- Fuentes de Google: Press Start 2P (títulos) e Inter (texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Press+Start+2P&display=swap">
+
+  <!-- Estilos: primero la base, luego los componentes y al final los de esta página -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages/ficha-juego.css">
+
+  <!-- JavaScript ("defer" = se ejecuta cuando el HTML ya está cargado) -->
+  <script src="js/main.js" defer></script>
+  <script src="js/modal-demo.js" defer></script>
+  <script src="js/ficha-juego.js" defer></script>
+</head>
+<body>
+  <!-- Enlace para saltar el menú con el teclado (solo se ve al pulsar Tab) -->
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+
+  <!-- ============================== HEADER ==============================
+       Igual en todas las páginas: NO lo cambies.
+       La página actual se marca sola en el menú (lo hace js/main.js). -->
+  <header class="header">
+    <div class="header__barra contenedor">
+      <a class="logo" href="index.html">
+        <span class="icono logo__icono" aria-hidden="true"></span>
+        <span class="logo__texto">
+          <span class="logo__nombre">modem</span>
+          <span class="logo__lema">Estudio de videojuegos independiente</span>
+        </span>
+      </a>
+
+      <!-- Botón hamburguesa: solo se ve en móvil -->
+      <button class="menu-boton" type="button" aria-expanded="false" aria-controls="navegacion">
+        <span class="menu-boton__rayas" aria-hidden="true"></span>
+        <span class="visualmente-oculto">Abrir menú</span>
+      </button>
+    </div>
+
+    <nav class="header__nav contenedor" id="navegacion" aria-label="Menú principal">
+      <ul class="menu">
+        <li><a class="menu__enlace" href="index.html">Inicio</a></li>
+        <li><a class="menu__enlace" href="juegos.html">Juegos</a></li>
+        <li><a class="menu__enlace" href="noticias.html">Noticias</a></li>
+        <li><a class="menu__enlace" href="contacto.html">Contacto</a></li>
+      </ul>
+
+      <!-- TODO (grupo): poner los enlaces reales de las redes del estudio -->
+      <ul class="redes header__redes">
+        <li><a class="red-social" href="#" aria-label="modem en X"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a></li>
+        <li><a class="red-social" href="#" aria-label="modem en Instagram"><span class="icono icono--16 icono--instagram" aria-hidden="true"></span></a></li>
+        <li><a class="red-social" href="#" aria-label="modem en Facebook"><span class="icono icono--16 icono--facebook" aria-hidden="true"></span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ============================== CONTENIDO ==============================
+       FICHA DE JUEGO (Figma: "01 · Pantallas" → "Ficha de juego · Escritorio")
+       Plantilla de detalle de un juego. De momento solo existe la de
+       Beast Acquirer Savage (los ejemplos de Figma son de este juego).
+       Los textos entre corchetes [...] son de relleno: los cambia el grupo. -->
+  <main id="contenido" class="ficha">
+    <div class="contenedor ficha__contenedor">
+
+      <a class="enlace" href="juegos.html">← Volver a Juegos</a>
+
+      <!-- Banner: imagen oscurecida + nombre del juego (es el h1 de la página).
+           La imagen es decorativa (alt vacío): el nombre ya está en el título. -->
+      <div class="banner-juego">
+        <img class="banner-juego__imagen" src="img/juegos/beast-acquirer-savage.jpg" alt="" width="1200" height="280">
+        <h1 class="banner-juego__titulo">Beast Acquirer Savage</h1>
+      </div>
+
+      <!-- Galería (izquierda) y datos del juego (derecha) -->
+      <div class="ficha__principal">
+
+        <!-- GALERÍA: al pulsar una miniatura cambia la imagen grande
+             (lo hace js/ficha-juego.js). Cada miniatura guarda en
+             data-imagen la imagen grande que enseña. -->
+        <section class="galeria" aria-label="Galería de imágenes">
+          <img class="galeria__principal" id="galeria-principal" src="img/juegos/beast-acquirer-savage.jpg" alt="Una bestia marina gigante emerge entre las olas" width="720" height="405">
+          <ul class="galeria__miniaturas">
+            <li>
+              <button class="galeria__miniatura" type="button" data-imagen="img/juegos/beast-acquirer-savage.jpg" aria-pressed="true">
+                <img src="img/juegos/beast-acquirer-savage.jpg" alt="Una bestia marina gigante emerge entre las olas" width="171" height="96">
+              </button>
+            </li>
+            <li>
+              <button class="galeria__miniatura" type="button" data-imagen="img/juegos/beast-galeria-2.jpg" aria-pressed="false">
+                <img src="img/juegos/beast-galeria-2.jpg" alt="Una tienda con forma de criatura en un campamento del desierto" width="171" height="96">
+              </button>
+            </li>
+            <li>
+              <button class="galeria__miniatura" type="button" data-imagen="img/juegos/beast-galeria-3.jpg" aria-pressed="false">
+                <img src="img/juegos/beast-galeria-3.jpg" alt="Un cazador con un arma enorme se enfrenta a un dragón en una cueva oscura" width="171" height="96">
+              </button>
+            </li>
+            <li>
+              <button class="galeria__miniatura" type="button" data-imagen="img/juegos/beast-galeria-4.jpg" aria-pressed="false">
+                <img src="img/juegos/beast-galeria-4.jpg" alt="Un cazador sobre su montura frente a una manada de bestias peludas" width="171" height="96">
+              </button>
+            </li>
+          </ul>
+        </section>
+
+        <!-- DATOS DEL JUEGO -->
+        <aside class="datos-juego" aria-label="Datos del juego">
+          <p>Un juego de mundo abierto en el que te encargas de adquirir bestias que amenazan con destruir el ecosistema, usando partes de las propias bestias.</p>
+
+          <ul class="etiquetas" aria-label="Géneros">
+            <li class="etiqueta">Acción</li>
+            <li class="etiqueta">Caza</li>
+            <li class="etiqueta">Cooperativos en línea</li>
+            <li class="etiqueta">Rol</li>
+            <li class="etiqueta">Multijugador</li>
+          </ul>
+
+          <dl class="datos-juego__lista">
+            <div class="dato">
+              <dt>Plataformas</dt>
+              <dd>PC · Xbox Series X · PS5</dd>
+            </div>
+            <div class="dato">
+              <dt>Fecha de lanzamiento</dt>
+              <dd>[8 de marzo de 2022]</dd>
+            </div>
+            <div class="dato">
+              <dt>Desarrollador</dt>
+              <dd>modem</dd>
+            </div>
+            <div class="dato">
+              <dt>Precio</dt>
+              <dd class="datos-juego__precio">[39,99 €]</dd>
+            </div>
+          </dl>
+
+          <div class="datos-juego__comprar">
+            <!-- TODO (grupo): poner el enlace real de Steam -->
+            <a class="boton boton--tienda" href="#">
+              <span class="icono icono--18 icono--steam" aria-hidden="true"></span>
+              Steam
+            </a>
+            <!-- TODO (grupo): poner el enlace real de Epic Games -->
+            <a class="boton boton--tienda" href="#">
+              <span class="icono icono--18 icono--epic" aria-hidden="true"></span>
+              Epic Games
+            </a>
+          </div>
+
+          <!-- Abre el modal de descarga (js/modal-demo.js) -->
+          <button class="boton boton--secundario boton--ancho-completo" type="button" data-demo="Beast Acquirer Savage" data-plataformas="PC, Xbox Series X, PS5">Descargar demo</button>
+        </aside>
+      </div>
+
+      <!-- ACERCA DE ESTE JUEGO -->
+      <section class="ficha__bloque" aria-labelledby="titulo-acerca">
+        <h2 id="titulo-acerca">Acerca de este juego</h2>
+        <div class="ficha__texto">
+          <p>Siente la fuerza desbocada, salvaje e imparable de la naturaleza en entornos que se transforman drásticamente de un momento a otro.</p>
+          <p>Esta es una historia de bestias y humanos, y sus dificultades para coexistir en armonía en un mundo de dualidades.</p>
+        </div>
+      </section>
+
+      <!-- TRÁILER: el play lleva a la página del tráiler, donde se reproduce -->
+      <section class="ficha__bloque" aria-labelledby="titulo-trailer">
+        <h2 id="titulo-trailer">Tráiler</h2>
+        <div class="reproductor">
+          <img class="reproductor__portada" src="img/juegos/beast-acquirer-savage.jpg" alt="" width="1200" height="675">
+          <a class="reproductor__play" href="trailer.html">
+            <span class="reproductor__circulo"><span class="icono icono--36 icono--play" aria-hidden="true"></span></span>
+            <span class="visualmente-oculto">Ver el tráiler de Beast Acquirer Savage</span>
+          </a>
+          <div class="reproductor__controles" aria-hidden="true">
+            <span class="icono icono--20 icono--play"></span>
+            <span>0:00 / 0:00</span>
+            <div class="barra-progreso"><div class="barra-progreso__relleno"></div></div>
+            <span class="icono icono--20 icono--volumen"></span>
+            <span class="icono icono--20 icono--pantalla-completa"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- REQUISITOS DEL SISTEMA -->
+      <section class="ficha__bloque" aria-labelledby="titulo-requisitos">
+        <h2 id="titulo-requisitos">Requisitos del sistema</h2>
+        <div class="ficha__requisitos">
+          <div class="requisitos">
+            <h3>Mínimos</h3>
+            <ul>
+              <li>SO: Windows 10 (requiere 64 bits) o Linux kernel 7.0</li>
+              <li>Procesador: Intel® Core™ i3-12100F o AMD Ryzen™ 5 3600</li>
+              <li>Memoria: 16 GB</li>
+              <li>Gráficos: NVIDIA® GeForce® GTX 1660 Super(VRAM 6GB) o AMD Radeon™ RX 5600 XT(VRAM 6GB)</li>
+              <li>Almacenamiento: 140 GB de espacio libre</li>
+            </ul>
+          </div>
+          <div class="requisitos">
+            <h3>Recomendados</h3>
+            <ul>
+              <li>SO: Windows 11 (requiere 64 bits) o Linux kernel 7.2</li>
+              <li>Procesador: ntel® Core™ i5-12400 o AMD Ryzen™ 5 3600X</li>
+              <li>Memoria: 16 GB</li>
+              <li>Gráficos: NVIDIA® GeForce® RTX 2070 Super(VRAM 8GB) o NVIDIA® GeForce® RTX 4060(VRAM 8GB)</li>
+              <li>Almacenamiento: 140 GB de espacio libre</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ============================== FOOTER ==============================
+       Igual en todas las páginas: NO lo cambies. -->
+  <footer class="footer">
+    <p class="footer__mision">Nuestra misión: crear juegos pequeños, hechos a mano y con mucho cariño, para que cualquiera pueda vivir una gran aventura.</p>
+
+    <nav aria-label="Enlaces del pie de página">
+      <ul class="footer__enlaces">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="juegos.html">Juegos</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- TODO (grupo): poner los enlaces reales de las redes del estudio -->
+    <ul class="redes">
+      <li><a class="red-social" href="#" aria-label="modem en X"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a></li>
+      <li><a class="red-social" href="#" aria-label="modem en Instagram"><span class="icono icono--16 icono--instagram" aria-hidden="true"></span></a></li>
+      <li><a class="red-social" href="#" aria-label="modem en Facebook"><span class="icono icono--16 icono--facebook" aria-hidden="true"></span></a></li>
+    </ul>
+
+    <p class="footer__copyright">© 2026 modem</p>
+  </footer>
+</body>
+</html>

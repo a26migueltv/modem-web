@@ -1,0 +1,72 @@
+/* ==========================================================================
+   FICHA-JUEGO.CSS — solo la colocación de los bloques de ficha-juego.html
+   (los componentes ya tienen su estilo en components.css)
+   ========================================================================== */
+
+/* 48 px arriba (debajo del header), 72 px abajo */
+.ficha {
+  padding-block: var(--espacio-48) var(--espacio-seccion);
+}
+
+/* Todos los bloques en columna, separados 48 px */
+.ficha__contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espacio-48);
+}
+
+/* Los bloques ocupan todo el ancho (el enlace de volver, no) */
+.ficha__contenedor > :not(.enlace) {
+  align-self: stretch;
+}
+
+/* Galería (720 px) y datos (432 px) uno al lado del otro */
+.ficha__principal {
+  display: grid;
+  grid-template-columns: minmax(0, 720fr) minmax(0, 432fr);
+  align-items: start;
+  gap: var(--espacio-48);
+}
+
+/* Cada bloque: título y contenido separados 24 px */
+.ficha__bloque {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-24);
+}
+
+/* "Acerca de este juego": columna de 800 px para que se lea bien */
+.ficha__texto {
+  max-width: 800px;
+}
+
+/* Las dos cajas de requisitos, una al lado de la otra */
+.ficha__requisitos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacio-48);
+}
+
+/* ---------- Tablet: los datos bajan debajo de la galería ---------- */
+@media (max-width: 1023px) {
+  .ficha__principal {
+    grid-template-columns: 1fr;
+    gap: var(--espacio-32);
+  }
+
+  .ficha__requisitos {
+    gap: var(--espacio-24);
+  }
+}
+
+/* ---------- Móvil: requisitos uno debajo del otro ---------- */
+@media (max-width: 767px) {
+  .ficha__contenedor {
+    gap: var(--espacio-32);
+  }
+
+  .ficha__requisitos {
+    grid-template-columns: 1fr;
+  }
+}

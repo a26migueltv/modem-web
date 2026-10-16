@@ -1,0 +1,46 @@
+/* ==========================================================================
+   JUEGOS.CSS — maquetación de juegos.html
+   --------------------------------------------------------------------------
+   Aquí SOLO va la colocación de los bloques. La tarjeta de juego ya está
+   hecha del todo en components.css (también su versión para tablet y
+   móvil, y la invertida): no la vuelvas a estilar aquí.
+
+   Normas:
+     - Usa SIEMPRE las variables de base.css: var(--espacio-48), etc.
+     - Las clases de esta página empiezan por .juegos.
+   Medidas sacadas de Figma ("Juegos · Escritorio", 1440 px de ancho).
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   TÍTULO + LISTA DE TARJETAS
+   --------------------------------------------------------------------------
+   La sección ya tiene 72 px arriba y abajo gracias a la clase .seccion.
+   Tú solo tienes que:
+     - .juegos: poner el título y la lista en columna, con 48 px entre ellos
+       (display: flex; flex-direction: column; gap: var(--espacio-48)).
+     - .juegos__lista: poner las tarjetas en columna, también con 48 px
+       entre ellas.
+   ¡Y ya está! Es la página con menos CSS.
+   -------------------------------------------------------------------------- */
+
+.juegos {
+  /* tu código aquí */
+}
+
+.juegos__lista {
+  /* tu código aquí */
+}
+
+
+/* --------------------------------------------------------------------------
+   MÓVIL (hasta 767 px)
+   --------------------------------------------------------------------------
+   - Puedes bajar la separación entre tarjetas a 32 px (var(--espacio-32)).
+   - Comprueba en el navegador (F12 → icono del móvil) que los botones
+     bajan de línea bien y que no hay barra de desplazamiento horizontal.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  /* tu código aquí */
+}

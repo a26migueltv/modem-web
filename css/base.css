@@ -1,0 +1,351 @@
+/* ==========================================================================
+   BASE.CSS — modem
+   --------------------------------------------------------------------------
+   Este archivo es la base de TODA la web. Contiene:
+     1. Variables CSS (colores, fuentes, tamaños, espaciados...) sacadas
+        de la "Guía de estilo" de Figma.
+     2. Reset: quita los estilos raros que trae el navegador por defecto.
+     3. Tipografía: los estilos de texto de la guía (H1, H2, H3, Texto...).
+     4. Utilidades: el contenedor de 1200 px, las secciones y alguna ayuda
+        de accesibilidad.
+
+   ⚠️ NO TOQUES ESTE ARCHIVO sin hablarlo con el jefe de grupo.
+      Si cambias algo aquí, cambia en TODAS las páginas.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. VARIABLES
+   --------------------------------------------------------------------------
+   Una variable CSS se declara así:   --nombre: valor;
+   y se usa así:                      color: var(--nombre);
+
+   Usad SIEMPRE estas variables en vuestro CSS. Nunca pongáis un color
+   "suelto" (#00a3f9): si mañana cambia el color de acento, solo hay que
+   cambiarlo aquí y se actualiza toda la web.
+   ========================================================================== */
+
+:root {
+  /* ---------- Colores (página "Guía de estilo" → Colores) ---------- */
+  --color-fondo-pagina: #1d2d3e;        /* Fondo página: fondo general */
+  --color-fondo-seccion: #17242f;       /* Fondo secciones y tarjetas */
+  --color-fondo-header: #161d24;        /* Fondo header */
+  --color-fondo-footer: #0d1821;        /* Fondo footer */
+  --color-texto: #c5c3c0;               /* Texto principal: títulos y párrafos */
+  --color-texto-secundario: #c5c3c0;    /* Texto secundario: fechas, etiquetas, menú inactivo */
+  --color-acento: #00a3f9;              /* Acento: botón principal, enlaces, menú activo */
+  --color-texto-sobre-acento: #0d1821;  /* Texto encima de un fondo de acento */
+  --color-borde: #303b46;               /* Bordes y separadores */
+  --color-caja-imagen: #303b46;         /* Caja de imagen: huecos sin imagen */
+  --color-error: #ff6b6b;               /* Error: borde y mensaje de un campo con error */
+  --color-velo: rgb(13 24 33 / 70%);    /* Velo del modal: "Fondo footer" al 70 % */
+
+  /* Texto de los botones deshabilitados: "Texto secundario" al 50 %
+     (así lo indica la guía en el estado Disabled). */
+  --color-texto-deshabilitado: rgb(197 195 192 / 50%);
+
+  /* ---------- Fuentes ---------- */
+  /* Press Start 2P: SOLO para títulos cortos (es poco legible en textos largos).
+     Inter: para todo lo demás. */
+  --fuente-titulos: "Press Start 2P", "Courier New", monospace;
+  --fuente-texto: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* ---------- Tamaños de letra (estilos de texto de Figma) ----------
+     Usamos rem (1rem = 16px) para que el texto crezca si el usuario
+     aumenta el tamaño de letra del navegador. */
+  --tamano-h1: 2.25rem;     /* 36px · Título H1: títulos de página y banner */
+  --tamano-h2: 1.5rem;      /* 24px · Título H2: títulos de sección y de juego */
+  --tamano-h3: 1rem;        /* 16px · Título H3: títulos de tarjeta y logo */
+  --tamano-texto: 1rem;     /* 16px · Texto: párrafos y extractos */
+  --tamano-pequeno: 0.875rem; /* 14px · Texto pequeño: fechas, etiquetas, footer */
+
+  --interlineado-texto: 1.6;  /* Texto: interlineado del 160 % */
+  --peso-normal: 400;
+  --peso-medio: 500;          /* Inter Medium: botones, menú y enlaces */
+
+  /* ---------- Espaciados (Guía → Espaciado y retícula → Separaciones) ---------- */
+  --espacio-4: 4px;      /* Detalles pequeños (etiqueta y su texto) */
+  --espacio-8: 8px;      /* Entre etiqueta de un campo y la caja */
+  --espacio-12: 12px;    /* Entre iconos de redes; entre líneas de una tarjeta */
+  --espacio-16: 16px;    /* Entre dos botones; entre textos de una tarjeta de juego */
+  --espacio-24: 24px;    /* Título y párrafo; interior de la tarjeta de noticia; entre campos */
+  --espacio-32: 32px;    /* Interior de la tarjeta de juego; enlaces del footer */
+  --espacio-40: 40px;    /* Entre enlaces del menú; entre entradas del blog */
+  --espacio-48: 48px;    /* Título de página y contenido; imagen y texto de un juego */
+  --espacio-72: 72px;    /* Arriba y abajo de cada sección */
+  --espacio-120: 120px;  /* Margen lateral de la página en escritorio (1440 px) */
+
+  /* ---------- Retícula ---------- */
+  --ancho-contenido: 1200px;  /* Ancho máximo del contenido */
+  --margen-minimo: 40px;      /* Margen lateral mínimo cuando la pantalla es más estrecha */
+  --espacio-seccion: var(--espacio-72); /* Relleno arriba y abajo de cada sección */
+
+  /* ---------- Bordes y esquinas ---------- */
+  --borde-fino: 1px;      /* Tarjetas, campos, cajas de imagen, línea del header */
+  --borde-grueso: 2px;    /* Foco y error de los campos, foco de botones, subrayado del menú */
+  --radio: 0;             /* La guía usa esquinas rectas en todo */
+  --radio-circulo: 50%;   /* Solo para los iconos redondos (redes, play) */
+}
+
+/* En tablet y móvil hay menos espacio: reducimos márgenes, espaciados
+   grandes y el tamaño de los títulos (Press Start 2P es muy ancha). */
+@media (max-width: 1023px) {
+  :root {
+    --margen-minimo: 32px;
+    --espacio-seccion: var(--espacio-48);
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --margen-minimo: 16px;
+    --espacio-seccion: var(--espacio-40);
+    --tamano-h1: 1.5rem;   /* 24px */
+    --tamano-h2: 1.125rem; /* 18px */
+  }
+}
+
+
+/* ==========================================================================
+   2. RESET
+   --------------------------------------------------------------------------
+   Cada navegador trae márgenes y estilos distintos. Aquí los igualamos.
+   ========================================================================== */
+
+/* Que el ancho de una caja incluya su relleno y su borde. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Quitamos los márgenes por defecto. */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+figure,
+blockquote {
+  margin: 0;
+}
+
+/* Las listas que usamos para menús y rejillas no llevan viñetas. */
+ul[class],
+ol[class] {
+  padding: 0;
+  list-style: none;
+}
+
+/* Las imágenes nunca se salen de su caja. */
+img,
+svg,
+video,
+iframe {
+  display: block;
+  max-width: 100%;
+}
+
+/* Los botones y campos usan la fuente de la web (por defecto no lo hacen). */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Los enlaces heredan el color; cada componente decide el suyo. */
+a {
+  color: inherit;
+}
+
+/* Un elemento con el atributo hidden se oculta siempre. */
+[hidden] {
+  display: none !important;
+}
+
+html {
+  /* Al pulsar un enlace interno (#contenido) se desplaza con suavidad...
+     ...salvo que el usuario haya pedido "reducir movimiento". */
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+
+/* ==========================================================================
+   3. TIPOGRAFÍA (estilos de texto de la guía)
+   ========================================================================== */
+
+body {
+  min-height: 100vh;
+  background-color: var(--color-fondo-pagina);
+  color: var(--color-texto);
+  font-family: var(--fuente-texto);
+  font-size: var(--tamano-texto);
+  font-weight: var(--peso-normal);
+  line-height: var(--interlineado-texto);
+  /* Letras más nítidas en Mac */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Los títulos usan Press Start 2P con interlineado automático. */
+h1,
+h2,
+h3,
+.titulo-h1,
+.titulo-h2,
+.titulo-h3 {
+  font-family: var(--fuente-titulos);
+  font-weight: var(--peso-normal);
+  line-height: 1.3;
+  color: var(--color-texto);
+  /* Las palabras largas bajan de línea en vez de salirse en móvil. */
+  overflow-wrap: break-word;
+}
+
+/* Título H1 · 36px: títulos de página y banner */
+h1,
+.titulo-h1 {
+  font-size: var(--tamano-h1);
+}
+
+/* Título H2 · 24px: títulos de sección y de juego */
+h2,
+.titulo-h2 {
+  font-size: var(--tamano-h2);
+}
+
+/* Título H3 · 16px: títulos de tarjeta y logo */
+h3,
+.titulo-h3 {
+  font-size: var(--tamano-h3);
+  line-height: 1.5;
+}
+
+/* ¿Por qué hay clases además de etiquetas?
+   La etiqueta (h1, h2, h3) dice QUÉ ES el texto (importante para Google y
+   para los lectores de pantalla). La clase dice CÓMO SE VE.
+   Ejemplo: "Datos de contacto" es un h2 (es un apartado de la página),
+   pero en Figma se ve como un H3. Se escribe así:
+       <h2 class="titulo-h3">Datos de contacto</h2>                        */
+
+/* Texto · Inter 16px · interlineado 160 % */
+.texto {
+  font-family: var(--fuente-texto);
+  font-size: var(--tamano-texto);
+  line-height: var(--interlineado-texto);
+}
+
+/* Texto pequeño · Inter 14px: fechas, etiquetas, footer */
+.texto-pequeno {
+  font-family: var(--fuente-texto);
+  font-size: var(--tamano-pequeno);
+  line-height: 1.4;
+}
+
+/* Texto secundario (fechas, datos...). Hoy tiene el mismo color que el
+   principal, pero lo separamos por si el grupo decide cambiarlo. */
+.texto-secundario {
+  color: var(--color-texto-secundario);
+}
+
+/* Botón · Inter Medium 16px: botones, menú y enlaces */
+.texto-boton {
+  font-family: var(--fuente-texto);
+  font-size: var(--tamano-texto);
+  font-weight: var(--peso-medio);
+  line-height: 1.2;
+}
+
+
+/* ==========================================================================
+   4. UTILIDADES DE MAQUETACIÓN
+   ========================================================================== */
+
+/* CONTENEDOR: centra el contenido y lo limita a 1200 px.
+   En una pantalla de 1440 px deja 120 px a cada lado, como en Figma.
+   En pantallas más estrechas deja al menos --margen-minimo a cada lado.
+   Úsalo dentro de cada sección:
+       <section class="seccion">
+         <div class="contenedor"> ...contenido... </div>
+       </section>                                                          */
+.contenedor {
+  width: min(var(--ancho-contenido), 100% - 2 * var(--margen-minimo));
+  margin-inline: auto;
+}
+
+/* SECCIÓN: deja 72 px arriba y abajo (menos en tablet y móvil). */
+.seccion {
+  padding-block: var(--espacio-seccion);
+}
+
+/* Variante con el fondo de "secciones y tarjetas" (más oscuro). */
+.seccion--oscura {
+  background-color: var(--color-fondo-seccion);
+}
+
+
+/* ==========================================================================
+   5. ACCESIBILIDAD
+   ========================================================================== */
+
+/* FOCO VISIBLE: cuando navegas con el teclado (tecla Tab), el elemento
+   enfocado lleva un contorno claro de 2 px, como indica la guía.
+   ⚠️ Nunca pongáis "outline: none" sin poner otro estilo de foco. */
+:focus-visible {
+  outline: var(--borde-grueso) solid var(--color-texto);
+  outline-offset: 2px;
+}
+
+/* VISUALMENTE OCULTO: el texto no se ve, pero los lectores de pantalla
+   sí lo leen. Útil para dar más contexto a enlaces como "Leer más". */
+.visualmente-oculto {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* SALTAR AL CONTENIDO: primer enlace de cada página. Solo aparece al
+   pulsar Tab y permite saltarse el menú e ir directo al <main>. */
+.saltar-contenido {
+  position: absolute;
+  top: var(--espacio-8);
+  left: var(--espacio-8);
+  z-index: 100;
+  padding: var(--espacio-8) var(--espacio-16);
+  background-color: var(--color-acento);
+  color: var(--color-texto-sobre-acento);
+  font-weight: var(--peso-medio);
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+.saltar-contenido:focus {
+  transform: translateY(0);
+}

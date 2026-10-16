@@ -1,0 +1,1600 @@
+/* ==========================================================================
+   COMPONENTS.CSS — modem
+   --------------------------------------------------------------------------
+   Aquí están TODOS los componentes de la guía de estilo de Figma, con todos
+   sus estados (normal, hover, foco, pulsado, desactivado, error...).
+
+   ¿Cómo se usan?  NO hace falta leer este archivo entero:
+     1. Abre componentes.html en el navegador.
+     2. Busca el componente que necesitas.
+     3. Copia su código HTML y pégalo en tu página.
+   Los estilos ya están aquí, así que se verá igual que en Figma.
+
+   ⚠️ NO TOQUES ESTE ARCHIVO. Si necesitas algo distinto en tu página,
+      escríbelo en tu css/pages/<tu-pagina>.css o habla con el jefe de grupo.
+
+   Nombres de clases: usamos BEM en español.
+     .bloque              → el componente      (ej: .tarjeta-juego)
+     .bloque__elemento    → una parte de él    (ej: .tarjeta-juego__titulo)
+     .bloque--modificador → una variante       (ej: .boton--secundario)
+
+   Clases .demo-hover, .demo-foco y .demo-pulsado:
+     SOLO sirven para enseñar los estados en componentes.html (ahí no se
+     puede pasar el ratón por todos los botones a la vez). No las uséis en
+     vuestras páginas: el navegador ya aplica :hover, :focus y :active.
+
+   Índice:
+     1.  Iconos
+     2.  Logo
+     3.  Header y menú (con menú hamburguesa en móvil)
+     4.  Footer
+     5.  Redes sociales
+     6.  Botones (principal, secundario y de tienda: Steam y Epic Games)
+     7.  Enlace de texto
+     8.  Etiqueta (género de un juego)
+     9.  Etiqueta de categoría (noticias)
+     10. Filtros
+     11. Caja de imagen (hueco sin imagen)
+     12. Tarjeta de juego
+     13. Tarjeta de noticia + rejilla de noticias
+     14. Entrada de blog + lista de entradas
+     15. Formulario: campos con estado de error
+     16. Barra de progreso
+     17. Modal (Descargar demo) + opción de plataforma
+     18. Banner de juego
+     19. Galería de juego
+     20. Datos del juego
+     21. Requisitos
+     22. Reproductor de vídeo
+     23. Miniatura de vídeo
+     24. Datos del vídeo
+     25. Artículo: cabecera, cuerpo, separador y compartir
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. ICONOS
+   --------------------------------------------------------------------------
+   Los iconos son los SVG de img/iconos/. Los pintamos con una "máscara":
+   el SVG decide la FORMA y el color lo pone "currentColor", que es el color
+   del texto del elemento. Así el icono cambia de color solo cuando el botón
+   cambia de estado (hover, pulsado...).
+
+   Uso:  <span class="icono icono--steam" aria-hidden="true"></span>
+   (aria-hidden="true" porque el icono es decorativo: el texto o el
+    aria-label del botón ya dicen lo que hace).
+   ========================================================================== */
+
+.icono {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  background-color: currentColor;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Tamaños de la guía */
+.icono--16 { width: 16px; height: 16px; }
+.icono--18 { width: 18px; height: 18px; }
+.icono--20 { width: 20px; height: 20px; }
+.icono--36 { width: 36px; height: 36px; }
+
+/* Un modificador por cada SVG de img/iconos/ */
+.icono--x {
+  -webkit-mask-image: url("../img/iconos/brand-x.svg");
+  mask-image: url("../img/iconos/brand-x.svg");
+}
+.icono--instagram {
+  -webkit-mask-image: url("../img/iconos/brand-instagram.svg");
+  mask-image: url("../img/iconos/brand-instagram.svg");
+}
+.icono--facebook {
+  -webkit-mask-image: url("../img/iconos/brand-facebook.svg");
+  mask-image: url("../img/iconos/brand-facebook.svg");
+}
+.icono--steam {
+  -webkit-mask-image: url("../img/iconos/tienda-steam.svg");
+  mask-image: url("../img/iconos/tienda-steam.svg");
+}
+.icono--epic {
+  -webkit-mask-image: url("../img/iconos/tienda-epicgames.svg");
+  mask-image: url("../img/iconos/tienda-epicgames.svg");
+}
+.icono--play {
+  -webkit-mask-image: url("../img/iconos/player-play.svg");
+  mask-image: url("../img/iconos/player-play.svg");
+}
+.icono--pausa {
+  -webkit-mask-image: url("../img/iconos/player-pause.svg");
+  mask-image: url("../img/iconos/player-pause.svg");
+}
+.icono--volumen {
+  -webkit-mask-image: url("../img/iconos/volume.svg");
+  mask-image: url("../img/iconos/volume.svg");
+}
+.icono--pantalla-completa {
+  -webkit-mask-image: url("../img/iconos/maximize.svg");
+  mask-image: url("../img/iconos/maximize.svg");
+}
+.icono--cerrar {
+  -webkit-mask-image: url("../img/iconos/x.svg");
+  mask-image: url("../img/iconos/x.svg");
+}
+.icono--check {
+  -webkit-mask-image: url("../img/iconos/check.svg");
+  mask-image: url("../img/iconos/check.svg");
+}
+.icono--descargar {
+  -webkit-mask-image: url("../img/iconos/download.svg");
+  mask-image: url("../img/iconos/download.svg");
+}
+
+
+/* ==========================================================================
+   2. LOGO
+   --------------------------------------------------------------------------
+   Icono del router + "modem" en Press Start 2P + el lema.
+   El nombre NO va dentro de la imagen: es texto (así lo pide la guía).
+   ========================================================================== */
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacio-16);
+  color: var(--color-texto);
+  text-decoration: none;
+}
+
+.logo__icono {
+  width: 54px;
+  height: 48px;
+  -webkit-mask-image: url("../img/logo/modem-icono-blanco.svg");
+  mask-image: url("../img/logo/modem-icono-blanco.svg");
+}
+
+.logo__texto {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-8);
+}
+
+.logo__nombre {
+  font-family: var(--fuente-titulos);
+  font-size: var(--tamano-h2);
+  line-height: 1;
+}
+
+.logo__lema {
+  color: var(--color-texto-secundario);
+  font-size: var(--tamano-pequeno);
+  line-height: 1.2;
+}
+
+@media (max-width: 767px) {
+  .logo {
+    gap: var(--espacio-12);
+  }
+
+  .logo__icono {
+    width: 40px;
+    height: 36px;
+  }
+
+  .logo__nombre {
+    font-size: 1.125rem; /* 18px */
+  }
+
+  .logo__lema {
+    font-size: 0.75rem; /* 12px: solo en móvil, para que quepa en una línea */
+  }
+}
+
+
+/* ==========================================================================
+   3. HEADER Y MENÚ
+   --------------------------------------------------------------------------
+   Escritorio y tablet: logo centrado arriba; debajo, el menú centrado y las
+   redes a la derecha.
+   Móvil (< 768 px): logo a la izquierda y botón hamburguesa a la derecha.
+   Al pulsarlo, js/main.js añade la clase .esta-abierto al <nav> y el menú
+   aparece debajo, en columna.
+
+   La página actual se marca con aria-current="page" en su enlace. Lo hace
+   js/main.js automáticamente: no tenéis que ponerlo a mano.
+   ========================================================================== */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espacio-24);
+  padding-top: var(--espacio-32);
+  padding-bottom: 20px;
+  background-color: var(--color-fondo-header);
+  border-bottom: var(--borde-fino) solid var(--color-borde);
+}
+
+.header__barra {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 72px;
+}
+
+/* Fila de navegación: [hueco] [menú centrado] [redes a la derecha].
+   El hueco de la izquierda mide lo mismo que las redes para que el menú
+   quede centrado de verdad (en Figma es el "Espaciador" de 108 px). */
+.header__nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.menu {
+  grid-column: 2;
+  display: flex;
+  gap: var(--espacio-40);
+}
+
+.header__redes {
+  grid-column: 3;
+  justify-self: end;
+}
+
+/* Enlace del menú. Normal: texto secundario.
+   El subrayado de 2 px es un borde inferior transparente que se colorea. */
+.menu__enlace {
+  display: inline-block;
+  padding-bottom: 6px;
+  border-bottom: var(--borde-grueso) solid transparent;
+  color: var(--color-texto-secundario);
+  font-weight: var(--peso-medio);
+  line-height: 1.2;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+/* Hover: cambia al color de acento */
+.menu__enlace:hover,
+.menu__enlace.demo-hover {
+  color: var(--color-acento);
+}
+
+/* Activo (página actual): acento + subrayado de 2 px */
+.menu__enlace[aria-current="page"] {
+  color: var(--color-acento);
+  border-bottom-color: var(--color-acento);
+}
+
+/* Botón hamburguesa: oculto en escritorio y tablet */
+.menu-boton {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .header {
+    align-items: stretch;
+    gap: 0;
+    padding-top: var(--espacio-16);
+    padding-bottom: var(--espacio-16);
+  }
+
+  .header__barra {
+    justify-content: space-between;
+    min-height: 0;
+  }
+
+  /* Botón hamburguesa: 44 × 44 px (tamaño mínimo cómodo para el dedo) */
+  .menu-boton {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background-color: transparent;
+    border: var(--borde-fino) solid var(--color-borde);
+    color: var(--color-texto);
+  }
+
+  .menu-boton:hover {
+    border-color: var(--color-acento);
+    color: var(--color-acento);
+  }
+
+  /* Las tres rayas: una es el span y las otras dos sus ::before y ::after */
+  .menu-boton__rayas,
+  .menu-boton__rayas::before,
+  .menu-boton__rayas::after {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: currentColor;
+    transition: transform 0.2s;
+  }
+
+  .menu-boton__rayas {
+    position: relative;
+  }
+
+  .menu-boton__rayas::before,
+  .menu-boton__rayas::after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+
+  .menu-boton__rayas::before { top: -7px; }
+  .menu-boton__rayas::after  { top: 7px; }
+
+  /* Menú abierto: las rayas forman una X */
+  .menu-boton[aria-expanded="true"] .menu-boton__rayas {
+    background-color: transparent;
+  }
+  .menu-boton[aria-expanded="true"] .menu-boton__rayas::before {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .menu-boton[aria-expanded="true"] .menu-boton__rayas::after {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* El menú está oculto hasta que se abre */
+  .header__nav {
+    display: none;
+  }
+
+  .header__nav.esta-abierto {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--espacio-24);
+    padding-top: var(--espacio-16);
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: var(--espacio-8);
+    width: 100%;
+  }
+
+  .menu__enlace {
+    padding-block: var(--espacio-8) 6px;
+  }
+}
+
+
+/* ==========================================================================
+   4. FOOTER
+   --------------------------------------------------------------------------
+   Misión del estudio, enlaces, redes y copyright, todo centrado.
+   ========================================================================== */
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  padding: 56px var(--margen-minimo);
+  background-color: var(--color-fondo-footer);
+  text-align: center;
+}
+
+.footer__mision {
+  max-width: 720px;
+}
+
+.footer__enlaces {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--espacio-12) var(--espacio-32);
+  font-size: var(--tamano-pequeno);
+}
+
+.footer__enlaces a {
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footer__enlaces a:hover {
+  color: var(--color-acento);
+}
+
+.footer__copyright {
+  color: var(--color-texto-secundario);
+  font-size: var(--tamano-pequeno);
+}
+
+
+/* ==========================================================================
+   5. REDES SOCIALES
+   --------------------------------------------------------------------------
+   Círculo de 28 px con borde de 1,5 px e icono de 16 px. Separación 12 px.
+   Hover: borde e icono en acento.
+   Cada enlace lleva aria-label ("modem en X") porque solo tiene un icono.
+   ========================================================================== */
+
+.redes {
+  display: flex;
+  gap: var(--espacio-12);
+}
+
+.red-social {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid currentColor;
+  border-radius: var(--radio-circulo);
+  color: var(--color-texto);
+  transition: color 0.15s;
+}
+
+.red-social:hover,
+.red-social.demo-hover {
+  color: var(--color-acento);
+}
+
+
+/* ==========================================================================
+   6. BOTONES
+   --------------------------------------------------------------------------
+   Relleno de 14 px arriba/abajo y 28 px a los lados; esquinas rectas.
+   Todos los botones tienen un borde de 1 px (a veces del mismo color que el
+   fondo) para que no "salten" de tamaño al cambiar de estado.
+
+   ¿<button> o <a>?
+     - Si LLEVA A OTRA PÁGINA o web (Steam, Epic) → <a class="boton" href="...">
+     - Si HACE ALGO en la página (abrir el modal) → <button type="button" class="boton">
+
+   Estados de la guía:
+     Normal · Hover · Focus (contorno claro de 2 px) · Active (pulsado) ·
+     Disabled (atributo disabled; texto al 50 %)
+   ========================================================================== */
+
+/* ---------- Botón principal ---------- */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 27px; /* 14 y 28 px de la guía menos el borde de 1 px */
+  background-color: var(--color-acento);
+  border: var(--borde-fino) solid var(--color-acento);
+  border-radius: var(--radio);
+  color: var(--color-texto-sobre-acento);
+  font-family: var(--fuente-texto);
+  font-size: var(--tamano-texto);
+  font-weight: var(--peso-medio);
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+
+/* Hover: fondo claro */
+.boton:hover,
+.boton.demo-hover {
+  background-color: var(--color-texto);
+  border-color: var(--color-texto);
+  color: var(--color-texto-sobre-acento);
+}
+
+/* Focus: contorno claro de 2 px por dentro del botón */
+.boton:focus-visible,
+.boton.demo-foco {
+  outline: var(--borde-grueso) solid var(--color-texto);
+  outline-offset: calc(-1 * var(--borde-grueso));
+}
+
+/* Active: mientras se pulsa → fondo oscuro, borde y texto de acento */
+.boton:active,
+.boton.demo-pulsado {
+  background-color: var(--color-fondo-seccion);
+  border-color: var(--color-acento);
+  color: var(--color-acento);
+}
+
+/* ---------- Botón secundario ---------- */
+.boton--secundario {
+  background-color: var(--color-fondo-seccion);
+  border-color: var(--color-acento);
+  color: var(--color-texto);
+}
+
+.boton--secundario:hover,
+.boton--secundario.demo-hover {
+  background-color: var(--color-acento);
+  border-color: var(--color-acento);
+  color: var(--color-texto-sobre-acento);
+}
+
+.boton--secundario:active,
+.boton--secundario.demo-pulsado {
+  background-color: var(--color-caja-imagen);
+  border-color: var(--color-acento);
+  color: var(--color-acento);
+}
+
+/* ---------- Botón de tienda (Steam / Epic Games) ----------
+   Mismos colores que el botón principal, con icono de 18 px.
+   Uso: <a class="boton boton--tienda" href="#">
+          <span class="icono icono--18 icono--steam" aria-hidden="true"></span>
+          Steam
+        </a>                                                              */
+.boton--tienda {
+  padding-inline: 23px; /* 24 px de la guía menos el borde */
+}
+
+/* ---------- Disabled (va al final para ganar a hover y active) ---------- */
+.boton:disabled,
+.boton[aria-disabled="true"] {
+  background-color: var(--color-caja-imagen);
+  border-color: var(--color-caja-imagen);
+  color: var(--color-texto-deshabilitado);
+  cursor: not-allowed;
+}
+
+.boton--secundario:disabled,
+.boton--secundario[aria-disabled="true"] {
+  background-color: var(--color-fondo-seccion);
+  border-color: var(--color-borde);
+}
+
+/* Botón que ocupa todo el ancho de su caja (p. ej. en la ficha de juego) */
+.boton--ancho-completo {
+  width: 100%;
+}
+
+/* Fila de botones separados 16 px (bajan de línea si no caben) */
+.grupo-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-16);
+}
+
+
+/* ==========================================================================
+   7. ENLACE DE TEXTO
+   --------------------------------------------------------------------------
+   Para acciones de tercer nivel: "Ver ficha →", "Ver tráiler",
+   "Leer más →", "← Volver a Juegos". En hover aparece el subrayado.
+   ========================================================================== */
+
+.enlace {
+  display: inline-block;
+  color: var(--color-acento);
+  font-weight: var(--peso-medio);
+  line-height: 1.2;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.15s;
+}
+
+.enlace:hover,
+.enlace.demo-hover {
+  text-decoration-color: currentColor;
+}
+
+/* Fila de enlaces separados 24 px ("Ver tráiler   Ver ficha →") */
+.grupo-enlaces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-12) var(--espacio-24);
+}
+
+
+/* ==========================================================================
+   8. ETIQUETA (género de un juego, al estilo de Steam)
+   --------------------------------------------------------------------------
+   Texto pequeño en acento sobre "Caja de imagen". Hover: borde de acento.
+   Van en una lista .etiquetas, separadas 12 px.
+   ========================================================================== */
+
+.etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-12);
+}
+
+.etiqueta {
+  display: inline-block;
+  padding: 5px 11px; /* 6 y 12 px menos el borde */
+  background-color: var(--color-caja-imagen);
+  border: var(--borde-fino) solid var(--color-caja-imagen);
+  color: var(--color-acento);
+  font-size: var(--tamano-pequeno);
+  line-height: 1.2;
+  transition: border-color 0.15s;
+}
+
+.etiqueta:hover,
+.etiqueta.demo-hover {
+  border-color: var(--color-acento);
+}
+
+
+/* ==========================================================================
+   9. ETIQUETA DE CATEGORÍA (noticias)
+   --------------------------------------------------------------------------
+   Relleno de acento para no confundirla con las etiquetas de género.
+   Va encima de la fecha en tarjetas, entradas y en la noticia abierta.
+   Categorías: Anuncios · Juegos en tendencia · Actualizaciones · Eventos ·
+   Diario de desarrollo.
+   ========================================================================== */
+
+.etiqueta-categoria {
+  display: inline-block;
+  padding: var(--espacio-4) 10px;
+  background-color: var(--color-acento);
+  color: var(--color-texto-sobre-acento);
+  font-size: var(--tamano-pequeno);
+  line-height: 1.2;
+}
+
+
+/* ==========================================================================
+   10. FILTROS (barra de categorías de Noticias)
+   --------------------------------------------------------------------------
+   Estados: Normal · Hover · Activo. Solo uno activo a la vez (por defecto
+   "Todas"). El activo se marca con aria-pressed="true" (así el lector de
+   pantalla también sabe cuál está pulsado).
+   ========================================================================== */
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-12);
+}
+
+.filtro {
+  padding: 7px 15px; /* 8 y 16 px menos el borde */
+  background-color: var(--color-fondo-seccion);
+  border: var(--borde-fino) solid var(--color-borde);
+  border-radius: var(--radio);
+  color: var(--color-texto);
+  font-size: var(--tamano-pequeno);
+  line-height: 1.2;
+  transition: border-color 0.15s, color 0.15s, background-color 0.15s;
+}
+
+.filtro:hover,
+.filtro.demo-hover {
+  border-color: var(--color-acento);
+  color: var(--color-acento);
+}
+
+.filtro[aria-pressed="true"] {
+  background-color: var(--color-acento);
+  border-color: var(--color-acento);
+  color: var(--color-texto-sobre-acento);
+}
+
+
+/* ==========================================================================
+   11. CAJA DE IMAGEN (hueco gris donde todavía no hay imagen)
+   --------------------------------------------------------------------------
+   Úsala mientras no tengas la imagen definitiva. Dale el tamaño con la
+   clase del sitio donde va (p. ej. .tarjeta-noticia__imagen).
+   ========================================================================== */
+
+.caja-imagen {
+  display: grid;
+  place-items: center;
+  background-color: var(--color-caja-imagen);
+  border: var(--borde-fino) solid var(--color-borde);
+  color: var(--color-texto-secundario);
+  font-size: var(--tamano-pequeno);
+}
+
+
+/* ==========================================================================
+   12. TARJETA DE JUEGO
+   --------------------------------------------------------------------------
+   Imagen de 520 × 320 px y la información al lado, separadas 48 px;
+   relleno interior de 32 px.
+   .tarjeta-juego--invertida pone la imagen a la DERECHA (en Juegos se
+   alternan: 1.ª normal, 2.ª invertida, 3.ª normal). En el HTML la imagen
+   va SIEMPRE primero; el CSS se encarga de darle la vuelta.
+   En tablet y móvil la imagen se pone encima del texto.
+   ========================================================================== */
+
+.tarjeta-juego {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-48);
+  padding: var(--espacio-32);
+  background-color: var(--color-fondo-seccion);
+  border: var(--borde-fino) solid var(--color-borde);
+}
+
+.tarjeta-juego--invertida {
+  flex-direction: row-reverse;
+}
+
+.tarjeta-juego__imagen {
+  flex: 0 0 520px;
+  width: 520px;
+  aspect-ratio: 520 / 320;
+  object-fit: cover;
+  border: var(--borde-fino) solid var(--color-borde);
+}
+
+.tarjeta-juego__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espacio-16);
+  flex: 1;
+  min-width: 0; /* deja que el texto baje de línea en vez de desbordar */
+}
+
+.tarjeta-juego__plataformas {
+  color: var(--color-texto-secundario);
+  font-size: var(--tamano-pequeno);
+}
+
+@media (max-width: 1023px) {
+  .tarjeta-juego,
+  .tarjeta-juego--invertida {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--espacio-24);
+  }
+
+  .tarjeta-juego__imagen {
+    flex-basis: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .tarjeta-juego {
+    padding: var(--espacio-16);
+  }
+}
+
+
+/* ==========================================================================
+   13. TARJETA DE NOTICIA + REJILLA DE NOTICIAS
+   --------------------------------------------------------------------------
+   Imagen de 220 px de alto y debajo: categoría, fecha, título, extracto y
+   "Leer más →". Relleno interior de 24 px y 12 px entre líneas.
+   .rejilla-noticias las coloca de 3 en 3 (2 en tablet, 1 en móvil), con
+   30 px de separación como en Figma.
+   ========================================================================== */
+
+.rejilla-noticias {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: start;
+  gap: 30px;
+}
+
+.tarjeta-noticia {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--color-fondo-seccion);
+  border: var(--borde-fino) solid var(--color-borde);
+}
+
+.tarjeta-noticia__imagen {
+  width: 100%;
+  aspect-ratio: 380 / 220;
+  object-fit: cover;
+  border-bottom: var(--borde-fino) solid var(--color-borde);
+}
+
+.tarjeta-noticia__contenido {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espacio-12);
+  padding: var(--espacio-24);
+}
+
+/* Fecha y autor (también se usa en la entrada de blog y en el artículo) */
+.fecha {
+  color: var(--color-texto-secundario);
+  font-size: var(--tamano-pequeno);
+  line-height: 1.2;
+}
+
+@media (max-width: 1023px) {
+  .rejilla-noticias {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--espacio-24);
+  }
+}
+
+@media (max-width: 767px) {
+  .rejilla-noticias {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ==========================================================================
+   14. ENTRADA DE BLOG + LISTA DE ENTRADAS (página Noticias)
+   --------------------------------------------------------------------------
+   Miniatura de 320 × 200 px a la izquierda y el contenido a la derecha,
+   separados 40 px. Entre entradas: 40 px y una línea separadora.
+   En móvil la miniatura se pone encima.
+   ========================================================================== */
+
+.lista-entradas {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-40);
+}
+
+/* Línea separadora entre una entrada y la siguiente.
+   Se pone en cada entrada visible que tenga otra entrada visible antes:
+   así, si el filtro de Noticias oculta alguna (atributo hidden), no
+   quedan líneas sueltas. */
+.lista-entradas > li:not([hidden]) ~ li:not([hidden]) {
+  padding-top: var(--espacio-40);
+  border-top: var(--borde-fino) solid var(--color-borde);
+}
+
+.entrada-blog {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espacio-40);
+}
+
+.entrada-blog__imagen {
+  flex: 0 0 320px;
+  width: 320px;
+  aspect-ratio: 320 / 200;
+  object-fit: cover;
+  border: var(--borde-fino) solid var(--color-borde);
+}
+
+.entrada-blog__contenido {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espacio-12);
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 1023px) {
+  .entrada-blog {
+    gap: var(--espacio-24);
+  }
+
+  .entrada-blog__imagen {
+    flex-basis: 260px;
+    width: 260px;
+  }
+}
+
+@media (max-width: 767px) {
+  .entrada-blog {
+    flex-direction: column;
+  }
+
+  .entrada-blog__imagen {
+    flex-basis: auto;
+    width: 100%;
+  }
+}
+
+
+/* ==========================================================================
+   15. FORMULARIO: CAMPOS CON ESTADO DE ERROR
+   --------------------------------------------------------------------------
+   Estados de la guía:
+     Normal: borde de 1 px.
+     Focus:  borde de acento de 2 px.
+     Error:  borde de 2 px en "Error" + mensaje debajo en "Error".
+   Para marcar un campo con error (lo hará contacto.js):
+     - añade la clase .campo--error al <div class="campo">,
+     - pon aria-invalid="true" en el <input>,
+     - escribe el mensaje en su <p class="campo__error"> y quítale hidden.
+   ========================================================================== */
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espacio-24);
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-8);
+  width: 100%;
+}
+
+.campo__etiqueta {
+  font-size: var(--tamano-pequeno);
+  line-height: 1.2;
+}
+
+.campo__control {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px var(--espacio-8);
+  background-color: var(--color-fondo-seccion);
+  border: var(--borde-fino) solid var(--color-borde);
+  border-radius: var(--radio);
+  color: var(--color-texto);
+  font-size: var(--tamano-pequeno);
+  line-height: 1.4;
+}
+
+/* Área de texto: 160 px de alto; el usuario puede hacerla más alta */
+textarea.campo__control {
+  min-height: 160px;
+  resize: vertical;
+}
+
+.campo__control::placeholder {
+  color: var(--color-texto-secundario);
+}
+
+/* Focus: borde de acento de 2 px (el contorno se dibuja por dentro) */
+.campo__control:focus,
+.campo__control.demo-foco {
+  outline: var(--borde-grueso) solid var(--color-acento);
+  outline-offset: calc(-1 * var(--borde-grueso));
+}
+
+/* Error: borde de 2 px en rojo, también con el foco dentro */
+.campo--error .campo__control,
+.campo--error .campo__control:focus {
+  outline: var(--borde-grueso) solid var(--color-error);
+  outline-offset: calc(-1 * var(--borde-grueso));
+}
+
+.campo__error {
+  color: var(--color-error);
+  font-size: var(--tamano-pequeno);
+  line-height: 1.4;
+}
+
+
+/* ==========================================================================
+   16. BARRA DE PROGRESO
+   --------------------------------------------------------------------------
+   Pista en "Bordes y separadores" y relleno en "Acento". Se estira al
+   ancho que haga falta. El % se cambia con el ancho del relleno:
+       <div class="barra-progreso__relleno" style="width: 60%"></div>
+   (es el único caso en que se permite style="": lo cambia el JavaScript)
+   ========================================================================== */
+
+.barra-progreso {
+  width: 100%;
+  height: 8px;
+  overflow: hidden;
+  background-color: var(--color-borde);
+}
+
+.barra-progreso__relleno {
+  width: 0;
+  height: 100%;
+  background-color: var(--color-acento);
+}
+
+
+/* ==========================================================================
+   17. MODAL "DESCARGAR DEMO" + OPCIÓN DE PLATAFORMA
+   --------------------------------------------------------------------------
+   No hace falta escribir el HTML del modal: js/modal-demo.js lo crea solo.
+   Basta con poner data-demo="Nombre del juego" en el botón (ver
+   componentes.html). Usa la etiqueta <dialog> de HTML, que ya sabe
+   ponerse encima de todo, cerrarse con Escape y no dejar el foco salir.
+   ========================================================================== */
+
+.modal {
+  width: min(520px, 100% - 2 * var(--espacio-16));
+  padding: var(--espacio-32);
+  background-color: var(--color-fondo-seccion);
+  border: var(--borde-fino) solid var(--color-borde);
+  border-radius: var(--radio);
+  color: var(--color-texto);
+}
+
+/* El velo oscuro detrás del modal ("Velo del modal").
+   El segundo valor es por si algún navegador antiguo no lee la variable. */
+.modal::backdrop {
+  background-color: var(--color-velo, rgb(13 24 33 / 70%));
+}
+
+/* Cada paso del modal es una columna con 24 px entre bloques */
+.modal__paso {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-24);
+}
+
+.modal__cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--espacio-16);
+}
+
+/* Botón X para cerrar */
+.modal__cerrar {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin: -6px;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  color: var(--color-texto);
+  transition: color 0.15s;
+}
+
+.modal__cerrar:hover {
+  color: var(--color-acento);
+}
+
+.modal__nota {
+  color: var(--color-texto-secundario);
+  font-size: var(--tamano-pequeno);
+  line-height: 1.4;
+}
+
+.modal__acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--espacio-16);
+}
+
+/* Paso 1: las opciones van dentro de un <fieldset> con su <legend> */
+.modal__opciones {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.modal__opciones legend {
+  margin-bottom: var(--espacio-8);
+  padding: 0;
+  color: var(--color-texto-secundario);
+  font-size: var(--tamano-pequeno);
+}
+
+.modal__lista-opciones {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-8);
+}
+
+/* Paso 2: barra + porcentaje + megas */
+.modal__progreso {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-8);
+}
+
+.modal__datos-progreso {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--espacio-16);
+}
+
+.modal__porcentaje {
+  font-weight: var(--peso-medio);
+}
+
+/* Paso 3: icono de check en un círculo + mensaje */
+.modal__mensaje {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-16);
+}
+
+.modal__icono-ok {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid currentColor;
+  border-radius: var(--radio-circulo);
+  color: var(--color-acento);
+}
+
+/* ---------- Opción de plataforma ----------
+   Es un radio de verdad (<input type="radio">) dentro de un <label>, así
+   funciona con el teclado (flechas) y con lectores de pantalla.
+   Seleccionada: borde de acento. */
+.opcion-plataforma {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-12);
+  padding: 11px 15px; /* 12 y 16 px menos el borde */
+  background-color: var(--color-fondo-pagina);
+  border: var(--borde-fino) solid var(--color-borde);
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.opcion-plataforma:has(:checked) {
+  border-color: var(--color-acento);
+}
+
+/* El círculo del radio dibujado a mano (18 px, borde de 1,5 px) */
+.opcion-plataforma__radio {
+  appearance: none;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  border: 1.5px solid var(--color-texto);
+  border-radius: var(--radio-circulo);
+  cursor: pointer;
+}
+
+.opcion-plataforma__radio:checked {
+  border-color: var(--color-acento);
+  /* Punto interior de acento */
+  background: radial-gradient(circle, var(--color-acento) 0 4px, transparent 4.5px);
+}
+
+
+/* ==========================================================================
+   18. BANNER DE JUEGO (ficha de juego)
+   --------------------------------------------------------------------------
+   Imagen del juego oscurecida con el velo y el nombre encima, abajo a la
+   izquierda. 280 px de alto.
+   ========================================================================== */
+
+.banner-juego {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 280px;
+  padding: var(--espacio-32);
+  overflow: hidden;
+  border: var(--borde-fino) solid var(--color-borde);
+}
+
+.banner-juego__imagen {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Velo encima de la imagen para que el título se lea bien */
+.banner-juego::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-velo);
+}
+
+.banner-juego__titulo {
+  position: relative;
+  z-index: 1; /* por encima del velo */
+}
+
+@media (max-width: 767px) {
+  .banner-juego {
+    min-height: 180px;
+    padding: var(--espacio-16);
+  }
+}
+
+
+/* ==========================================================================
+   19. GALERÍA DE JUEGO (ficha de juego)
+   --------------------------------------------------------------------------
+   Imagen principal 16:9 y una fila de 4 miniaturas. La miniatura elegida
+   lleva borde de acento de 2 px (aria-pressed="true").
+   El cambio de imagen lo hace js/ficha-juego.js.
+   ========================================================================== */
+
+.galeria {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-12);
+}
+
+.galeria__principal {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: var(--borde-fino) solid var(--color-borde);
+}
+
+.galeria__miniaturas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--espacio-12);
+}
+
+.galeria__miniatura {
+  display: block;
+  width: 100%;
+  aspect-ratio: 171 / 96;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--color-caja-imagen);
+  border: var(--borde-fino) solid var(--color-borde);
+  transition: border-color 0.15s;
+}
+
+.galeria__miniatura:hover {
+  border-color: var(--color-acento);
+}
+
+.galeria__miniatura[aria-pressed="true"] {
+  border: var(--borde-grueso) solid var(--color-acento);
+}
+
+.galeria__miniatura img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* ==========================================================================
+   20. DATOS DEL JUEGO (columna lateral de la ficha)
+   --------------------------------------------------------------------------
+   Descripción corta, etiquetas, datos (lista <dl>), precio y botones.
+   ========================================================================== */
+
+.datos-juego {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: var(--espacio-24);
+  background-color: var(--color-fondo-seccion);
+  border: var(--borde-fino) solid var(--color-borde);
+}
+
+/* Lista de datos: <dl> con parejas <dt> (nombre) y <dd> (valor) */
+.datos-juego__lista {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dato {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-4);
+}
+
+.dato dt {
+  color: var(--color-texto-secundario);
+  font-size: var(--tamano-pequeno);
+  line-height: 1.2;
+}
+
+.dato dd {
+  margin: 0;
+}
+
+/* El precio va en Press Start 2P */
+.datos-juego__precio {
+  font-family: var(--fuente-titulos);
+  font-size: var(--tamano-h3);
+}
+
+/* Steam y Epic, a partes iguales */
+.datos-juego__comprar {
+  display: flex;
+  flex-wrap: wrap; /* si no caben (móvil), uno debajo del otro */
+  gap: var(--espacio-12);
+}
+
+.datos-juego__comprar .boton {
+  flex: 1 1 140px;
+  padding-inline: var(--espacio-12);
+}
+
+
+/* ==========================================================================
+   21. REQUISITOS (ficha de juego)
+   --------------------------------------------------------------------------
+   Caja con título ("Mínimos" / "Recomendados") y una lista de requisitos.
+   ========================================================================== */
+
+.requisitos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-16);
+  padding: var(--espacio-24);
+  background-color: var(--color-fondo-seccion);
+  border: var(--borde-fino) solid var(--color-borde);
+}
+
+/* La lista de requisitos va sin viñetas, como en Figma */
+.requisitos ul {
+  padding: 0;
+  list-style: none;
+}
+
+
+/* ==========================================================================
+   22. REPRODUCTOR DE VÍDEO
+   --------------------------------------------------------------------------
+   Caja 16:9 con la portada, un botón de play grande en el centro y la
+   barra de controles abajo (tiempo, barra, volumen, pantalla completa).
+   Al pulsar play, js/trailer.js cambia la portada por el vídeo de YouTube.
+   ========================================================================== */
+
+.reproductor {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background-color: var(--color-fondo-footer);
+  border: var(--borde-fino) solid var(--color-borde);
+}
+
+.reproductor__portada {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* El botón de play ocupa toda la portada: se puede pulsar en cualquier sitio */
+.reproductor__play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  color: var(--color-texto);
+  text-decoration: none;
+}
+
+/* Círculo de 88 px con el velo y borde de 2 px */
+.reproductor__circulo {
+  display: grid;
+  place-items: center;
+  width: 88px;
+  height: 88px;
+  background-color: var(--color-velo);
+  border: var(--borde-grueso) solid currentColor;
+  border-radius: var(--radio-circulo);
+  transition: color 0.15s;
+}
+
+.reproductor__play:hover .reproductor__circulo {
+  color: var(--color-acento);
+}
+
+/* El foco se marca en el círculo, que es lo que se ve como "botón" */
+.reproductor__play:focus-visible {
+  outline: none;
+}
+
+.reproductor__play:focus-visible .reproductor__circulo {
+  outline: var(--borde-grueso) solid var(--color-texto);
+  outline-offset: 4px;
+}
+
+/* Barra de controles (decorativa hasta que se carga el vídeo) */
+.reproductor__controles {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-16);
+  padding: 12px 20px;
+  background-color: var(--color-velo);
+  font-size: var(--tamano-pequeno);
+  pointer-events: none; /* el clic pasa al botón de play */
+}
+
+.reproductor__controles .barra-progreso {
+  flex: 1;
+}
+
+/* El vídeo de YouTube ocupa toda la caja */
+.reproductor__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Aviso "Vídeo no disponible" */
+.reproductor__aviso {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: var(--espacio-24);
+  background-color: var(--color-velo);
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .reproductor__circulo {
+    width: 56px;
+    height: 56px;
+  }
+
+  .reproductor__circulo .icono {
+    width: 24px;
+    height: 24px;
+  }
+
+  .reproductor__controles {
+    gap: var(--espacio-12);
+    padding: var(--espacio-8) var(--espacio-12);
+  }
+}
+
+
+/* ==========================================================================
+   23. MINIATURA DE VÍDEO (fila "Más vídeos")
+   --------------------------------------------------------------------------
+   Imagen con un play pequeño (48 px), título y duración debajo.
+   Es un <button>: al pulsarlo, trailer.js lo pone en el reproductor.
+   ========================================================================== */
+
+.miniatura-video {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espacio-12);
+  width: 100%;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  color: var(--color-texto);
+  text-align: left;
+}
+
+.miniatura-video__imagen {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: var(--borde-fino) solid var(--color-borde);
+}
+
+.miniatura-video__imagen img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.miniatura-video__play {
+  position: relative; /* encima de la imagen */
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-velo);
+  border: 1.5px solid currentColor;
+  border-radius: var(--radio-circulo);
+  transition: color 0.15s;
+}
+
+.miniatura-video:hover .miniatura-video__play {
+  color: var(--color-acento);
+}
+
+.miniatura-video__titulo {
+  font-weight: var(--peso-medio);
+  line-height: 1.3;
+}
+
+.miniatura-video__duracion {
+  color: var(--color-texto-secundario);
+  font-size: var(--tamano-pequeno);
+}
+
+
+/* ==========================================================================
+   24. DATOS DEL VÍDEO (debajo del reproductor)
+   --------------------------------------------------------------------------
+   Nombre del juego, título del tráiler, descripción y botones.
+   ========================================================================== */
+
+.datos-video {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espacio-16);
+}
+
+.datos-video__descripcion {
+  max-width: 800px;
+}
+
+
+/* ==========================================================================
+   25. ARTÍCULO (noticia abierta)
+   --------------------------------------------------------------------------
+   Columna de 800 px centrada con: cabecera (categoría, título y fecha),
+   imagen principal, cuerpo (entradilla, subtítulos, párrafos, imagen
+   intermedia), separador y "Compartir".
+   ========================================================================== */
+
+.articulo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-32);
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+.articulo__cabecera {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espacio-16);
+}
+
+.articulo__imagen {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: var(--borde-fino) solid var(--color-borde);
+}
+
+.articulo__cuerpo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-24);
+}
+
+/* Imagen intermedia: 360 px de alto en la columna de 800 px */
+.articulo__imagen-intermedia {
+  width: 100%;
+  aspect-ratio: 800 / 360;
+  object-fit: cover;
+  border: var(--borde-fino) solid var(--color-borde);
+}
+
+/* Línea separadora de 1 px */
+.separador {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-top: var(--borde-fino) solid var(--color-borde);
+}
+
+/* Compartir: "Compartir:" + iconos de redes */
+.compartir {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-16);
+}
+
+.compartir__texto {
+  color: var(--color-texto-secundario);
+  font-size: var(--tamano-pequeno);
+}

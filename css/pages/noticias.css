@@ -1,0 +1,50 @@
+/* ==========================================================================
+   NOTICIAS.CSS — maquetación de noticias.html
+   --------------------------------------------------------------------------
+   Aquí SOLO va la colocación de los bloques. Los filtros, la entrada de
+   blog y la lista de entradas (con sus separadores y su versión móvil) ya
+   están hechos en components.css: no los vuelvas a estilar aquí.
+
+   Normas:
+     - Usa SIEMPRE las variables de base.css: var(--espacio-48), etc.
+     - Las clases de esta página empiezan por .noticias.
+   Medidas sacadas de Figma ("Noticias · Escritorio", 1440 px de ancho).
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   BLOQUE ÚNICO · BLOG
+   --------------------------------------------------------------------------
+   La sección ya tiene 72 px arriba y abajo con la clase .seccion.
+   Tú solo tienes que:
+     - .noticias: poner en columna el título, los filtros, la lista y el
+       enlace, con 48 px entre ellos
+       (display: flex; flex-direction: column; gap: var(--espacio-48)).
+     - Que el enlace "← Entradas anteriores" NO se estire a todo el ancho:
+       align-items: flex-start en .noticias, y que la lista sí ocupe todo
+       el ancho (.lista-entradas → align-self: stretch).
+     - .noticias__vacio: el mensaje de "No hay noticias de esta categoría".
+       Con que use el color secundario (var(--color-texto-secundario)) basta.
+   -------------------------------------------------------------------------- */
+
+.noticias {
+  /* tu código aquí */
+}
+
+.noticias__vacio {
+  /* tu código aquí */
+}
+
+
+/* --------------------------------------------------------------------------
+   MÓVIL (hasta 767 px)
+   --------------------------------------------------------------------------
+   - Puedes bajar la separación a 32 px (var(--espacio-32)).
+   - La entrada de blog ya pone la imagen encima en móvil (components.css).
+   - Comprueba que los filtros bajan de línea y que no hay barra de
+     desplazamiento horizontal.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  /* tu código aquí */
+}

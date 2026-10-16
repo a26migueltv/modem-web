@@ -1,0 +1,107 @@
+/* ==========================================================================
+   INICIO.CSS — maquetación de index.html
+   --------------------------------------------------------------------------
+   Aquí SOLO va la colocación de los bloques de la portada. Los componentes
+   (botones, tarjetas, etiquetas...) ya tienen su estilo en components.css:
+   no los vuelvas a estilar aquí.
+
+   Normas:
+     - Usa SIEMPRE las variables de base.css: var(--color-...),
+       var(--espacio-...), var(--tamano-...). Nada de colores sueltos.
+     - Empieza por escritorio y al final adapta tablet (max-width: 1023px)
+       y móvil (max-width: 767px).
+     - Las clases de esta página empiezan por el nombre del bloque:
+       .banner, .quienes, .ultimas.
+   Medidas sacadas de Figma ("Inicio · Escritorio", 1440 px de ancho).
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   BLOQUE 1 · BANNER DEL JUEGO DESTACADO
+   --------------------------------------------------------------------------
+   Qué tienes que conseguir:
+     - .banner: 560 px de alto (usa min-height para que en móvil crezca si
+       el texto no cabe), position: relative, y el contenido centrado en
+       vertical (display: flex + align-items: center).
+     - .banner__imagen: ocupa TODO el banner como fondo:
+         position: absolute; inset: 0; width: 100%; height: 100%;
+         object-fit: cover;   ← recorta la imagen sin deformarla
+     - .banner__caja: la caja oscura de la izquierda:
+         position: relative (para que quede ENCIMA de la imagen)
+         ancho máximo 550 px
+         fondo var(--color-fondo-seccion)
+         borde de 1 px var(--color-borde)
+         relleno de 40 px (var(--espacio-40))
+         columna con 20 px entre elementos (flex-direction: column; gap)
+         el título va centrado (text-align: center) y el resto a la izquierda
+         (el botón NO se estira: align-items: flex-start)
+   Pista: es muy parecido al componente "Banner de juego" de components.css
+   (busca .banner-juego): míralo para inspirarte.
+   -------------------------------------------------------------------------- */
+
+.banner {
+  /* tu código aquí */
+}
+
+.banner__imagen {
+  /* tu código aquí */
+}
+
+.banner__caja {
+  /* tu código aquí */
+}
+
+
+/* --------------------------------------------------------------------------
+   BLOQUE 2 · QUIÉNES SOMOS
+   --------------------------------------------------------------------------
+   La sección ya tiene relleno y fondo con .seccion y .seccion--oscura.
+   Tú solo tienes que:
+     - Centrar el texto (text-align: center).
+     - Poner 24 px entre el título y el párrafo (columna con gap).
+     - Limitar el párrafo a 720 px de ancho y centrarlo
+       (max-width + margin-inline: auto).
+   -------------------------------------------------------------------------- */
+
+.quienes__contenido {
+  /* tu código aquí */
+}
+
+
+/* --------------------------------------------------------------------------
+   BLOQUE 3 · ÚLTIMAS NOTICIAS
+   --------------------------------------------------------------------------
+   La rejilla de 3 tarjetas YA está hecha (.rejilla-noticias). Tú solo:
+     - Pones en columna el título, la rejilla y el enlace, con 40 px entre
+       ellos (display: flex; flex-direction: column; gap).
+     - Centras el título y el enlace (align-items: center, y que la
+       rejilla ocupe todo el ancho: align-self: stretch).
+   -------------------------------------------------------------------------- */
+
+.ultimas__contenido {
+  /* tu código aquí */
+}
+
+
+/* --------------------------------------------------------------------------
+   TABLET (hasta 1023 px)
+   --------------------------------------------------------------------------
+   - El banner puede bajar a unos 440 px de alto.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1023px) {
+  /* tu código aquí */
+}
+
+
+/* --------------------------------------------------------------------------
+   MÓVIL (hasta 767 px)
+   --------------------------------------------------------------------------
+   - La caja del banner ocupa todo el ancho y su relleno baja a 24 px.
+   - Comprueba en el navegador (F12 → icono del móvil) que no aparece
+     barra de desplazamiento horizontal.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  /* tu código aquí */
+}

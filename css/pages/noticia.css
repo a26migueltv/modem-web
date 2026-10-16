@@ -1,0 +1,34 @@
+/* ==========================================================================
+   NOTICIA.CSS — solo la colocación de los bloques de noticia.html
+   (los componentes ya tienen su estilo en components.css)
+   ========================================================================== */
+
+/* 48 px arriba (debajo del header), 72 px abajo */
+.noticia {
+  padding-block: var(--espacio-48) var(--espacio-seccion);
+}
+
+/* Bloques en columna, separados 48 px */
+.noticia__contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espacio-48);
+}
+
+.noticia__contenedor > :not(.enlace) {
+  align-self: stretch;
+}
+
+/* "Relacionadas": título y tarjetas separados 32 px */
+.noticia__relacionadas {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-32);
+}
+
+@media (max-width: 767px) {
+  .noticia__contenedor {
+    gap: var(--espacio-32);
+  }
+}

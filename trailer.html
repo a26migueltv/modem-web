@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tráiler de Beast Acquirer Savage · modem</title>
+  <meta name="description" content="Tráiler de Beast Acquirer Savage y más vídeos del juego.">
+  <link rel="icon" href="img/logo/modem-icono-negro.svg" type="image/svg+xml">
+
+  <!-- Fuentes de Google: Press Start 2P (títulos) e Inter (texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Press+Start+2P&display=swap">
+
+  <!-- Estilos: primero la base, luego los componentes y al final los de esta página -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages/trailer.css">
+
+  <!-- JavaScript ("defer" = se ejecuta cuando el HTML ya está cargado) -->
+  <script src="js/main.js" defer></script>
+  <script src="js/modal-demo.js" defer></script>
+  <script src="js/trailer.js" defer></script>
+</head>
+<body>
+  <!-- Enlace para saltar el menú con el teclado (solo se ve al pulsar Tab) -->
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+
+  <!-- ============================== HEADER ==============================
+       Igual en todas las páginas: NO lo cambies.
+       La página actual se marca sola en el menú (lo hace js/main.js). -->
+  <header class="header">
+    <div class="header__barra contenedor">
+      <a class="logo" href="index.html">
+        <span class="icono logo__icono" aria-hidden="true"></span>
+        <span class="logo__texto">
+          <span class="logo__nombre">modem</span>
+          <span class="logo__lema">Estudio de videojuegos independiente</span>
+        </span>
+      </a>
+
+      <!-- Botón hamburguesa: solo se ve en móvil -->
+      <button class="menu-boton" type="button" aria-expanded="false" aria-controls="navegacion">
+        <span class="menu-boton__rayas" aria-hidden="true"></span>
+        <span class="visualmente-oculto">Abrir menú</span>
+      </button>
+    </div>
+
+    <nav class="header__nav contenedor" id="navegacion" aria-label="Menú principal">
+      <ul class="menu">
+        <li><a class="menu__enlace" href="index.html">Inicio</a></li>
+        <li><a class="menu__enlace" href="juegos.html">Juegos</a></li>
+        <li><a class="menu__enlace" href="noticias.html">Noticias</a></li>
+        <li><a class="menu__enlace" href="contacto.html">Contacto</a></li>
+      </ul>
+
+      <!-- TODO (grupo): poner los enlaces reales de las redes del estudio -->
+      <ul class="redes header__redes">
+        <li><a class="red-social" href="#" aria-label="modem en X"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a></li>
+        <li><a class="red-social" href="#" aria-label="modem en Instagram"><span class="icono icono--16 icono--instagram" aria-hidden="true"></span></a></li>
+        <li><a class="red-social" href="#" aria-label="modem en Facebook"><span class="icono icono--16 icono--facebook" aria-hidden="true"></span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ============================== CONTENIDO ==============================
+       TRÁILER (Figma: "01 · Pantallas" → "Tráiler · Escritorio")
+       Reproductor, datos del vídeo, botones y "Más vídeos".
+       Todo lo que cambia al elegir otro vídeo lo hace js/trailer.js; los
+       datos de cada vídeo (y sus IDs de YouTube) están al principio de ese
+       archivo. Los textos entre corchetes [...] son de relleno. -->
+  <main id="contenido" class="trailer">
+    <div class="contenedor trailer__contenedor">
+
+      <a class="enlace" href="juegos.html">← Volver a Juegos</a>
+
+      <!-- REPRODUCTOR: portada + botón de play. Al pulsar play, trailer.js
+           cambia la portada por el vídeo de YouTube. -->
+      <div class="reproductor" id="reproductor">
+        <img class="reproductor__portada" id="video-portada" src="img/juegos/beast-acquirer-savage.jpg" alt="" width="1200" height="675">
+        <button class="reproductor__play" id="video-play" type="button">
+          <span class="reproductor__circulo"><span class="icono icono--36 icono--play" aria-hidden="true"></span></span>
+          <span class="visualmente-oculto">Reproducir el vídeo</span>
+        </button>
+        <!-- Controles: de momento solo son visuales (el vídeo de YouTube
+             trae sus propios controles) -->
+        <div class="reproductor__controles" aria-hidden="true">
+          <span class="icono icono--20 icono--play"></span>
+          <span>0:00 / 0:00</span>
+          <div class="barra-progreso"><div class="barra-progreso__relleno"></div></div>
+          <span class="icono icono--20 icono--volumen"></span>
+          <span class="icono icono--20 icono--pantalla-completa"></span>
+        </div>
+      </div>
+
+      <!-- DATOS DEL VÍDEO -->
+      <div class="datos-video">
+        <h1 class="titulo-h2">Beast Acquirer Savage</h1>
+        <h2 class="titulo-h3" id="video-titulo">¡Echa un vistazo a la acción de Beast Acquirer Savage!</h2>
+        <p class="datos-video__descripcion" id="video-descripcion">Beast Acquirer Savage es la última entrega hasta la fecha de la saga Beast Acquirer. Nuestro equipo está dándolo todo para traeros el mejor juego de bestias hasta la fecha.</p>
+        <div class="grupo-botones">
+          <!-- TODO (grupo): poner el enlace real de Steam -->
+          <a class="boton boton--tienda" href="#">
+            <span class="icono icono--18 icono--steam" aria-hidden="true"></span>
+            Steam
+          </a>
+          <!-- TODO (grupo): poner el enlace real de Epic Games -->
+          <a class="boton boton--tienda" href="#">
+            <span class="icono icono--18 icono--epic" aria-hidden="true"></span>
+            Epic Games
+          </a>
+          <!-- Abre el modal de descarga (js/modal-demo.js) -->
+          <button class="boton boton--secundario" type="button" data-demo="Beast Acquirer Savage" data-plataformas="PC, Xbox Series X, PS5">Descargar demo</button>
+        </div>
+      </div>
+
+      <!-- MÁS VÍDEOS: cada miniatura guarda en data-video la clave del
+           vídeo en el objeto VIDEOS de trailer.js. Al pulsarla, ese vídeo
+           pasa al reproductor y el que estaba arriba ocupa su sitio. -->
+      <section class="trailer__mas" aria-labelledby="titulo-mas-videos">
+        <h2 id="titulo-mas-videos">Más vídeos</h2>
+        <ul class="trailer__miniaturas">
+          <li>
+            <button class="miniatura-video" type="button" data-video="nueva-bestia">
+              <span class="miniatura-video__imagen">
+                <img src="img/juegos/beast-video-1.jpg" alt="" width="384" height="216">
+                <span class="miniatura-video__play"><span class="icono icono--20 icono--play" aria-hidden="true"></span></span>
+              </span>
+              <span class="miniatura-video__titulo">NUEVA BESTIA! Enfrentaos a kezu!</span>
+              <span class="miniatura-video__duracion">[2:12]</span>
+            </button>
+          </li>
+          <li>
+            <button class="miniatura-video" type="button" data-video="nueva-dificultad">
+              <span class="miniatura-video__imagen">
+                <img src="img/juegos/beast-video-2.jpg" alt="" width="384" height="216">
+                <span class="miniatura-video__play"><span class="icono icono--20 icono--play" aria-hidden="true"></span></span>
+              </span>
+              <span class="miniatura-video__titulo">Nueva dificultad! Adquirid mounstruos aún más peligrosos</span>
+              <span class="miniatura-video__duracion">[4:51]</span>
+            </button>
+          </li>
+          <li>
+            <button class="miniatura-video" type="button" data-video="actualizacion">
+              <span class="miniatura-video__imagen">
+                <img src="img/juegos/beast-video-3.jpg" alt="" width="384" height="216">
+                <span class="miniatura-video__play"><span class="icono icono--20 icono--play" aria-hidden="true"></span></span>
+              </span>
+              <span class="miniatura-video__titulo">Resumen de la actualización (Ver.1.042.00.01 / Demo Version 1.0.1)</span>
+              <span class="miniatura-video__duracion">[3:05]</span>
+            </button>
+          </li>
+        </ul>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ============================== FOOTER ==============================
+       Igual en todas las páginas: NO lo cambies. -->
+  <footer class="footer">
+    <p class="footer__mision">Nuestra misión: crear juegos pequeños, hechos a mano y con mucho cariño, para que cualquiera pueda vivir una gran aventura.</p>
+
+    <nav aria-label="Enlaces del pie de página">
+      <ul class="footer__enlaces">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="juegos.html">Juegos</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- TODO (grupo): poner los enlaces reales de las redes del estudio -->
+    <ul class="redes">
+      <li><a class="red-social" href="#" aria-label="modem en X"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a></li>
+      <li><a class="red-social" href="#" aria-label="modem en Instagram"><span class="icono icono--16 icono--instagram" aria-hidden="true"></span></a></li>
+      <li><a class="red-social" href="#" aria-label="modem en Facebook"><span class="icono icono--16 icono--facebook" aria-hidden="true"></span></a></li>
+    </ul>
+
+    <p class="footer__copyright">© 2026 modem</p>
+  </footer>
+</body>
+</html>

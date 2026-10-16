@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Componentes · modem</title>
+  <meta name="description" content="Catálogo de componentes de la web de modem: ejemplo visual y código HTML para copiar.">
+  <link rel="icon" href="img/logo/modem-icono-negro.svg" type="image/svg+xml">
+
+  <!-- Fuentes de Google: Press Start 2P (títulos) e Inter (texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Press+Start+2P&display=swap">
+
+  <!-- Estilos: primero la base, luego los componentes y al final los de esta página -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/componentes-catalogo.css">
+
+  <!-- JavaScript ("defer" = se ejecuta cuando el HTML ya está cargado) -->
+  <script src="js/main.js" defer></script>
+  <script src="js/modal-demo.js" defer></script>
+  <script src="js/catalogo.js" defer></script>
+</head>
+<body>
+  <!-- Enlace para saltar el menú con el teclado (solo se ve al pulsar Tab) -->
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+
+  <!-- ============================== HEADER ==============================
+       Igual en todas las páginas: NO lo cambies.
+       La página actual se marca sola en el menú (lo hace js/main.js). -->
+  <header class="header">
+    <div class="header__barra contenedor">
+      <a class="logo" href="index.html">
+        <span class="icono logo__icono" aria-hidden="true"></span>
+        <span class="logo__texto">
+          <span class="logo__nombre">modem</span>
+          <span class="logo__lema">Estudio de videojuegos independiente</span>
+        </span>
+      </a>
+
+      <!-- Botón hamburguesa: solo se ve en móvil -->
+      <button class="menu-boton" type="button" aria-expanded="false" aria-controls="navegacion">
+        <span class="menu-boton__rayas" aria-hidden="true"></span>
+        <span class="visualmente-oculto">Abrir menú</span>
+      </button>
+    </div>
+
+    <nav class="header__nav contenedor" id="navegacion" aria-label="Menú principal">
+      <ul class="menu">
+        <li><a class="menu__enlace" href="index.html">Inicio</a></li>
+        <li><a class="menu__enlace" href="juegos.html">Juegos</a></li>
+        <li><a class="menu__enlace" href="noticias.html">Noticias</a></li>
+        <li><a class="menu__enlace" href="contacto.html">Contacto</a></li>
+      </ul>
+
+      <!-- TODO (grupo): poner los enlaces reales de las redes del estudio -->
+      <ul class="redes header__redes">
+        <li><a class="red-social" href="#" aria-label="modem en X"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a></li>
+        <li><a class="red-social" href="#" aria-label="modem en Instagram"><span class="icono icono--16 icono--instagram" aria-hidden="true"></span></a></li>
+        <li><a class="red-social" href="#" aria-label="modem en Facebook"><span class="icono icono--16 icono--facebook" aria-hidden="true"></span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ============================== CONTENIDO ==============================
+       CATÁLOGO DE COMPONENTES
+       Cada componente tiene:
+         - un ejemplo visual (dentro de <div class="catalogo__ejemplo">),
+         - su código HTML, que js/catalogo.js copia AUTOMÁTICAMENTE del
+           ejemplo. Así el código siempre coincide con lo que se ve.
+       Si añades un componente nuevo, copia la estructura de una sección. -->
+  <main id="contenido" class="catalogo">
+    <div class="contenedor">
+
+      <header class="catalogo__intro">
+        <h1>Componentes</h1>
+        <p>Aquí están todos los componentes de la guía de estilo de Figma, ya programados. Para montar tu página:</p>
+        <ol class="catalogo__pasos">
+          <li>Busca el componente que necesitas en el índice.</li>
+          <li>Pulsa <strong>«Copiar código»</strong> y pégalo en tu HTML.</li>
+          <li>Cambia los textos, las imágenes y los enlaces. <strong>No cambies las clases</strong>: son las que le dan el estilo.</li>
+        </ol>
+        <p>Los estilos están en <code>css/components.css</code>. No hace falta que escribas CSS para los componentes: en el CSS de tu página solo va la colocación (layout) de los bloques.</p>
+      </header>
+
+      <nav class="catalogo__indice" aria-label="Índice de componentes">
+        <h2 class="titulo-h3">Índice</h2>
+        <ul>
+          <li><a class="enlace" href="#colores">Colores</a></li>
+          <li><a class="enlace" href="#tipografia">Tipografía</a></li>
+          <li><a class="enlace" href="#maquetacion">Contenedor y secciones</a></li>
+          <li><a class="enlace" href="#header">Header y menú</a></li>
+          <li><a class="enlace" href="#footer">Footer</a></li>
+          <li><a class="enlace" href="#redes">Redes sociales</a></li>
+          <li><a class="enlace" href="#iconos">Iconos</a></li>
+          <li><a class="enlace" href="#botones">Botones</a></li>
+          <li><a class="enlace" href="#botones-tienda">Botones de tienda</a></li>
+          <li><a class="enlace" href="#enlaces">Enlace de texto</a></li>
+          <li><a class="enlace" href="#etiquetas">Etiquetas</a></li>
+          <li><a class="enlace" href="#etiqueta-categoria">Etiqueta de categoría</a></li>
+          <li><a class="enlace" href="#filtros">Filtros</a></li>
+          <li><a class="enlace" href="#caja-imagen">Caja de imagen</a></li>
+          <li><a class="enlace" href="#tarjeta-juego">Tarjeta de juego</a></li>
+          <li><a class="enlace" href="#tarjeta-noticia">Tarjeta de noticia</a></li>
+          <li><a class="enlace" href="#entrada-blog">Entrada de blog</a></li>
+          <li><a class="enlace" href="#formulario">Formulario</a></li>
+          <li><a class="enlace" href="#modal">Modal «Descargar demo»</a></li>
+          <li><a class="enlace" href="#barra-progreso">Barra de progreso</a></li>
+          <li><a class="enlace" href="#banner-juego">Banner de juego</a></li>
+          <li><a class="enlace" href="#galeria">Galería de juego</a></li>
+          <li><a class="enlace" href="#datos-juego">Datos del juego</a></li>
+          <li><a class="enlace" href="#requisitos">Requisitos</a></li>
+          <li><a class="enlace" href="#reproductor">Reproductor de vídeo</a></li>
+          <li><a class="enlace" href="#miniatura-video">Miniatura de vídeo</a></li>
+          <li><a class="enlace" href="#datos-video">Datos del vídeo</a></li>
+          <li><a class="enlace" href="#articulo">Artículo</a></li>
+        </ul>
+      </nav>
+
+
+      <!-- ============================== COLORES ============================== -->
+      <section class="catalogo__componente" id="colores" aria-labelledby="titulo-colores">
+        <h2 id="titulo-colores">Colores</h2>
+        <p>Usa siempre la <strong>variable</strong>, nunca el código del color. Ejemplo: <code>color: var(--color-acento);</code></p>
+        <ul class="catalogo__colores">
+          <li><span class="catalogo__color catalogo__color--fondo-pagina"></span><code>--color-fondo-pagina</code> Fondo general</li>
+          <li><span class="catalogo__color catalogo__color--fondo-seccion"></span><code>--color-fondo-seccion</code> Secciones, tarjetas y campos</li>
+          <li><span class="catalogo__color catalogo__color--fondo-header"></span><code>--color-fondo-header</code> Header</li>
+          <li><span class="catalogo__color catalogo__color--fondo-footer"></span><code>--color-fondo-footer</code> Footer</li>
+          <li><span class="catalogo__color catalogo__color--texto"></span><code>--color-texto</code> Títulos y párrafos</li>
+          <li><span class="catalogo__color catalogo__color--texto-secundario"></span><code>--color-texto-secundario</code> Fechas, datos, menú inactivo</li>
+          <li><span class="catalogo__color catalogo__color--acento"></span><code>--color-acento</code> Botón principal, enlaces, menú activo</li>
+          <li><span class="catalogo__color catalogo__color--texto-sobre-acento"></span><code>--color-texto-sobre-acento</code> Texto encima del acento</li>
+          <li><span class="catalogo__color catalogo__color--borde"></span><code>--color-borde</code> Bordes y separadores</li>
+          <li><span class="catalogo__color catalogo__color--caja-imagen"></span><code>--color-caja-imagen</code> Huecos de imagen y etiquetas</li>
+          <li><span class="catalogo__color catalogo__color--error"></span><code>--color-error</code> Campo con error</li>
+          <li><span class="catalogo__color catalogo__color--velo"></span><code>--color-velo</code> Fondo del modal y controles de vídeo</li>
+        </ul>
+      </section>
+
+
+      <!-- ============================== TIPOGRAFÍA ============================== -->
+      <section class="catalogo__componente" id="tipografia" aria-labelledby="titulo-tipografia">
+        <h2 id="titulo-tipografia">Tipografía</h2>
+        <p>Las etiquetas <code>h1</code>, <code>h2</code> y <code>h3</code> ya tienen el estilo de Figma. Si un texto tiene que <em>parecer</em> otro nivel, usa la clase: por ejemplo <code>&lt;h2 class="titulo-h3"&gt;</code> es un h2 que se ve como un H3.</p>
+        <div class="catalogo__ejemplo">
+          <h1>Título H1 · 36 px</h1>
+          <h2>Título H2 · 24 px</h2>
+          <h3>Título H3 · 16 px</h3>
+          <p>Texto · Inter 16 px con interlineado del 160 %. Para párrafos y extractos.</p>
+          <p class="texto-pequeno texto-secundario">Texto pequeño · 14 px. Para fechas, datos y etiquetas.</p>
+        </div>
+        <div class="catalogo__codigo"><pre><code></code></pre></div>
+      </section>
+
+
+      <!-- ============================== CONTENEDOR Y SECCIONES ============================== -->
+      <section class="catalogo__componente" id="maquetacion" aria-labelledby="titulo-maquetacion">
+        <h2 id="titulo-maquetacion">Contenedor y secciones</h2>
+        <p>Cada bloque de una página es una <code>&lt;section class="seccion"&gt;</code> (72 px arriba y abajo). Dentro va un <code>&lt;div class="contenedor"&gt;</code> que centra el contenido a 1200 px. Añade <code>seccion--oscura</code> para el fondo más oscuro (como «Quiénes somos» en Inicio).</p>
+        <div class="catalogo__ejemplo catalogo__ejemplo--sin-relleno">
+          <section class="seccion seccion--oscura" aria-labelledby="ejemplo-seccion">
+            <div class="contenedor">
+              <h2 id="ejemplo-seccion">Título de la sección</h2>
+              <p>Contenido de la sección.</p>
+            </div>
+          </section>
+        </div>
+        <div class="catalogo__codigo"><pre><code></code></pre></div>
+      </section>
+
+
+      <!-- ============================== HEADER ============================== -->
+      <section class="catalogo__componente" id="header" aria-labelledby="titulo-header">
+        <h2 id="titulo-header">Header y menú</h2>
+        <p>Es el que ves arriba del todo de esta página. <strong>Ya está puesto en todas las páginas</strong>: no tienes que copiarlo. La página actual se marca sola en el menú (lo hace <code>js/main.js</code>). En móvil el menú se convierte en un botón hamburguesa.</p>
+        <h3>Estados del enlace del menú</h3>
+        <ul class="catalogo__estados">
+          <li><a class="menu__enlace" href="#header">Juegos</a><span>Normal</span></li>
+          <li><a class="menu__enlace demo-hover" href="#header">Juegos</a><span>Hover</span></li>
+          <li><a class="menu__enlace" href="#header" aria-current="page">Juegos</a><span>Activo (página actual)</span></li>
+        </ul>
+        <div class="catalogo__ejemplo" data-plantilla="plantilla-header" hidden></div>
+        <div class="catalogo__codigo"><pre><code></code></pre></div>
+        <template id="plantilla-header">
+          <header class="header">
+            <div class="header__barra contenedor">
+              <a class="logo" href="index.html">
+                <span class="icono logo__icono" aria-hidden="true"></span>
+                <span class="logo__texto">
+                  <span class="logo__nombre">modem</span>
+                  <span class="logo__lema">Estudio de videojuegos independiente</span>
+                </span>
+              </a>
+              <button class="menu-boton" type="button" aria-expanded="false" aria-controls="navegacion">
+                <span class="menu-boton__rayas" aria-hidden="true"></span>
+                <span class="visualmente-oculto">Abrir menú</span>
+              </button>
+            </div>
+            <nav class="header__nav contenedor" id="navegacion" aria-label="Menú principal">
+              <ul class="menu">
+                <li><a class="menu__enlace" href="index.html">Inicio</a></li>
+                <li><a class="menu__enlace" href="juegos.html">Juegos</a></li>
+                <li><a class="menu__enlace" href="noticias.html">Noticias</a></li>
+                <li><a class="menu__enlace" href="contacto.html">Contacto</a></li>
+              </ul>
+              <ul class="redes header__redes">
+                <li><a class="red-social" href="#" aria-label="modem en X"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a></li>
+                <li><a class="red-social" href="#" aria-label="modem en Instagram"><span class="icono icono--16 icono--instagram" aria-hidden="true"></span></a></li>
+                <li><a class="red-social" href="#" aria-label="modem en Facebook"><span class="icono icono--16 icono--facebook" aria-hidden="true"></span></a></li>
+              </ul>
+            </nav>
+          </header>
+        </template>
+      </section>
+
+
+      <!-- ============================== FOOTER ============================== -->
+      <section class="catalogo__componente" id="footer" aria-labelledby="titulo-footer">
+        <h2 id="titulo-footer">Footer</h2>
+        <p>Es el que ves abajo del todo de esta página. <strong>Ya está puesto en todas las páginas</strong>: no tienes que copiarlo.</p>
+        <div class="catalogo__ejemplo" data-plantilla="plantilla-footer" hidden></div>
+        <div class="catalogo__codigo"><pre><code></code></pre></div>
+        <template id="plantilla-footer">
+          <footer class="footer">
+            <p class="footer__mision">Nuestra misión: crear juegos pequeños, hechos a mano y con mucho cariño, para que cualquiera pueda vivir una gran aventura.</p>
+            <nav aria-label="Enlaces del pie de página">
+              <ul class="footer__enlaces">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="juegos.html">Juegos</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+              </ul>
+            </nav>
+            <ul class="redes">
+              <li><a class="red-social" href="#" aria-label="modem en X"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a></li>
+              <li><a class="red-social" href="#" aria-label="modem en Instagram"><span class="icono icono--16 icono--instagram" aria-hidden="true"></span></a></li>
+              <li><a class="red-social" href="#" aria-label="modem en Facebook"><span class="icono icono--16 icono--facebook" aria-hidden="true"></span></a></li>
+            </ul>
+            <p class="footer__copyright">© 2026 modem</p>
+          </footer>
+        </template>
+      </section>
+
+
+      <!-- ============================== REDES SOCIALES ============================== -->
+      <section class="catalogo__componente" id="redes" aria-labelledby="titulo-redes">
+        <h2 id="titulo-redes">Redes sociales</h2>
+        <p>Círculos de 28 px con el icono de X, Instagram y Facebook. Cada enlace lleva <code>aria-label</code> porque solo tiene un icono. Se usan en el header, el footer y en Contacto. Los enlaces reales los pone el grupo (TODO).</p>
+        <h3>Estados</h3>
+        <ul class="catalogo__estados">
+          <li><a class="red-social" href="#redes" aria-label="Ejemplo normal"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a><span>Normal</span></li>
+          <li><a class="red-social demo-hover" href="#redes" aria-label="Ejemplo hover"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a><span>Hover</span></li>
+        </ul>
+        <div class="catalogo__ejemplo">
+          <!-- TODO (grupo): poner los enlaces reales de las redes del estudio -->
+          <ul class="redes">
+            <li><a class="red-social" href="#" aria-label="modem en X"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a></li>
+            <li><a class="red-social" href="#" aria-label="modem en Instagram"><span class="icono icono--16 icono--instagram" aria-hidden="true"></span></a></li>
+            <li><a class="red-social" href="#" aria-label="modem en Facebook"><span class="icono icono--16 icono--facebook" aria-hidden="true"></span></a></li>
+          </ul>
+        </div>
+        <div class="catalogo__codigo"><pre><code></code></pre></div>
+      </section>
+
+
+      <!-- ============================== ICONOS ============================== -->
+      <section class="catalogo__componente" id="iconos" aria-labelledby="titulo-iconos">
+        <h2 id="titulo-iconos">Iconos</h2>
+        <p>Los SVG están en <code>img/iconos/</code>. Se ponen con un <code>&lt;span&gt;</code> y toman el color del texto que los rodea. Tamaños: <code>icono--16</code>, <code>icono--18</code>, <code>icono--20</code>, <code>icono--36</code> (sin tamaño: 24 px). Lleva siempre <code>aria-hidden="true"</code>: el icono es decorativo.</p>
+        <div class="catalogo__ejemplo catalogo__ejemplo--fila">
+          <span class="icono icono--x" aria-hidden="true"></span>
+          <span class="icono icono--instagram" aria-hidden="true"></span>
+          <span class="icono icono--facebook" aria-hidden="true"></span>
+          <span class="icono icono--steam" aria-hidden="true"></span>
+          <span class="icono icono--epic" aria-hidden="true"></span>
+          <span class="icono icono--play" aria-hidden="true"></span>
+          <span class="icono icono--pausa" aria-hidden="true"></span>
+          <span class="icono icono--volumen" aria-hidden="true"></span>
+          <span class="icono icono--pantalla-completa" aria-hidden="true"></span>
+          <span class="icono icono--cerrar" aria-hidden="true"></span>
+          <span class="icono icono--check" aria-hidden="true"></span>
+          <span class="icono icono--descargar" aria-hidden="true"></span>
+        </div>
+        <div class="catalogo__codigo"><pre><code></code></pre></div>
+      </section>
+
+
+      <!-- ============================== BOTONES ============================== -->
+      <section class="catalogo__componente" id="botones" aria-labelledby="titulo-botones">
+        <h2 id="titulo-botones">Botones</h2>
+        <p><strong>Principal</strong> (<code>boton</code>) para la acción más importante y <strong>secundario</strong> (<code>boton boton--secundario</code>) para las demás. Si el botón <strong>lleva a otra página</strong>, usa <code>&lt;a class="boton" href="..."&gt;</code>; si <strong>hace algo</strong> en la página (abrir el modal, enviar), usa <code>&lt;button type="button"&gt;</code>. Para desactivarlo, añade el atributo <code>disabled</code>. Si van varios juntos, mételos en un <code>&lt;div class="grupo-botones"&gt;</code> (16 px entre ellos).</p>
+
+        <h3>Estados del botón principal</h3>
+        <ul class="catalogo__estados">
+          <li><button class="boton" type="button">Descargar demo</button><span>Normal</span></li>
+          <li><button class="boton demo-hover" type="button">Descargar demo</button><span>Hover</span></li>
+          <li><button class="boton demo-foco" type="button">Descargar demo</button><span>Focus (teclado)</span></li>
+          <li><button class="boton demo-pulsado" type="button">Descargar demo</button><span>Active (pulsado)</span></li>
+          <li><button class="boton" type="button" disabled>Descargar demo</button><span>Disabled</span></li>
+        </ul>
+
+        <h3>Estados del botón secundario</h3>
+        <ul class="catalogo__estados">
+          <li><button class="boton boton--secundario" type="button">Ver tráiler</button><span>Normal</span></li>
+          <li><button class="boton boton--secundario demo-hover" type="button">Ver tráiler</button><span>Hover</span></li>
+          <li><button class="boton boton--secundario demo-foco" type="button">Ver tráiler</button><span>Focus (teclado)</span></li>
+          <li><button class="boton boton--secundario demo-pulsado" type="button">Ver tráiler</button><span>Active (pulsado)</span></li>
+          <li><button class="boton boton--secundario" type="button" disabled>Ver tráiler</button><span>Disabled</span></li>
+        </ul>
+
+        <h3>Código</h3>
+        <div class="catalogo__ejemplo">
+          <div class="grupo-botones">
+            <button class="boton" type="button">Botón principal</button>
+            <button class="boton boton--secundario" type="button">Botón secundario</button>
+            <a class="boton" href="juegos.html">Enlace con aspecto de botón</a>
+            <button class="boton" type="button" disabled>Desactivado</button>
+          </div>
+        </div>
+        <div class="catalogo__codigo"><pre><code></code></pre></div>
+      </section>
+
+
+      <!-- ============================== BOTONES DE TIENDA ============================== -->
+      <section class="catalogo__componente" id="botones-tienda" aria-labelledby="titulo-botones-tienda">
+        <h2 id="titulo-botones-tienda">Botones de tienda (Steam y Epic Games)</h2>
+        <p>Son los botones <strong>principales</strong> de la tarjeta y de la ficha de juego. Mismos colores y estados que el botón principal, con el icono de la tienda a 18 px. Llevan a otra web, así que son <code>&lt;a&gt;</code>. Los enlaces reales los pone el grupo: de momento <code>href="#"</code> con un TODO.</p>
+        <h3>Estados</h3>
+        <ul class="catalogo__estados">
+          <li><a class="boton boton--tienda" href="#botones-tienda"><span class="icono icono--18 icono--steam" aria-hidden="true"></span>Steam</a><span>Normal</span></li>
+          <li><a class="boton boton--tienda demo-hover" href="#botones-tienda"><span class="icono icono--18 icono--steam" aria-hidden="true"></span>Steam</a><span>Hover</span></li>
+          <li><a class="boton boton--tienda demo-foco" href="#botones-tienda"><span class="icono icono--18 icono--steam" aria-hidden="true"></span>Steam</a><span>Focus</span></li>
+          <li><a class="boton boton--tienda demo-pulsado" href="#botones-tienda"><span class="icono icono--18 icono--steam" aria-hidden="true"></span>Steam</a><span>Active</span></li>
+          <li><a class="boton boton--tienda" aria-disabled="true"><span class="icono icono--18 icono--steam" aria-hidden="true"></span>Steam</a><span>Disabled</span></li>
+        </ul>
+        <h3>Código</h3>
+        <div class="catalogo__ejemplo">
+          <div class="grupo-botones">
+            <!-- TODO (grupo): poner el enlace real de Steam -->
+            <a class="boton boton--tienda" href="#">
+              <span class="icono icono--18 icono--steam" aria-hidden="true"></span>
+              Steam
+            </a>
+            <!-- TODO (grupo): poner el enlace real de Epic Games -->
+            <a class="boton boton--tienda" href="#">
+              <span class="icono icono--18 icono--epic" aria-hidden="true"></span>
+              Epic Games
+            </a>
+          </div>
+        </div>
+        <div class="catalogo__codigo"><pre><code></code></pre></div>
+      </section>
+
+
+      <!-- ============================== ENLACE DE TEXTO ============================== -->
+      <section class="catalogo__componente" id="enlaces" aria-labelledby="titulo-enlaces">
+        <h2 id="titulo-enlaces">Enlace de texto</h2>
+        <p>Para acciones de tercer nivel: «Ver tráiler», «Ver ficha →», «Leer más →», «← Volver a Juegos». En hover se subraya. Varios juntos van en <code>&lt;div class="grupo-enlaces"&gt;</code> (24 px entre ellos).</p>
+        <p><strong>Accesibilidad:</strong> si en la página hay muchos «Leer más», el lector de pantalla no sabe cuál es cuál. Añade el título escondido con <code>visualmente-oculto</code>, como en el segundo ejemplo.</p>
+        <h3>Estados</h3>
+        <ul class="catalogo__estados">
+          <li><a class="enlace" href="#enlaces">Ver ficha →</a><span>Normal</span></li>
+          <li><a class="enlace demo-hover" href="#enlaces">Ver ficha →</a><span>Hover</span></li>
+        </ul>
+        <h3>Código</h3>
+        <div class="catalogo__ejemplo">
+          <div class="grupo-enlaces">
+            <a class="enlace" href="trailer.html">Ver tráiler</a>
+            <a class="enlace" href="ficha-juego.html">Ver ficha →</a>
+          </div>
+          <a class="enlace" href="noticia.html">Leer más<span class="visualmente-oculto">: Nuevo tráiler de Neon Abyss: Echoes</span> →</a>
+          <a class="enlace" href="juegos.html">← Volver a Juegos</a>
+        </div>
+        <div class="catalogo__codigo"><pre><code></code></pre></div>
+      </section>
+
+
+      <!-- ============================== ETIQUETAS ============================== -->
+      <section class="catalogo__componente" id="etiquetas" aria-labelledby="titulo-etiquetas">
+        <h2 id="titulo-etiquetas">Etiquetas (género del juego)</h2>
+        <p>Etiquetas de género al estilo de Steam. Van en una lista <code>&lt;ul class="etiquetas"&gt;</code>, debajo de las plataformas y encima de los botones. Si no caben, bajan a otra línea solas.</p>
+        <h3>Estados</h3>
+        <ul class="catalogo__estados">
+          <li><span class="etiqueta">Acción</span><span>Normal</span></li>
+          <li><span class="etiqueta demo-hover">Acción</span><span>Hover</span></li>
+        </ul>
+        <h3>Código</h3>
+        <div class="catalogo__ejemplo">
+          <ul class="etiquetas" aria-label="Géneros">
+            <li class="etiqueta">Acción</li>
+            <li class="etiqueta">Caza</li>
+            <li class="etiqueta">Cooperativos en línea</li>
+            <li class="etiqueta">Rol</li>
+            <li class="etiqueta">Multijugador</li>
+          </ul>
+        </div>
+        <div class="catalogo__codigo"><pre><code></code></pre></div>
+      </section>
+
+
+      <!-- ============================== ETIQUETA DE CATEGORÍA ============================== -->
+      <section class="catalogo__componente" id="etiqueta-categoria" aria-labelledby="titulo-etiqueta-categoria">
+        <h2 id="titulo-etiqueta-categoria">Etiqueta de categoría</h2>
+        <p>Categoría de una noticia. Va encima de la fecha en las tarjetas de noticia, en las entradas del blog y en la noticia abierta. Categorías: Anuncios · Juegos en tendencia · Actualizaciones · Eventos · Diario de desarrollo.</p>
+        <div class="catalogo__ejemplo catalogo__ejemplo--fila">
+          <span class="etiqueta-categoria">Anuncios</span>
+          <span class="etiqueta-categoria">Juegos en tendencia</span>
+          <span class="etiqueta-categoria">Actualizaciones</span>
+          <span class="etiqueta-categoria">Eventos</span>
+          <span class="etiqueta-categoria">Diario de desarrollo</span>
+        </div>
+        <div class="catalogo__codigo"><pre><code></code></pre></div>
+      </section>
+
+
+      <!-- ============================== FILTROS ============================== -->
+      <section class="catalogo__componente" id="filtros" aria-labelledby="titulo-filtros">
+        <h2 id="titulo-filtros">Filtros</h2>
+        <p>Barra de filtros de Noticias. Son <code>&lt;button&gt;</code>. El activo lleva <code>aria-pressed="true"</code> y los demás <code>aria-pressed="false"</code>; solo uno activo a la vez (por defecto «Todas»). <code>data-filtro</code> guarda la categoría que filtra (lo usará <code>js/noticias.js</code>).</p>
+        <h3>Estados</h3>
+        <ul class="catalogo__estados">
+          <li><button class="filtro" type="button" aria-pressed="false">Anuncios</button><span>Normal</span></li>
+          <li><button class="filtro demo-hover" type="button" aria-pressed="false">Anuncios</button><span>Hover</span></li>
+          <li><button class="filtro" type="button" aria-pressed="true">Anuncios</button><span>Activo</span></li>
+        </ul>
+        <h3>Código</h3>
+        <div class="catalogo__ejemplo">
+          <div class="filtros" role="group" aria-label="Filtrar noticias por categoría">
+            <button class="filtro" type="button" data-filtro="todas" aria-pressed="true">Todas</button>
+            <button class="filtro" type="button" data-filtro="anuncios" aria-pressed="false">Anuncios</button>
+            <button class="filtro" type="button" data-filtro="juegos-en-tendencia" aria-pressed="false">Juegos en tendencia</button>
+            <button class="filtro" type="button" data-filtro="actualizaciones" aria-pressed="false">Actualizaciones</button>
+            <button class="filtro" type="button" data-filtro="eventos" aria-pressed="false">Eventos</button>
+            <button class="filtro" type="button" data-filtro="diario-de-desarrollo" aria-pressed="false">Diario de desarrollo</button>
+          </div>
+        </div>
+        <div class="catalogo__codigo"><pre><code></code></pre></div>
+      </section>
+
+
+      <!-- ============================== CAJA DE IMAGEN ============================== -->
+      <section class="catalogo__componente" id="caja-imagen" aria-labelledby="titulo-caja-imagen">
+        <h2 id="titulo-caja-imagen">Caja de imagen</h2>
+        <p>Hueco gris para cuando todavía no tienes la imagen. Ponle además la clase de la imagen que va a sustituir (aquí <code>tarjeta-noticia__imagen</code>) para que tenga el mismo tamaño. Cuando tengas la imagen, cambia el <code>&lt;div&gt;</code> por el <code>&lt;img&gt;</code>.</p>
+        <div class="catalogo__ejemplo catalogo__ejemplo--estrecho">
+          <div class="caja-imagen tarjeta-noticia__imagen">Imagen pendiente</div>
+        </div>
+        <div class="catalogo__codigo"><pre><code></code></pre></div>
+      </section>
+
+
+      <!-- ============================== TARJETA DE JUEGO ============================== -->
+      <section class="catalogo__componente" id="tarjeta-juego" aria-labelledby="titulo-tarjeta-juego">
+        <h2 id="titulo-tarjeta-juego">Tarjeta de juego</h2>
+        <p>Imagen de 520 × 320 px y la información al lado. Para poner la imagen a la <strong>derecha</strong> añade <code>tarjeta-juego--invertida</code> (en el HTML la imagen va siempre primero). En tablet y móvil la imagen se pone encima sola.</p>
+        <p>Jerarquía de acciones: Steam y Epic son los botones principales, «Descargar demo» es secundario y «Ver tráiler» y «Ver ficha →» son enlaces de texto. El botón «Descargar demo» abre el modal solo con poner <code>data-demo</code> (mira <a class="enlace" href="#modal">Modal</a>).</p>
+        <div class="catalogo__ejemplo">
+          <article class="tarjeta-juego">
+            <img class="tarjeta-juego__imagen" src="img/juegos/beast-acquirer-savage.jpg" alt="Una bestia marina gigante emerge entre las olas" width="520" height="320">
+            <div class="tarjeta-juego__info">
+              <h2>Beast Acquirer Savage</h2>
+              <p>Un juego de mundo abierto en el que te encargas de adquirir bestias que amenazan con destruir el ecosistema, usando partes de las propias bestias.</p>
+              <p class="tarjeta-juego__plataformas">Plataformas: PC · Xbox Series X · PS5</p>
+              <ul class="etiquetas" aria-label="Géneros">
+                <li class="etiqueta">Acción</li>
+                <li class="etiqueta">Caza</li>
+                <li class="etiqueta">Cooperativos en línea</li>
+                <li class="etiqueta">Rol</li>
+                <li class="etiqueta">Multijugador</li>
+              </ul>
+              <div class="grupo-botones">
+                <!-- TODO (grupo): poner el enlace real de Steam -->
+                <a class="boton boton--tienda" href="#">
+                  <span class="icono icono--18 icono--steam" aria-hidden="true"></span>
+                  Steam
+                </a>
+                <!-- TODO (grupo): poner el enlace real de Epic Games -->
+                <a class="boton boton--tienda" href="#">
+                  <span class="icono icono--18 icono--epic" aria-hidden="true"></span>
+                  Epic Games
+                </a>
+                <button class="boton boton--secundario" type="button" data-demo="Beast Acquirer Savage" data-plataformas="PC, Xbox Series X, PS5">Descargar demo</button>
+              </div>
+              <div class="grupo-enlaces">
+                <a class="enlace" href="trailer.html">Ver tráiler</a>
+                <a class="enlace" href="ficha-juego.html">Ver ficha →</a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="catalogo__codigo"><pre><code></code></pre></div>
+      </section>
+
+
+      <!-- ============================== TARJETA DE NOTICIA ============================== -->
+      <section class="catalogo__componente" id="tarjeta-noticia" aria-labelledby="titulo-tarjeta-noticia">
+        <h2 id="titulo-tarjeta-noticia">Tarjeta de noticia</h2>
+        <p>Para «Últimas noticias» (Inicio) y «Relacionadas» (noticia abierta). Mete las tarjetas en una <code>&lt;ul class="rejilla-noticias"&gt;</code>: se colocan de 3 en 3 (2 en tablet y 1 en móvil). Cada tarjeta es un <code>&lt;article&gt;</code> con su título en <code>&lt;h3&gt;</code>.</p>
+        <div class="catalogo__ejemplo">
+          <ul class="rejilla-noticias">
+            <li>
+              <article class="tarjeta-noticia">
+                <img class="tarjeta-noticia__imagen" src="img/noticias/noticia-2.jpg" alt="Partida de Neon Abyss: Echoes en una sala llena de enemigos y explosiones" width="380" height="220">
+                <div class="tarjeta-noticia__contenido">
+                  <span class="etiqueta-categoria">Anuncios</span>
+                  <p class="fecha">28 de septiembre de 2026 - Por modem</p>
+                  <h3>Nuevo tráiler de Neon Abyss: Echoes</h3>
+                  <p>Descubre el nuevo tráiler de nuestro próximo juego y conoce algunas de las novedades que llegarán a la versión final.</p>
+                  <a class="enlace" href="noticia.html">Leer más<span class="visualmente-oculto">: Nuevo tráiler de Neon Abyss: Echoes</span> →</a>
+                </div>
+              </article>
+            </li>
+          </ul>
+        </div>
+        <div class="catalogo__codigo"><pre><code></code></pre></div>
+      </section>
+
+
+      <!-- ============================== ENTRADA DE BLOG ============================== -->
+      <section class="catalogo__componente" id="entrada-blog" aria-labelledby="titulo-entrada-blog">
+        <h2 id="titulo-entrada-blog">Entrada de blog</h2>
+        <p>Para la lista de Noticias. Mete las entradas en una <code>&lt;ul class="lista-entradas"&gt;</code>: la línea separadora y los 40 px entre entradas ya los pone el CSS. <code>data-categoria</code> dice la categoría de la entrada (la usa el filtro de <code>js/noticias.js</code>) y tiene que coincidir con el <code>data-filtro</code> de su botón.</p>
+        <div class="catalogo__ejemplo">
+          <ul class="lista-entradas">
+            <li>
+              <article class="entrada-blog" data-categoria="anuncios">
+                <img class="entrada-blog__imagen" src="img/noticias/entrada-1.jpg" alt="Partida de Neon Abyss: Echoes en una sala llena de enemigos y explosiones" width="320" height="200">
+                <div class="entrada-blog__contenido">
+                  <span class="etiqueta-categoria">Anuncios</span>
+                  <p class="fecha">28 de septiembre de 2026 - Por modem</p>
+                  <h2 class="titulo-h3">Nuevo tráiler de Neon Abyss: Echoes</h2>
+                  <p>Ya puedes descubrir el nuevo tráiler de Neon Abyss: Echoes. Un adelanto de las nuevas zonas, desafíos y sorpresas que te esperan en esta nueva aventura.</p>
+                  <a class="enlace" href="noticia.html">Leer más<span class="visualmente-oculto">: Nuevo tráiler de Neon Abyss: Echoes</span> →</a>
+                </div>
+              </article>
+            </li>
+          </ul>
+        </div>
+        <div class="catalogo__codigo"><pre><code></code></pre></div>
+      </section>
+
+
+      <!-- ============================== FORMULARIO ============================== -->
+      <section class="catalogo__componente" id="formulario" aria-labelledby="titulo-formulario">
+        <h2 id="titulo-formulario">Formulario</h2>
+        <p>Cada campo es un <code>&lt;div class="campo"&gt;</code> con su <code>&lt;label&gt;</code> (el <code>for</code> del label tiene que ser igual que el <code>id</code> del campo), el campo y un <code>&lt;p class="campo__error"&gt;</code> oculto con <code>hidden</code>. El atributo <code>novalidate</code> del form desactiva los avisos del navegador para que podamos enseñar los nuestros con JavaScript.</p>
+        <h3>Estados</h3>
+        <ul class="catalogo__estados catalogo__estados--anchos">
+          <li>
+            <div class="campo">
+              <label class="campo__etiqueta" for="demo-normal">Email</label>
+              <input class="campo__control" id="demo-normal" type="email" placeholder="correo@ejemplo.com">
+            </div>
+            <span>Normal</span>
+          </li>
+          <li>
+            <div class="campo">
+              <label class="campo__etiqueta" for="demo-foco">Email</label>
+              <input class="campo__control demo-foco" id="demo-foco" type="email" value="Escribiendo...">
+            </div>
+            <span>Focus</span>
+          </li>
+          <li>
+            <div class="campo campo--error">
+              <label class="campo__etiqueta" for="demo-error">Email</label>
+              <input class="campo__control" id="demo-error" type="email" value="correo-sin-arroba" aria-invalid="true" aria-describedby="demo-error-mensaje">
+              <p class="campo__error" id="demo-error-mensaje">Introduce un email válido.</p>
+            </div>
+            <span>Error</span>
+          </li>
+        </ul>
+        <h3>Código</h3>
+        <div class="catalogo__ejemplo catalogo__ejemplo--estrecho">
+          <form class="formulario" action="#" novalidate>
+            <div class="campo">
+              <label class="campo__etiqueta" for="nombre">Nombre</label>
+              <input class="campo__control" id="nombre" name="nombre" type="text" placeholder="Nombre Apellido" autocomplete="name" required aria-describedby="nombre-error">
+              <p class="campo__error" id="nombre-error" hidden></p>
+            </div>
+            <div class="campo">
+              <label class="campo__etiqueta" for="email">Email</label>
+              <input class="campo__control" id="email" name="email" type="email" placeholder="correo@ejemplo.com" autocomplete="email" required aria-describedby="email-error">
+              <p class="campo__error" id="email-error" hidden></p>
+            </div>
+            <div class="campo">
+              <label class="campo__etiqueta" for="mensaje">Mensaje</label>
+              <textarea class="campo__control" id="mensaje" name="mensaje" placeholder="Hola, me gustaría saber más sobre vuestros juegos." required aria-describedby="mensaje-error"></textarea>
+              <p class="campo__error" id="mensaje-error" hidden></p>
+            </div>
+            <button class="boton" type="submit">Enviar</button>
+          </form>
+        </div>
+        <div class="catalogo__codigo"><pre><code></code></pre></div>
+      </section>
+
+
+      <!-- ============================== MODAL ============================== -->
+      <section class="catalogo__componente" id="modal" aria-labelledby="titulo-modal">
+        <h2 id="titulo-modal">Modal «Descargar demo»</h2>
+        <p><strong>No tienes que escribir el HTML del modal</strong>: lo crea <code>js/modal-demo.js</code>. Solo necesitas:</p>
+        <ol class="catalogo__pasos">
+          <li>Enlazar el script en el <code>&lt;head&gt;</code>: <code>&lt;script src="js/modal-demo.js" defer&gt;&lt;/script&gt;</code></li>
+          <li>Poner en el botón <code>data-demo="Nombre del juego"</code>.</li>
+          <li>Opcional: <code>data-plataformas="PC, Xbox Series X, PS5"</code> (separadas por comas; si no lo pones, sale solo «PC») y <code>data-tamano="850"</code> (megas de la descarga; si no lo pones, sale «[000 MB]» como en Figma).</li>
+        </ol>
+        <p>Pruébalo con este botón: elige plataforma, mira la barra, cancela, o deja que termine y se descargará un <code>.txt</code>. Se cierra con la X, con «Cerrar», con Escape o pulsando fuera.</p>
+        <div class="catalogo__ejemplo">
+          <button class="boton boton--secundario" type="button" data-demo="Beast Acquirer Savage" data-plataformas="PC, Xbox Series X, PS5">Descargar demo</button>
+        </div>
+        <div class="catalogo__codigo"><pre><code></code></pre></div>
+
+        <h3>Los 3 pasos (solo para verlos; no copies este HTML)</h3>
+        <div class="catalogo__modales" aria-hidden="true">
+          <div class="modal">
+            <div class="modal__paso">
+              <div class="modal__cabecera">
+                <p class="titulo-h3">Descargar demo</p>
+                <span class="modal__cerrar"><span class="icono icono--20 icono--cerrar"></span></span>
+              </div>
+              <p>Beast Acquirer Savage · Demo</p>
+              <div class="modal__opciones">
+                <p class="modal__nota">Elige tu plataforma</p>
+                <div class="modal__lista-opciones">
+                  <label class="opcion-plataforma"><input class="opcion-plataforma__radio" type="radio" name="demo-estatico" tabindex="-1" checked> PC</label>
+                  <label class="opcion-plataforma"><input class="opcion-plataforma__radio" type="radio" name="demo-estatico" tabindex="-1"> Xbox Series X</label>
+                  <label class="opcion-plataforma"><input class="opcion-plataforma__radio" type="radio" name="demo-estatico" tabindex="-1"> PS5</label>
+                </div>
+              </div>
+              <p class="modal__nota">Tamaño de la descarga: [000 MB]</p>
+              <div class="modal__acciones"><span class="boton">Descargar</span></div>
+            </div>
+          </div>
+          <div class="modal">
+            <div class="modal__paso">
+              <div class="modal__cabecera">
+                <p class="titulo-h3">Descargando</p>
+                <span class="modal__cerrar"><span class="icono icono--20 icono--cerrar"></span></span>
+              </div>
+              <p>Beast Acquirer Savage · Demo para PC</p>
+              <div class="modal__progreso">
+                <div class="barra-progreso"><div class="barra-progreso__relleno" style="width: 60%"></div></div>
+                <div class="modal__datos-progreso">
+                  <span class="modal__porcentaje">60 %</span>
+                  <span class="modal__nota">[000 MB de 000 MB]</span>
+                </div>
+              </div>
+              <div class="modal__acciones"><span class="boton boton--secundario">Cancelar</span></div>
+            </div>
+          </div>
+          <div class="modal">
+            <div class="modal__paso">
+              <div class="modal__cabecera">
+                <p class="titulo-h3">Completada</p>
+                <span class="modal__cerrar"><span class="icono icono--20 icono--cerrar"></span></span>
+              </div>
+              <div class="modal__mensaje">
+                <span class="modal__icono-ok"><span class="icono icono--20 icono--check"></span></span>
+                <p>La demo de Beast Acquirer Savage se ha descargado correctamente.</p>
+              </div>
+              <div class="barra-progreso"><div class="barra-progreso__relleno" style="width: 100%"></div></div>
+              <div class="modal__acciones"><span class="boton">Cerrar</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================== BARRA DE PROGRESO ============================== -->
+      <section class="catalogo__componente" id="barra-progreso" aria-labelledby="titulo-barra-progreso">
+        <h2 id="titulo-barra-progreso">Barra de progreso</h2>
+        <p>Pista gris y relleno de acento. El porcentaje es el ancho del relleno (<code>style="width: 60%"</code>): es el único sitio donde se permite <code>style</code>, porque lo cambia el JavaScript. <code>role="progressbar"</code> y los <code>aria-value…</code> hacen que el lector de pantalla diga el porcentaje.</p>
+        <div class="catalogo__ejemplo catalogo__ejemplo--estrecho">
+          <div class="barra-progreso" role="progressbar" aria-label="Progreso de la descarga" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60">
+            <div class="barra-progreso__relleno" style="width: 60%"></div>
+          </div>
+        </div>
+        <div class="catalogo__codigo"><pre><code></code></pre></div>
+      </section>
+
+
+      <!-- ============================== BANNER DE JUEGO ============================== -->
+      <section class="catalogo__componente" id="banner-juego" aria-labelledby="titulo-banner-juego">
+        <h2 id="titulo-banner-juego">Banner de juego</h2>
+        <p>Cabecera de la ficha de juego: imagen oscurecida con el velo y el nombre del juego encima. La imagen lleva <code>alt=""</code> porque es decorativa (el nombre ya está en el título).</p>
+        <div class="catalogo__ejemplo">
+          <div class="banner-juego">
+            <img class="banner-juego__imagen" src="img/juegos/beast-acquirer-savage.jpg" alt="" width="1200" height="280">
+            <h1 class="banner-juego__titulo">Beast Acquirer Savage</h1>
+          </div>
+        </div>
+        <div class="catalogo__codigo"><pre><code></code></pre></div>
+      </section>
+
+
+      <!-- ============================== GALERÍA ============================== -->
+      <section class="catalogo__componente" id="galeria" aria-labelledby="titulo-galeria">
+        <h2 id="titulo-galeria">Galería de juego</h2>
+        <p>Imagen principal y 4 miniaturas. Cada miniatura es un <code>&lt;button&gt;</code> con <code>data-imagen</code> (la imagen grande que enseña) y la elegida lleva <code>aria-pressed="true"</code>. El cambio de imagen lo hace <code>js/ficha-juego.js</code> (en esta página de catálogo no funciona).</p>
+        <div class="catalogo__ejemplo catalogo__ejemplo--estrecho">
+          <div class="galeria">
+            <img class="galeria__principal" src="img/juegos/beast-acquirer-savage.jpg" alt="Una bestia marina gigante emerge entre las olas" width="720" height="405">
+            <ul class="galeria__miniaturas">
+              <li><button class="galeria__miniatura" type="button" data-imagen="img/juegos/beast-acquirer-savage.jpg" aria-pressed="true"><img src="img/juegos/beast-acquirer-savage.jpg" alt="Una bestia marina gigante emerge entre las olas" width="171" height="96"></button></li>
+              <li><button class="galeria__miniatura" type="button" data-imagen="img/juegos/beast-galeria-2.jpg" aria-pressed="false"><img src="img/juegos/beast-galeria-2.jpg" alt="Una tienda con forma de criatura en un campamento del desierto" width="171" height="96"></button></li>
+            </ul>
+          </div>
+        </div>
+        <div class="catalogo__codigo"><pre><code></code></pre></div>
+      </section>
+
+
+      <!-- ============================== DATOS DEL JUEGO ============================== -->
+      <section class="catalogo__componente" id="datos-juego" aria-labelledby="titulo-datos-juego">
+        <h2 id="titulo-datos-juego">Datos del juego</h2>
+        <p>Columna lateral de la ficha: descripción corta, etiquetas, datos (en una lista de definición <code>&lt;dl&gt;</code>), precio y botones de compra y demo.</p>
+        <div class="catalogo__ejemplo catalogo__ejemplo--estrecho">
+          <aside class="datos-juego" aria-label="Datos del juego">
+            <p>Un juego de mundo abierto en el que te encargas de adquirir bestias que amenazan con destruir el ecosistema, usando partes de las propias bestias.</p>
+            <ul class="etiquetas" aria-label="Géneros">
+              <li class="etiqueta">Acción</li>
+              <li class="etiqueta">Caza</li>
+            </ul>
+            <dl class="datos-juego__lista">
+              <div class="dato">
+                <dt>Plataformas</dt>
+                <dd>PC · Xbox Series X · PS5</dd>
+              </div>
+              <div class="dato">
+                <dt>Precio</dt>
+                <dd class="datos-juego__precio">[39,99 €]</dd>
+              </div>
+            </dl>
+            <div class="datos-juego__comprar">
+              <!-- TODO (grupo): poner los enlaces reales de las tiendas -->
+              <a class="boton boton--tienda" href="#"><span class="icono icono--18 icono--steam" aria-hidden="true"></span>Steam</a>
+              <a class="boton boton--tienda" href="#"><span class="icono icono--18 icono--epic" aria-hidden="true"></span>Epic Games</a>
+            </div>
+            <button class="boton boton--secundario boton--ancho-completo" type="button" data-demo="Beast Acquirer Savage" data-plataformas="PC, Xbox Series X, PS5">Descargar demo</button>
+          </aside>
+        </div>
+        <div class="catalogo__codigo"><pre><code></code></pre></div>
+      </section>
+
+
+      <!-- ============================== REQUISITOS ============================== -->
+      <section class="catalogo__componente" id="requisitos" aria-labelledby="titulo-requisitos">
+        <h2 id="titulo-requisitos">Requisitos</h2>
+        <p>Caja de requisitos del sistema. En la ficha se usa dos veces: «Mínimos» y «Recomendados».</p>
+        <div class="catalogo__ejemplo catalogo__ejemplo--estrecho">
+          <div class="requisitos">
+            <h3>Mínimos</h3>
+            <ul>
+              <li>SO: Windows 10 (requiere 64 bits) o Linux kernel 7.0</li>
+              <li>Memoria: 16 GB</li>
+            </ul>
+          </div>
+        </div>
+        <div class="catalogo__codigo"><pre><code></code></pre></div>
+      </section>
+
+
+      <!-- ============================== REPRODUCTOR ============================== -->
+      <section class="catalogo__componente" id="reproductor" aria-labelledby="titulo-reproductor">
+        <h2 id="titulo-reproductor">Reproductor de vídeo</h2>
+        <p>Portada 16:9 con el botón de play y la barra de controles. En <code>trailer.html</code>, al pulsar play, <code>js/trailer.js</code> cambia la portada por el vídeo de YouTube. Aquí el play es un enlace que lleva a la página del tráiler (como en la ficha de juego).</p>
+        <div class="catalogo__ejemplo catalogo__ejemplo--estrecho">
+          <div class="reproductor">
+            <img class="reproductor__portada" src="img/juegos/beast-acquirer-savage.jpg" alt="" width="1200" height="675">
+            <a class="reproductor__play" href="trailer.html">
+              <span class="reproductor__circulo"><span class="icono icono--36 icono--play" aria-hidden="true"></span></span>
+              <span class="visualmente-oculto">Ver el tráiler de Beast Acquirer Savage</span>
+            </a>
+            <div class="reproductor__controles" aria-hidden="true">
+              <span class="icono icono--20 icono--play"></span>
+              <span>0:00 / 0:00</span>
+              <div class="barra-progreso"><div class="barra-progreso__relleno"></div></div>
+              <span class="icono icono--20 icono--volumen"></span>
+              <span class="icono icono--20 icono--pantalla-completa"></span>
+            </div>
+          </div>
+        </div>
+        <div class="catalogo__codigo"><pre><code></code></pre></div>
+      </section>
+
+
+      <!-- ============================== MINIATURA DE VÍDEO ============================== -->
+      <section class="catalogo__componente" id="miniatura-video" aria-labelledby="titulo-miniatura-video">
+        <h2 id="titulo-miniatura-video">Miniatura de vídeo</h2>
+        <p>Miniatura de la fila «Más vídeos» de la página del tráiler. Es un <code>&lt;button&gt;</code>: al pulsarlo, <code>js/trailer.js</code> pone ese vídeo en el reproductor.</p>
+        <div class="catalogo__ejemplo catalogo__ejemplo--estrecho">
+          <button class="miniatura-video" type="button" data-video="1">
+            <span class="miniatura-video__imagen">
+              <img src="img/juegos/beast-video-1.jpg" alt="" width="384" height="216">
+              <span class="miniatura-video__play"><span class="icono icono--20 icono--play" aria-hidden="true"></span></span>
+            </span>
+            <span class="miniatura-video__titulo">NUEVA BESTIA! Enfrentaos a kezu!</span>
+            <span class="miniatura-video__duracion">[2:12]</span>
+          </button>
+        </div>
+        <div class="catalogo__codigo"><pre><code></code></pre></div>
+      </section>
+
+
+      <!-- ============================== DATOS DEL VÍDEO ============================== -->
+      <section class="catalogo__componente" id="datos-video" aria-labelledby="titulo-datos-video">
+        <h2 id="titulo-datos-video">Datos del vídeo</h2>
+        <p>Debajo del reproductor: nombre del juego, título del tráiler, descripción y botones.</p>
+        <div class="catalogo__ejemplo">
+          <div class="datos-video">
+            <h1 class="titulo-h2">Beast Acquirer Savage</h1>
+            <h2 class="titulo-h3">¡Echa un vistazo a la acción de Beast Acquirer Savage!</h2>
+            <p class="datos-video__descripcion">Beast Acquirer Savage es la última entrega hasta la fecha de la saga Beast Acquirer.</p>
+            <div class="grupo-botones">
+              <!-- TODO (grupo): poner los enlaces reales de las tiendas -->
+              <a class="boton boton--tienda" href="#"><span class="icono icono--18 icono--steam" aria-hidden="true"></span>Steam</a>
+              <a class="boton boton--tienda" href="#"><span class="icono icono--18 icono--epic" aria-hidden="true"></span>Epic Games</a>
+              <button class="boton boton--secundario" type="button" data-demo="Beast Acquirer Savage" data-plataformas="PC, Xbox Series X, PS5">Descargar demo</button>
+            </div>
+          </div>
+        </div>
+        <div class="catalogo__codigo"><pre><code></code></pre></div>
+      </section>
+
+
+      <!-- ============================== ARTÍCULO ============================== -->
+      <section class="catalogo__componente" id="articulo" aria-labelledby="titulo-articulo">
+        <h2 id="titulo-articulo">Artículo (noticia abierta)</h2>
+        <p>Columna de 800 px con la cabecera (categoría, título y fecha), la imagen principal, el cuerpo (entradilla, subtítulos <code>h2.titulo-h3</code>, párrafos e imagen intermedia), un separador y «Compartir».</p>
+        <div class="catalogo__ejemplo">
+          <article class="articulo">
+            <header class="articulo__cabecera">
+              <span class="etiqueta-categoria">Anuncios</span>
+              <h1 class="titulo-h2">Nuevo tráiler de Neon Abyss: Echoes</h1>
+              <p class="fecha">28 de septiembre de 2026 - Por modem</p>
+            </header>
+            <div class="articulo__cuerpo">
+              <p>Ya puedes descubrir el nuevo tráiler de Neon Abyss: Echoes.</p>
+              <h2 class="titulo-h3">Presentamos el nuevo tráiler</h2>
+              <p>Después de varias semanas de trabajo, nos alegra compartir por fin el primer tráiler.</p>
+            </div>
+            <hr class="separador">
+            <div class="compartir">
+              <span class="compartir__texto">Compartir:</span>
+              <!-- TODO (grupo): poner los enlaces para compartir -->
+              <ul class="redes">
+                <li><a class="red-social" href="#" aria-label="Compartir en X"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a></li>
+                <li><a class="red-social" href="#" aria-label="Compartir en Instagram"><span class="icono icono--16 icono--instagram" aria-hidden="true"></span></a></li>
+                <li><a class="red-social" href="#" aria-label="Compartir en Facebook"><span class="icono icono--16 icono--facebook" aria-hidden="true"></span></a></li>
+              </ul>
+            </div>
+          </article>
+        </div>
+        <div class="catalogo__codigo"><pre><code></code></pre></div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ============================== FOOTER ==============================
+       Igual en todas las páginas: NO lo cambies. -->
+  <footer class="footer">
+    <p class="footer__mision">Nuestra misión: crear juegos pequeños, hechos a mano y con mucho cariño, para que cualquiera pueda vivir una gran aventura.</p>
+
+    <nav aria-label="Enlaces del pie de página">
+      <ul class="footer__enlaces">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="juegos.html">Juegos</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- TODO (grupo): poner los enlaces reales de las redes del estudio -->
+    <ul class="redes">
+      <li><a class="red-social" href="#" aria-label="modem en X"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a></li>
+      <li><a class="red-social" href="#" aria-label="modem en Instagram"><span class="icono icono--16 icono--instagram" aria-hidden="true"></span></a></li>
+      <li><a class="red-social" href="#" aria-label="modem en Facebook"><span class="icono icono--16 icono--facebook" aria-hidden="true"></span></a></li>
+    </ul>
+
+    <p class="footer__copyright">© 2026 modem</p>
+  </footer>
+</body>
+</html>

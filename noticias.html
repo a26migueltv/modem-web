@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noticias · modem</title>
+  <meta name="description" content="Noticias, anuncios y diarios de desarrollo del estudio modem.">
+  <link rel="icon" href="img/logo/modem-icono-negro.svg" type="image/svg+xml">
+
+  <!-- Fuentes de Google: Press Start 2P (títulos) e Inter (texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Press+Start+2P&display=swap">
+
+  <!-- Estilos: primero la base, luego los componentes y al final los de esta página -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages/noticias.css">
+
+  <!-- JavaScript ("defer" = se ejecuta cuando el HTML ya está cargado) -->
+  <script src="js/main.js" defer></script>
+  <script src="js/noticias.js" defer></script>
+</head>
+<body>
+  <!-- Enlace para saltar el menú con el teclado (solo se ve al pulsar Tab) -->
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+
+  <!-- ============================== HEADER ==============================
+       Igual en todas las páginas: NO lo cambies.
+       La página actual se marca sola en el menú (lo hace js/main.js). -->
+  <header class="header">
+    <div class="header__barra contenedor">
+      <a class="logo" href="index.html">
+        <span class="icono logo__icono" aria-hidden="true"></span>
+        <span class="logo__texto">
+          <span class="logo__nombre">modem</span>
+          <span class="logo__lema">Estudio de videojuegos independiente</span>
+        </span>
+      </a>
+
+      <!-- Botón hamburguesa: solo se ve en móvil -->
+      <button class="menu-boton" type="button" aria-expanded="false" aria-controls="navegacion">
+        <span class="menu-boton__rayas" aria-hidden="true"></span>
+        <span class="visualmente-oculto">Abrir menú</span>
+      </button>
+    </div>
+
+    <nav class="header__nav contenedor" id="navegacion" aria-label="Menú principal">
+      <ul class="menu">
+        <li><a class="menu__enlace" href="index.html">Inicio</a></li>
+        <li><a class="menu__enlace" href="juegos.html">Juegos</a></li>
+        <li><a class="menu__enlace" href="noticias.html">Noticias</a></li>
+        <li><a class="menu__enlace" href="contacto.html">Contacto</a></li>
+      </ul>
+
+      <!-- TODO (grupo): poner los enlaces reales de las redes del estudio -->
+      <ul class="redes header__redes">
+        <li><a class="red-social" href="#" aria-label="modem en X"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a></li>
+        <li><a class="red-social" href="#" aria-label="modem en Instagram"><span class="icono icono--16 icono--instagram" aria-hidden="true"></span></a></li>
+        <li><a class="red-social" href="#" aria-label="modem en Facebook"><span class="icono icono--16 icono--facebook" aria-hidden="true"></span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- =====================================================================
+       NOTICIAS (noticias.html) — PÁGINA PARA MONTAR POR: ________________
+       ---------------------------------------------------------------------
+       Pantalla de Figma: "01 · Pantallas" → "Noticias · Escritorio".
+       Un solo bloque (blog en una columna):
+         título "Noticias" → barra de filtros → lista de 4 entradas →
+         enlace "← Entradas anteriores".
+       Cómo trabajar:
+         - Escribe el HTML DENTRO de la <section>, debajo del comentario.
+         - Copia los componentes de componentes.html.
+         - La colocación va en css/pages/noticias.css.
+         - El filtro por categoría va en js/noticias.js (ya enlazado en el
+           <head>): allí tienes los pasos explicados.
+         - El header y el footer ya están: no los toques.
+       ===================================================================== -->
+  <main id="contenido">
+
+    <!-- =================================================================
+         BLOQUE ÚNICO · BLOG DE NOTICIAS
+         -----------------------------------------------------------------
+         Orden y separación (48 px entre cada cosa):
+           1. Título <h1>: "Noticias" (estilo H1, a la izquierda).
+           2. Barra de filtros (componente "Filtros").
+           3. Lista de entradas (componente "Entrada de blog").
+           4. Enlace "← Entradas anteriores" (componente "Enlace de texto").
+              Todavía no hay entradas anteriores: pon href="#" y encima el
+              comentario  TODO (grupo): enlazar las entradas anteriores
+
+         ---- 2. FILTROS ----
+         Copia el bloque entero de "Filtros" de componentes.html. Son 6
+         botones, en este orden: Todas · Anuncios · Juegos en tendencia ·
+         Actualizaciones · Eventos · Diario de desarrollo.
+           - "Todas" empieza activo: aria-pressed="true".
+           - Los demás: aria-pressed="false".
+           - Cada botón lleva data-filtro con su categoría en minúsculas y
+             con guiones: todas, anuncios, juegos-en-tendencia,
+             actualizaciones, eventos, diario-de-desarrollo.
+
+         ---- 3. LISTA DE ENTRADAS ----
+         <ul class="lista-entradas"> con un <li> por entrada. Dentro, el
+         <article class="entrada-blog"> del componente. La línea separadora
+         y los 40 px entre entradas ya los pone el CSS.
+
+         ⚠️ MUY IMPORTANTE para el filtro: cada <article> lleva
+            data-categoria con su categoría, ESCRITA IGUAL que el
+            data-filtro de su botón. Ejemplo:
+              <article class="entrada-blog" data-categoria="anuncios">
+         Títulos de las entradas: <h2 class="titulo-h3"> (son h2 porque
+         van debajo del h1, pero en Figma se ven como un H3).
+         Todos los "Leer más →" van a noticia.html, con el
+         <span class="visualmente-oculto"> del título de la noticia.
+
+         Las 4 entradas, en este orden:
+           1) Imagen: img/noticias/entrada-1.jpg
+                alt="Partida de Neon Abyss: Echoes en una mazmorra llena de enemigos y explosiones"
+              Categoría: Anuncios  →  data-categoria="anuncios"
+              Fecha: 28 de septiembre de 2026 - Por modem
+              Título: Nuevo tráiler de Neon Abyss: Echoes
+              Texto: Ya puedes descubrir el nuevo tráiler de Neon Abyss:
+                Echoes. Un adelanto de las nuevas zonas, desafíos y
+                sorpresas que te esperan en esta nueva aventura.
+           2) Imagen: img/noticias/entrada-2.jpg
+                alt="Personajes de Neon Abyss posando bajo el logotipo del juego"
+              Categoría: Diario de desarrollo  →  data-categoria="diario-de-desarrollo"
+              Fecha: 14 de septiembre de 2026 - Por modem
+              Título: Diario de desarrollo #03: Diseñando nuestro mundo
+              Texto: En este nuevo diario de desarrollo os mostramos cómo
+                damos vida al mundo de nuestro juego. Desde los primeros
+                bocetos hasta el diseño de escenarios, cada detalle ayuda a
+                construir nuestra aventura.
+           3) Imagen: img/noticias/entrada-3.jpg
+                alt="Un templo oscuro con estatuas iluminadas por antorchas"
+              Categoría: Eventos  →  data-categoria="eventos"
+              Fecha: 2 de septiembre de 2026 - Por modem
+              Título: modem estará en IndieDev Day
+              Texto: Este año estaremos en IndieDev Day compartiendo nuestro
+                proyecto y conociendo a otros desarrolladores. Será una gran
+                oportunidad para mostrar nuestro trabajo, hablar con la
+                comunidad y descubrir nuevas ideas del mundo indie.
+           4) Imagen: img/noticias/entrada-4.jpg
+                alt="Personaje con máscara de neón junto al logotipo de Neon Abyss 2"
+              Categoría: Anuncios  →  data-categoria="anuncios"
+              Fecha: 18 de agosto de 2026 - Por modem
+              Título: Comienza el desarrollo de nuestro nuevo proyecto
+              Texto: Después de meses de ideas y prototipos, comenzamos
+                oficialmente el desarrollo de nuestro nuevo proyecto.
+                Todavía no podemos contaros mucho, pero pronto compartiremos
+                las primeras novedades.
+
+         Nota: no hay entradas de "Juegos en tendencia" ni de
+         "Actualizaciones". Al pulsar esos filtros la lista se queda
+         vacía: añade debajo de la lista este párrafo oculto, que
+         noticias.js enseñará cuando no haya resultados:
+           <p class="noticias__vacio" id="noticias-vacio" role="status" hidden>No hay noticias de esta categoría.</p>
+
+         Estructura que te proponemos:
+           <section class="seccion" aria-labelledby="titulo-noticias">
+             <div class="contenedor noticias">
+               <h1 id="titulo-noticias">Noticias</h1>
+               <div class="filtros" ...> ...6 botones... </div>
+               <ul class="lista-entradas"> ...4 entradas... </ul>
+               <p class="noticias__vacio" ... hidden>...</p>
+               <a class="enlace" href="#">← Entradas anteriores</a>
+             </div>
+           </section>
+         Sustituye esta <section> vacía por la tuya.
+         ================================================================= -->
+    <section class="seccion">
+    </section>
+
+  </main>
+
+  <!-- ============================== FOOTER ==============================
+       Igual en todas las páginas: NO lo cambies. -->
+  <footer class="footer">
+    <p class="footer__mision">Nuestra misión: crear juegos pequeños, hechos a mano y con mucho cariño, para que cualquiera pueda vivir una gran aventura.</p>
+
+    <nav aria-label="Enlaces del pie de página">
+      <ul class="footer__enlaces">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="juegos.html">Juegos</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- TODO (grupo): poner los enlaces reales de las redes del estudio -->
+    <ul class="redes">
+      <li><a class="red-social" href="#" aria-label="modem en X"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a></li>
+      <li><a class="red-social" href="#" aria-label="modem en Instagram"><span class="icono icono--16 icono--instagram" aria-hidden="true"></span></a></li>
+      <li><a class="red-social" href="#" aria-label="modem en Facebook"><span class="icono icono--16 icono--facebook" aria-hidden="true"></span></a></li>
+    </ul>
+
+    <p class="footer__copyright">© 2026 modem</p>
+  </footer>
+</body>
+</html>

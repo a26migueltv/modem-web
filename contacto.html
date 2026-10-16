@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto · modem</title>
+  <meta name="description" content="Escribe al estudio modem: formulario de contacto, email y redes sociales.">
+  <link rel="icon" href="img/logo/modem-icono-negro.svg" type="image/svg+xml">
+
+  <!-- Fuentes de Google: Press Start 2P (títulos) e Inter (texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Press+Start+2P&display=swap">
+
+  <!-- Estilos: primero la base, luego los componentes y al final los de esta página -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages/contacto.css">
+
+  <!-- JavaScript ("defer" = se ejecuta cuando el HTML ya está cargado) -->
+  <script src="js/main.js" defer></script>
+  <script src="js/contacto.js" defer></script>
+</head>
+<body>
+  <!-- Enlace para saltar el menú con el teclado (solo se ve al pulsar Tab) -->
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+
+  <!-- ============================== HEADER ==============================
+       Igual en todas las páginas: NO lo cambies.
+       La página actual se marca sola en el menú (lo hace js/main.js). -->
+  <header class="header">
+    <div class="header__barra contenedor">
+      <a class="logo" href="index.html">
+        <span class="icono logo__icono" aria-hidden="true"></span>
+        <span class="logo__texto">
+          <span class="logo__nombre">modem</span>
+          <span class="logo__lema">Estudio de videojuegos independiente</span>
+        </span>
+      </a>
+
+      <!-- Botón hamburguesa: solo se ve en móvil -->
+      <button class="menu-boton" type="button" aria-expanded="false" aria-controls="navegacion">
+        <span class="menu-boton__rayas" aria-hidden="true"></span>
+        <span class="visualmente-oculto">Abrir menú</span>
+      </button>
+    </div>
+
+    <nav class="header__nav contenedor" id="navegacion" aria-label="Menú principal">
+      <ul class="menu">
+        <li><a class="menu__enlace" href="index.html">Inicio</a></li>
+        <li><a class="menu__enlace" href="juegos.html">Juegos</a></li>
+        <li><a class="menu__enlace" href="noticias.html">Noticias</a></li>
+        <li><a class="menu__enlace" href="contacto.html">Contacto</a></li>
+      </ul>
+
+      <!-- TODO (grupo): poner los enlaces reales de las redes del estudio -->
+      <ul class="redes header__redes">
+        <li><a class="red-social" href="#" aria-label="modem en X"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a></li>
+        <li><a class="red-social" href="#" aria-label="modem en Instagram"><span class="icono icono--16 icono--instagram" aria-hidden="true"></span></a></li>
+        <li><a class="red-social" href="#" aria-label="modem en Facebook"><span class="icono icono--16 icono--facebook" aria-hidden="true"></span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- =====================================================================
+       CONTACTO (contacto.html) — PÁGINA PARA MONTAR POR: ________________
+       ---------------------------------------------------------------------
+       Pantalla de Figma: "01 · Pantallas" → "Contacto · Escritorio".
+       Un solo bloque en pantalla dividida:
+         título "Contacto" → dos columnas: formulario (izquierda) y
+         datos de contacto (derecha).
+       Cómo trabajar:
+         - Escribe el HTML DENTRO de la <section>, debajo del comentario.
+         - Copia los componentes de componentes.html.
+         - La colocación va en css/pages/contacto.css.
+         - La validación del formulario va en js/contacto.js (ya enlazado
+           en el <head>): allí tienes los pasos explicados.
+         - El header y el footer ya están: no los toques.
+       ===================================================================== -->
+  <main id="contenido">
+
+    <!-- =================================================================
+         BLOQUE ÚNICO · CONTACTO
+         -----------------------------------------------------------------
+         - Título <h1>: "Contacto" (estilo H1, a la izquierda).
+         - 48 px entre el título y las columnas.
+         - Dos columnas de 560 px, separadas 80 px.
+
+         ---- COLUMNA IZQUIERDA · FORMULARIO ----
+         Copia el bloque entero de "Formulario" de componentes.html.
+         Ya trae los 3 campos con sus <label>, sus mensajes de error
+         ocultos y el botón principal "Enviar". Textos de Figma:
+           - Nombre   → placeholder="Nombre Apellido"
+           - Email    → placeholder="correo@ejemplo.com"
+           - Mensaje  → placeholder="Hola, me gustaría saber más sobre vuestros juegos."
+           - Botón principal "Enviar" (type="submit"), alineado a la
+             izquierda, 24 px debajo del último campo.
+         Cambios que tienes que hacer al copiarlo:
+           - Ponle al <form> un id="formulario-contacto" (lo usa contacto.js).
+           - Debajo del botón, añade el mensaje de "enviado" (oculto):
+               <p class="contacto__enviado" id="mensaje-enviado" role="status" hidden>¡Mensaje enviado! Te responderemos pronto.</p>
+             role="status" hace que el lector de pantalla lo lea en voz alta.
+             (Este mensaje no está en Figma: el texto lo podéis cambiar.)
+         Los mensajes de error de Figma son:
+           - Email mal escrito: "Introduce un email válido."
+           - Mensaje vacío:     "El mensaje no puede estar vacío."
+         (están en js/contacto.js)
+
+         ---- COLUMNA DERECHA · DATOS DE CONTACTO ----
+           - Título: <h2 class="titulo-h3">Datos de contacto</h2>
+             (es un h2, pero en Figma se ve como un H3).
+           - Los datos en una lista <dl class="contacto__datos">, usando el
+             componente "dato" de "Datos del juego" (componentes.html):
+               <div class="dato">
+                 <dt>Email</dt>
+                 <dd><a href="mailto:contacto@modem.example">contacto@modem.example</a></dd>
+               </div>
+             Datos, en este orden:
+               Email      → contacto@modem.example  (enlace mailto:)
+               Ubicación  → Rúa San Clemente s/n 15705
+               Teléfono   → 666 66 66 66  (enlace tel:666666666)
+               Redes      → los 3 iconos del componente "Redes sociales"
+                            (dentro del <dd>)
+           - 24 px entre el título y cada dato.
+
+         Estructura que te proponemos:
+           <section class="seccion" aria-labelledby="titulo-contacto">
+             <div class="contenedor contacto">
+               <h1 id="titulo-contacto">Contacto</h1>
+               <div class="contacto__columnas">
+                 <form class="formulario" id="formulario-contacto" ...> ... </form>
+                 <div class="contacto__info">
+                   <h2 class="titulo-h3">Datos de contacto</h2>
+                   <dl class="contacto__datos"> ... </dl>
+                 </div>
+               </div>
+             </div>
+           </section>
+         Sustituye esta <section> vacía por la tuya.
+         ================================================================= -->
+    <section class="seccion">
+    </section>
+
+  </main>
+
+  <!-- ============================== FOOTER ==============================
+       Igual en todas las páginas: NO lo cambies. -->
+  <footer class="footer">
+    <p class="footer__mision">Nuestra misión: crear juegos pequeños, hechos a mano y con mucho cariño, para que cualquiera pueda vivir una gran aventura.</p>
+
+    <nav aria-label="Enlaces del pie de página">
+      <ul class="footer__enlaces">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="juegos.html">Juegos</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- TODO (grupo): poner los enlaces reales de las redes del estudio -->
+    <ul class="redes">
+      <li><a class="red-social" href="#" aria-label="modem en X"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a></li>
+      <li><a class="red-social" href="#" aria-label="modem en Instagram"><span class="icono icono--16 icono--instagram" aria-hidden="true"></span></a></li>
+      <li><a class="red-social" href="#" aria-label="modem en Facebook"><span class="icono icono--16 icono--facebook" aria-hidden="true"></span></a></li>
+    </ul>
+
+    <p class="footer__copyright">© 2026 modem</p>
+  </footer>
+</body>
+</html>

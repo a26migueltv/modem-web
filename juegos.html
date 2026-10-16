@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juegos · modem</title>
+  <meta name="description" content="Los juegos de modem: descubre cada uno, mira su tráiler y prueba la demo gratis.">
+  <link rel="icon" href="img/logo/modem-icono-negro.svg" type="image/svg+xml">
+
+  <!-- Fuentes de Google: Press Start 2P (títulos) e Inter (texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Press+Start+2P&display=swap">
+
+  <!-- Estilos: primero la base, luego los componentes y al final los de esta página -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages/juegos.css">
+
+  <!-- JavaScript ("defer" = se ejecuta cuando el HTML ya está cargado) -->
+  <script src="js/main.js" defer></script>
+  <script src="js/modal-demo.js" defer></script>
+</head>
+<body>
+  <!-- Enlace para saltar el menú con el teclado (solo se ve al pulsar Tab) -->
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+
+  <!-- ============================== HEADER ==============================
+       Igual en todas las páginas: NO lo cambies.
+       La página actual se marca sola en el menú (lo hace js/main.js). -->
+  <header class="header">
+    <div class="header__barra contenedor">
+      <a class="logo" href="index.html">
+        <span class="icono logo__icono" aria-hidden="true"></span>
+        <span class="logo__texto">
+          <span class="logo__nombre">modem</span>
+          <span class="logo__lema">Estudio de videojuegos independiente</span>
+        </span>
+      </a>
+
+      <!-- Botón hamburguesa: solo se ve en móvil -->
+      <button class="menu-boton" type="button" aria-expanded="false" aria-controls="navegacion">
+        <span class="menu-boton__rayas" aria-hidden="true"></span>
+        <span class="visualmente-oculto">Abrir menú</span>
+      </button>
+    </div>
+
+    <nav class="header__nav contenedor" id="navegacion" aria-label="Menú principal">
+      <ul class="menu">
+        <li><a class="menu__enlace" href="index.html">Inicio</a></li>
+        <li><a class="menu__enlace" href="juegos.html">Juegos</a></li>
+        <li><a class="menu__enlace" href="noticias.html">Noticias</a></li>
+        <li><a class="menu__enlace" href="contacto.html">Contacto</a></li>
+      </ul>
+
+      <!-- TODO (grupo): poner los enlaces reales de las redes del estudio -->
+      <ul class="redes header__redes">
+        <li><a class="red-social" href="#" aria-label="modem en X"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a></li>
+        <li><a class="red-social" href="#" aria-label="modem en Instagram"><span class="icono icono--16 icono--instagram" aria-hidden="true"></span></a></li>
+        <li><a class="red-social" href="#" aria-label="modem en Facebook"><span class="icono icono--16 icono--facebook" aria-hidden="true"></span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- =====================================================================
+       JUEGOS (juegos.html) — PÁGINA PARA MONTAR POR: ________________
+       ---------------------------------------------------------------------
+       Pantalla de Figma: "01 · Pantallas" → "Juegos · Escritorio".
+       Un solo bloque: el título "Juegos" y las 3 tarjetas de juego, una
+       debajo de otra, alternando el lado de la imagen.
+       Cómo trabajar:
+         - Escribe el HTML DENTRO de la <section>, debajo del comentario.
+         - Copia el componente "Tarjeta de juego" de componentes.html y
+           cambia los datos de cada juego (están todos aquí abajo).
+         - La colocación va en css/pages/juegos.css.
+         - El header y el footer ya están: no los toques.
+
+       ¿Y EL JAVASCRIPT? Esta página NO necesita un archivo JS propio.
+       El botón "Descargar demo" abre el modal solo con poner el atributo
+       data-demo (el script js/modal-demo.js ya está enlazado en el <head>):
+           <button class="boton boton--secundario" type="button"
+                   data-demo="Beast Acquirer Savage"
+                   data-plataformas="PC, Xbox Series X, PS5">
+             Descargar demo
+           </button>
+         - data-demo: el nombre del juego (sale en el modal y en el nombre
+           del archivo que se descarga: demo-beast-acquirer-savage.txt).
+         - data-plataformas: las plataformas separadas por comas (son las
+           opciones del paso 1 del modal). Si no lo pones, sale solo "PC".
+         - data-tamano (opcional): megas de la descarga, ej. data-tamano="850".
+       Pruébalo: elige plataforma, espera 3 segundos y se descarga el .txt.
+       ===================================================================== -->
+  <main id="contenido">
+
+    <!-- =================================================================
+         BLOQUE ÚNICO · LISTA DE JUEGOS
+         -----------------------------------------------------------------
+         - Título <h1>: "Juegos" (estilo H1, 36 px, alineado a la izquierda).
+         - 48 px entre el título y la primera tarjeta, y entre tarjetas.
+         - Las 3 tarjetas en una lista <ul> (cada tarjeta en un <li>).
+         - Los títulos de las tarjetas son <h2> (están debajo del h1).
+
+         Componentes (copiar de componentes.html):
+           - "Tarjeta de juego" (<article class="tarjeta-juego">).
+             La 2.ª tarjeta lleva además tarjeta-juego--invertida (imagen a
+             la derecha). En el HTML la imagen va SIEMPRE primero.
+           - Dentro ya vienen: "Etiquetas", "Botones de tienda", botón
+             secundario "Descargar demo" y "Enlace de texto".
+
+         Enlaces de las 3 tarjetas:
+           - "Ver tráiler" → trailer.html
+           - "Ver ficha →" → ficha-juego.html
+             (de momento solo hay ficha y tráiler de Beast Acquirer Savage,
+              así que las 3 tarjetas llevan a las mismas páginas)
+           - Steam y Epic Games → href="#" con este comentario encima:
+             TODO (grupo): poner el enlace real de Steam / Epic Games
+
+         -------- TARJETA 1 (imagen a la IZQUIERDA) --------
+           Imagen: img/juegos/beast-acquirer-savage.jpg
+             alt="Una bestia marina gigante emerge entre las olas"
+           Título: Beast Acquirer Savage
+           Descripción: Un juego de mundo abierto en el que te encargas de
+             adquirir bestias que amenazan con destruir el ecosistema,
+             usando partes de las propias bestias.
+           Plataformas: PC · Xbox Series X · PS5
+           Etiquetas: Acción · Caza · Cooperativos en línea · Rol · Multijugador
+           Demo: data-demo="Beast Acquirer Savage"
+                 data-plataformas="PC, Xbox Series X, PS5"
+
+         -------- TARJETA 2 (imagen a la DERECHA: tarjeta-juego--invertida) --------
+           Imagen: img/juegos/nefarious-pedestrian-4.jpg
+             alt="Un grupo de aldeanos amenazantes con antorchas rodea a dos personajes en un bosque"
+           Título: Nefarious Pedestrian 4
+           Descripción: Una espeluznante aventura de horror, tomas el lugar
+             de un policía el cual tiene que sobrevivir a una nueva forma de
+             muertos vivientes.
+           Plataformas: PC · Linux · Nintendo Switch 1/2
+           Etiquetas: Terror · Un jugador · Supervivencia · Acción · Zombis
+           Demo: data-demo="Nefarious Pedestrian 4"
+                 data-plataformas="PC, Linux, Nintendo Switch 1/2"
+
+         -------- TARJETA 3 (imagen a la IZQUIERDA) --------
+           Imagen: img/juegos/alert-of-rainfall.jpg
+             alt="Un explorador en su vehículo ante un gran anillo de piedra en una jungla azul"
+           Título: Alert of Rainfall
+           Descripción: Plataformero donde intentas escapar de un planeta
+             alienígena hostil, mientras más avanzas más peligroso se vuelve.
+           Plataformas: PC · PS Vita · PS3/PS4/PS5 · Mac · Linux · Xbox Series X
+           Etiquetas: Disparos en tercera persona · Roguelike de acción · Multijugador
+           Demo: data-demo="Alert of Rainfall"
+                 data-plataformas="PC, PS Vita, PS3/PS4/PS5, Mac, Linux, Xbox Series X"
+
+         Estructura que te proponemos:
+           <section class="seccion" aria-labelledby="titulo-juegos">
+             <div class="contenedor juegos">
+               <h1 id="titulo-juegos">Juegos</h1>
+               <ul class="juegos__lista">
+                 <li> ...tarjeta 1... </li>
+                 <li> ...tarjeta 2 (con tarjeta-juego--invertida)... </li>
+                 <li> ...tarjeta 3... </li>
+               </ul>
+             </div>
+           </section>
+         Sustituye esta <section> vacía por la tuya.
+         ================================================================= -->
+    <section class="seccion">
+    </section>
+
+  </main>
+
+  <!-- ============================== FOOTER ==============================
+       Igual en todas las páginas: NO lo cambies. -->
+  <footer class="footer">
+    <p class="footer__mision">Nuestra misión: crear juegos pequeños, hechos a mano y con mucho cariño, para que cualquiera pueda vivir una gran aventura.</p>
+
+    <nav aria-label="Enlaces del pie de página">
+      <ul class="footer__enlaces">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="juegos.html">Juegos</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- TODO (grupo): poner los enlaces reales de las redes del estudio -->
+    <ul class="redes">
+      <li><a class="red-social" href="#" aria-label="modem en X"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a></li>
+      <li><a class="red-social" href="#" aria-label="modem en Instagram"><span class="icono icono--16 icono--instagram" aria-hidden="true"></span></a></li>
+      <li><a class="red-social" href="#" aria-label="modem en Facebook"><span class="icono icono--16 icono--facebook" aria-hidden="true"></span></a></li>
+    </ul>
+
+    <p class="footer__copyright">© 2026 modem</p>
+  </footer>
+</body>
+</html>

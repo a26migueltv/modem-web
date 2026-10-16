@@ -1,0 +1,222 @@
+/* ==========================================================================
+   COMPONENTES-CATALOGO.CSS — solo para componentes.html
+   --------------------------------------------------------------------------
+   Estilos del catálogo en sí (los paneles, los bloques de código, el
+   índice...). Los componentes NO están aquí: están en components.css.
+   ========================================================================== */
+
+.catalogo {
+  padding-block: var(--espacio-48) var(--espacio-72);
+}
+
+/* ---------- Introducción ---------- */
+.catalogo__intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-16);
+  max-width: 800px;
+  margin-bottom: var(--espacio-40);
+}
+
+.catalogo__pasos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-8);
+  padding-left: var(--espacio-24);
+  list-style: decimal;
+}
+
+/* Código dentro de un párrafo */
+.catalogo code {
+  font-family: "Courier New", monospace;
+  font-size: 0.9em;
+  color: var(--color-acento);
+}
+
+/* ---------- Índice ---------- */
+.catalogo__indice {
+  margin-bottom: var(--espacio-48);
+  padding: var(--espacio-24);
+  background-color: var(--color-fondo-seccion);
+  border: var(--borde-fino) solid var(--color-borde);
+}
+
+.catalogo__indice ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--espacio-12) var(--espacio-24);
+  margin-top: var(--espacio-16);
+  padding: 0;
+  list-style: none;
+}
+
+/* ---------- Cada componente ---------- */
+.catalogo__componente {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-16);
+  padding-block: var(--espacio-48);
+  border-top: var(--borde-fino) solid var(--color-borde);
+  /* Para que al saltar desde el índice el título no quede pegado arriba */
+  scroll-margin-top: var(--espacio-24);
+}
+
+.catalogo__componente > p {
+  max-width: 800px;
+}
+
+.catalogo__componente > h3 {
+  margin-top: var(--espacio-16);
+  color: var(--color-texto-secundario);
+}
+
+/* Caja del ejemplo: fondo de página con borde discontinuo (como en Figma) */
+.catalogo__ejemplo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espacio-24);
+  padding: var(--espacio-32);
+  border: var(--borde-fino) dashed var(--color-borde);
+}
+
+/* Algunos ejemplos tienen que ocupar todo el ancho */
+.catalogo__ejemplo > .rejilla-noticias,
+.catalogo__ejemplo > .lista-entradas,
+.catalogo__ejemplo > .tarjeta-juego,
+.catalogo__ejemplo > .banner-juego,
+.catalogo__ejemplo > .articulo,
+.catalogo__ejemplo > .formulario,
+.catalogo__ejemplo > .galeria,
+.catalogo__ejemplo > .datos-juego,
+.catalogo__ejemplo > .requisitos,
+.catalogo__ejemplo > .reproductor,
+.catalogo__ejemplo > .miniatura-video,
+.catalogo__ejemplo > .barra-progreso,
+.catalogo__ejemplo > .caja-imagen,
+.catalogo__ejemplo > .seccion {
+  align-self: stretch;
+}
+
+.catalogo__ejemplo--fila {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.catalogo__ejemplo--estrecho > * {
+  max-width: 520px;
+}
+
+.catalogo__ejemplo--sin-relleno {
+  padding: 0;
+}
+
+/* ---------- Bloque de código ---------- */
+.catalogo__codigo {
+  position: relative;
+}
+
+.catalogo__codigo pre {
+  max-height: 420px;
+  margin: 0;
+  padding: var(--espacio-24);
+  padding-top: 64px; /* sitio para el botón de copiar */
+  overflow: auto;
+  background-color: var(--color-fondo-footer);
+  border: var(--borde-fino) solid var(--color-borde);
+  font-size: var(--tamano-pequeno);
+  line-height: 1.5;
+  tab-size: 2;
+}
+
+.catalogo__codigo pre code {
+  color: var(--color-texto);
+}
+
+.catalogo__copiar {
+  position: absolute;
+  top: var(--espacio-12);
+  right: var(--espacio-12);
+  padding: 7px 15px;
+  font-size: var(--tamano-pequeno);
+}
+
+/* ---------- Fila de estados (Normal, Hover, Focus...) ---------- */
+.catalogo__estados {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--espacio-32);
+  padding: var(--espacio-24);
+  border: var(--borde-fino) dashed var(--color-borde);
+  list-style: none;
+}
+
+.catalogo__estados li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espacio-12);
+}
+
+.catalogo__estados li > span:last-child {
+  color: var(--color-texto-secundario);
+  font-size: var(--tamano-pequeno);
+}
+
+.catalogo__estados--anchos li {
+  flex: 1 1 240px;
+}
+
+/* ---------- Muestras de color ---------- */
+.catalogo__colores {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--espacio-16);
+  padding: 0;
+  list-style: none;
+  font-size: var(--tamano-pequeno);
+}
+
+.catalogo__colores li {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-4);
+}
+
+.catalogo__color {
+  height: 64px;
+  border: var(--borde-fino) solid var(--color-borde);
+}
+
+.catalogo__color--fondo-pagina { background-color: var(--color-fondo-pagina); }
+.catalogo__color--fondo-seccion { background-color: var(--color-fondo-seccion); }
+.catalogo__color--fondo-header { background-color: var(--color-fondo-header); }
+.catalogo__color--fondo-footer { background-color: var(--color-fondo-footer); }
+.catalogo__color--texto { background-color: var(--color-texto); }
+.catalogo__color--texto-secundario { background-color: var(--color-texto-secundario); }
+.catalogo__color--acento { background-color: var(--color-acento); }
+.catalogo__color--texto-sobre-acento { background-color: var(--color-texto-sobre-acento); }
+.catalogo__color--borde { background-color: var(--color-borde); }
+.catalogo__color--caja-imagen { background-color: var(--color-caja-imagen); }
+.catalogo__color--error { background-color: var(--color-error); }
+.catalogo__color--velo { background-color: var(--color-velo); }
+
+/* ---------- Los 3 pasos del modal, uno al lado del otro ---------- */
+.catalogo__modales {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--espacio-24);
+}
+
+@media (max-width: 767px) {
+  .catalogo__ejemplo {
+    padding: var(--espacio-16);
+  }
+
+  .catalogo__componente {
+    padding-block: var(--espacio-32);
+  }
+}

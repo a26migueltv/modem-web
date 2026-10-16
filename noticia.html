@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuevo tráiler de Neon Abyss: Echoes · Noticias · modem</title>
+  <meta name="description" content="Ya puedes descubrir el nuevo tráiler de Neon Abyss: Echoes.">
+  <link rel="icon" href="img/logo/modem-icono-negro.svg" type="image/svg+xml">
+
+  <!-- Fuentes de Google: Press Start 2P (títulos) e Inter (texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Press+Start+2P&display=swap">
+
+  <!-- Estilos: primero la base, luego los componentes y al final los de esta página -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages/noticia.css">
+
+  <!-- JavaScript ("defer" = se ejecuta cuando el HTML ya está cargado) -->
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <!-- Enlace para saltar el menú con el teclado (solo se ve al pulsar Tab) -->
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+
+  <!-- ============================== HEADER ==============================
+       Igual en todas las páginas: NO lo cambies.
+       La página actual se marca sola en el menú (lo hace js/main.js). -->
+  <header class="header">
+    <div class="header__barra contenedor">
+      <a class="logo" href="index.html">
+        <span class="icono logo__icono" aria-hidden="true"></span>
+        <span class="logo__texto">
+          <span class="logo__nombre">modem</span>
+          <span class="logo__lema">Estudio de videojuegos independiente</span>
+        </span>
+      </a>
+
+      <!-- Botón hamburguesa: solo se ve en móvil -->
+      <button class="menu-boton" type="button" aria-expanded="false" aria-controls="navegacion">
+        <span class="menu-boton__rayas" aria-hidden="true"></span>
+        <span class="visualmente-oculto">Abrir menú</span>
+      </button>
+    </div>
+
+    <nav class="header__nav contenedor" id="navegacion" aria-label="Menú principal">
+      <ul class="menu">
+        <li><a class="menu__enlace" href="index.html">Inicio</a></li>
+        <li><a class="menu__enlace" href="juegos.html">Juegos</a></li>
+        <li><a class="menu__enlace" href="noticias.html">Noticias</a></li>
+        <li><a class="menu__enlace" href="contacto.html">Contacto</a></li>
+      </ul>
+
+      <!-- TODO (grupo): poner los enlaces reales de las redes del estudio -->
+      <ul class="redes header__redes">
+        <li><a class="red-social" href="#" aria-label="modem en X"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a></li>
+        <li><a class="red-social" href="#" aria-label="modem en Instagram"><span class="icono icono--16 icono--instagram" aria-hidden="true"></span></a></li>
+        <li><a class="red-social" href="#" aria-label="modem en Facebook"><span class="icono icono--16 icono--facebook" aria-hidden="true"></span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ============================== CONTENIDO ==============================
+       NOTICIA ABIERTA (Figma: "01 · Pantallas" → "Noticia abierta · Escritorio")
+       Es la primera noticia de la lista de Noticias. Todos los "Leer más"
+       de la web llevan aquí. -->
+  <main id="contenido" class="noticia">
+    <div class="contenedor noticia__contenedor">
+
+      <a class="enlace" href="noticias.html">← Volver a Noticias</a>
+
+      <!-- ARTÍCULO: columna de 800 px centrada -->
+      <article class="articulo">
+        <header class="articulo__cabecera">
+          <span class="etiqueta-categoria">Anuncios</span>
+          <h1 class="titulo-h2">Nuevo tráiler de Neon Abyss: Echoes</h1>
+          <p class="fecha">28 de septiembre de 2026 - Por modem</p>
+        </header>
+
+        <img class="articulo__imagen" src="img/noticias/entrada-1.jpg" alt="Partida de Neon Abyss: Echoes en una mazmorra llena de enemigos y explosiones" width="800" height="450">
+
+        <div class="articulo__cuerpo">
+          <p>Ya puedes descubrir el nuevo tráiler de Neon Abyss: Echoes. Un adelanto de las nuevas zonas, desafíos y sorpresas que te esperan en esta nueva aventura.</p>
+
+          <h2 class="titulo-h3">Presentamos el nuevo tráiler</h2>
+          <p>Después de varias semanas de trabajo, nos alegra compartir por fin el primer tráiler de Neon Abyss: Echoes. En este adelanto podéis descubrir nuevas zonas, enemigos y algunos de los desafíos que encontraréis durante la aventura.</p>
+
+          <img class="articulo__imagen-intermedia" src="img/noticias/noticia-abierta-intermedia.jpg" alt="Combate en Neon Abyss: Echoes con disparos de energía azul en una sala morada" width="800" height="360">
+
+          <h2 class="titulo-h3">Una nueva aventura</h2>
+          <p>Neon Abyss: Echoes amplía el universo del juego con nuevos escenarios y encuentros que podrán a prueba las habilidades de los jugadores. Seguimos trabajando para pulir cada detalle y ofrecer una experiencia llena de acción, exploración y sorpresas.</p>
+        </div>
+
+        <hr class="separador">
+
+        <div class="compartir">
+          <span class="compartir__texto">Compartir:</span>
+          <!-- TODO (grupo): poner los enlaces para compartir la noticia -->
+          <ul class="redes">
+            <li><a class="red-social" href="#" aria-label="Compartir en X"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a></li>
+            <li><a class="red-social" href="#" aria-label="Compartir en Instagram"><span class="icono icono--16 icono--instagram" aria-hidden="true"></span></a></li>
+            <li><a class="red-social" href="#" aria-label="Compartir en Facebook"><span class="icono icono--16 icono--facebook" aria-hidden="true"></span></a></li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- RELACIONADAS: 3 tarjetas de noticia -->
+      <section class="noticia__relacionadas" aria-labelledby="titulo-relacionadas">
+        <h2 id="titulo-relacionadas">Relacionadas</h2>
+        <ul class="rejilla-noticias">
+          <li>
+            <article class="tarjeta-noticia">
+              <img class="tarjeta-noticia__imagen" src="img/noticias/entrada-2.jpg" alt="Personajes de Neon Abyss posando bajo el logotipo del juego" width="380" height="220">
+              <div class="tarjeta-noticia__contenido">
+                <span class="etiqueta-categoria">Diario de desarrollo</span>
+                <p class="fecha">14 de septiembre de 2026 - Por modem</p>
+                <h3>Diario de desarrollo #03: Diseñando nuestro mundo</h3>
+                <p>En este nuevo diario de desarrollo os mostramos cómo damos vida al mundo de nuestro juego. Desde los primeros bocetos hasta el diseño de escenarios, cada detalle ayuda a construir nuestra aventura.</p>
+                <a class="enlace" href="noticia.html">Leer más<span class="visualmente-oculto">: Diario de desarrollo #03: Diseñando nuestro mundo</span> →</a>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="tarjeta-noticia">
+              <img class="tarjeta-noticia__imagen" src="img/noticias/entrada-3.jpg" alt="Un templo oscuro con estatuas iluminadas por antorchas" width="380" height="220">
+              <div class="tarjeta-noticia__contenido">
+                <span class="etiqueta-categoria">Eventos</span>
+                <p class="fecha">2 de septiembre de 2026 - Por modem</p>
+                <h3>modem estará en IndieDev Day</h3>
+                <p>Este año estaremos en IndieDev Day compartiendo nuestro proyecto y conociendo a otros desarrolladores. Será una gran oportunidad para mostrar nuestro trabajo, hablar con la comunidad y descubrir nuevas ideas del mundo indie.</p>
+                <a class="enlace" href="noticia.html">Leer más<span class="visualmente-oculto">: modem estará en IndieDev Day</span> →</a>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="tarjeta-noticia">
+              <img class="tarjeta-noticia__imagen" src="img/noticias/entrada-4.jpg" alt="Personaje con máscara de neón junto al logotipo de Neon Abyss 2" width="380" height="220">
+              <div class="tarjeta-noticia__contenido">
+                <span class="etiqueta-categoria">Anuncios</span>
+                <p class="fecha">18 de agosto de 2026 - Por modem</p>
+                <h3>Comienza el desarrollo de nuestro nuevo proyecto</h3>
+                <p>Después de meses de ideas y prototipos, comenzamos oficialmente el desarrollo de nuestro nuevo proyecto. Todavía no podemos contaros mucho, pero pronto compartiremos las primeras novedades.</p>
+                <a class="enlace" href="noticia.html">Leer más<span class="visualmente-oculto">: Comienza el desarrollo de nuestro nuevo proyecto</span> →</a>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ============================== FOOTER ==============================
+       Igual en todas las páginas: NO lo cambies. -->
+  <footer class="footer">
+    <p class="footer__mision">Nuestra misión: crear juegos pequeños, hechos a mano y con mucho cariño, para que cualquiera pueda vivir una gran aventura.</p>
+
+    <nav aria-label="Enlaces del pie de página">
+      <ul class="footer__enlaces">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="juegos.html">Juegos</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- TODO (grupo): poner los enlaces reales de las redes del estudio -->
+    <ul class="redes">
+      <li><a class="red-social" href="#" aria-label="modem en X"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a></li>
+      <li><a class="red-social" href="#" aria-label="modem en Instagram"><span class="icono icono--16 icono--instagram" aria-hidden="true"></span></a></li>
+      <li><a class="red-social" href="#" aria-label="modem en Facebook"><span class="icono icono--16 icono--facebook" aria-hidden="true"></span></a></li>
+    </ul>
+
+    <p class="footer__copyright">© 2026 modem</p>
+  </footer>
+</body>
+</html>

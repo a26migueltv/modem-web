@@ -1,0 +1,47 @@
+/* ==========================================================================
+   TRAILER.CSS — solo la colocación de los bloques de trailer.html
+   (los componentes ya tienen su estilo en components.css)
+   ========================================================================== */
+
+/* 48 px arriba (debajo del header), 72 px abajo */
+.trailer {
+  padding-block: var(--espacio-48) var(--espacio-seccion);
+}
+
+/* Bloques en columna, separados 40 px (como en Figma) */
+.trailer__contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espacio-40);
+}
+
+.trailer__contenedor > :not(.enlace) {
+  align-self: stretch;
+}
+
+/* "Más vídeos": título y fila separados 24 px */
+.trailer__mas {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-24);
+}
+
+/* Tres miniaturas en fila, separadas 24 px */
+.trailer__miniaturas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--espacio-24);
+}
+
+/* Tablet: se quedan las 3 en fila (caben bien y no queda una suelta).
+   Móvil: una debajo de otra */
+@media (max-width: 767px) {
+  .trailer__contenedor {
+    gap: var(--espacio-32);
+  }
+
+  .trailer__miniaturas {
+    grid-template-columns: 1fr;
+  }
+}
