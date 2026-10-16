@@ -1,68 +1,105 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noticias · modem</title>
-  <meta name="description" content="Noticias, anuncios y diarios de desarrollo del estudio modem.">
-  <link rel="icon" href="img/logo/modem-icono-negro.svg" type="image/svg+xml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noticias · modem</title>
+    <meta
+      name="description"
+      content="Noticias, anuncios y diarios de desarrollo del estudio modem."
+    />
+    <link
+      rel="icon"
+      href="img/logo/modem-icono-negro.svg"
+      type="image/svg+xml"
+    />
 
-  <!-- Fuentes de Google: Press Start 2P (títulos) e Inter (texto) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Press+Start+2P&display=swap">
+    <!-- Fuentes de Google: Press Start 2P (títulos) e Inter (texto) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Press+Start+2P&display=swap"
+    />
 
-  <!-- Estilos: primero la base, luego los componentes y al final los de esta página -->
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/pages/noticias.css">
+    <!-- Estilos: primero la base, luego los componentes y al final los de esta página -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/pages/noticias.css" />
 
-  <!-- JavaScript ("defer" = se ejecuta cuando el HTML ya está cargado) -->
-  <script src="js/main.js" defer></script>
-  <script src="js/noticias.js" defer></script>
-</head>
-<body>
-  <!-- Enlace para saltar el menú con el teclado (solo se ve al pulsar Tab) -->
-  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+    <!-- JavaScript ("defer" = se ejecuta cuando el HTML ya está cargado) -->
+    <script src="js/main.js" defer></script>
+    <script src="js/noticias.js" defer></script>
+  </head>
+  <body>
+    <!-- Enlace para saltar el menú con el teclado (solo se ve al pulsar Tab) -->
+    <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
 
-  <!-- ============================== HEADER ==============================
+    <!-- ============================== HEADER ==============================
        Igual en todas las páginas: NO lo cambies.
        La página actual se marca sola en el menú (lo hace js/main.js). -->
-  <header class="header">
-    <div class="header__barra contenedor">
-      <a class="logo" href="index.html">
-        <span class="icono logo__icono" aria-hidden="true"></span>
-        <span class="logo__texto">
-          <span class="logo__nombre">modem</span>
-          <span class="logo__lema">Estudio de videojuegos independiente</span>
-        </span>
-      </a>
+    <header class="header">
+      <div class="header__barra contenedor">
+        <a class="logo" href="index.html">
+          <span class="icono logo__icono" aria-hidden="true"></span>
+          <span class="logo__texto">
+            <span class="logo__nombre">modem</span>
+            <span class="logo__lema">Estudio de videojuegos independiente</span>
+          </span>
+        </a>
 
-      <!-- Botón hamburguesa: solo se ve en móvil -->
-      <button class="menu-boton" type="button" aria-expanded="false" aria-controls="navegacion">
-        <span class="menu-boton__rayas" aria-hidden="true"></span>
-        <span class="visualmente-oculto">Abrir menú</span>
-      </button>
-    </div>
+        <!-- Botón hamburguesa: solo se ve en móvil -->
+        <button
+          class="menu-boton"
+          type="button"
+          aria-expanded="false"
+          aria-controls="navegacion"
+        >
+          <span class="menu-boton__rayas" aria-hidden="true"></span>
+          <span class="visualmente-oculto">Abrir menú</span>
+        </button>
+      </div>
 
-    <nav class="header__nav contenedor" id="navegacion" aria-label="Menú principal">
-      <ul class="menu">
-        <li><a class="menu__enlace" href="index.html">Inicio</a></li>
-        <li><a class="menu__enlace" href="juegos.html">Juegos</a></li>
-        <li><a class="menu__enlace" href="noticias.html">Noticias</a></li>
-        <li><a class="menu__enlace" href="contacto.html">Contacto</a></li>
-      </ul>
+      <nav
+        class="header__nav contenedor"
+        id="navegacion"
+        aria-label="Menú principal"
+      >
+        <ul class="menu">
+          <li><a class="menu__enlace" href="index.html">Inicio</a></li>
+          <li><a class="menu__enlace" href="juegos.html">Juegos</a></li>
+          <li><a class="menu__enlace" href="noticias.html">Noticias</a></li>
+          <li><a class="menu__enlace" href="contacto.html">Contacto</a></li>
+        </ul>
 
-      <!-- TODO (grupo): poner los enlaces reales de las redes del estudio -->
-      <ul class="redes header__redes">
-        <li><a class="red-social" href="#" aria-label="modem en X"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a></li>
-        <li><a class="red-social" href="#" aria-label="modem en Instagram"><span class="icono icono--16 icono--instagram" aria-hidden="true"></span></a></li>
-        <li><a class="red-social" href="#" aria-label="modem en Facebook"><span class="icono icono--16 icono--facebook" aria-hidden="true"></span></a></li>
-      </ul>
-    </nav>
-  </header>
+        <!-- TODO (grupo): poner los enlaces reales de las redes del estudio -->
+        <ul class="redes header__redes">
+          <li>
+            <a class="red-social" href="#" aria-label="modem en X"
+              ><span class="icono icono--16 icono--x" aria-hidden="true"></span
+            ></a>
+          </li>
+          <li>
+            <a class="red-social" href="#" aria-label="modem en Instagram"
+              ><span
+                class="icono icono--16 icono--instagram"
+                aria-hidden="true"
+              ></span
+            ></a>
+          </li>
+          <li>
+            <a class="red-social" href="#" aria-label="modem en Facebook"
+              ><span
+                class="icono icono--16 icono--facebook"
+                aria-hidden="true"
+              ></span
+            ></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-  <!-- =====================================================================
+    <!-- =====================================================================
        NOTICIAS (noticias.html) — PÁGINA PARA MONTAR POR: ________________
        ---------------------------------------------------------------------
        Pantalla de Figma: "01 · Pantallas" → "Noticias · Escritorio".
@@ -77,9 +114,8 @@
            <head>): allí tienes los pasos explicados.
          - El header y el footer ya están: no los toques.
        ===================================================================== -->
-  <main id="contenido">
-
-    <!-- =================================================================
+    <main id="contenido">
+      <!-- =================================================================
          BLOQUE ÚNICO · BLOG DE NOTICIAS
          -----------------------------------------------------------------
          Orden y separación (48 px entre cada cosa):
@@ -169,33 +205,203 @@
            </section>
          Sustituye esta <section> vacía por la tuya.
          ================================================================= -->
-    <section class="seccion">
-    </section>
+      <section class="seccion" aria-labelledby="titulo-noticias">
+        <div class="contendor noticias">
+          <h1 id="titulo-noticias">Noticias</h1>
+          <ul class="lista-entradas">
+            <!---NOTICIA 1-->
+            <li>
+              <article class="entrada-blog">
+                <a
+                  class="entrada-blog__imagen-enlace"
+                  href="noticia.html"
+                  aria-label="Leer Nuevo tráiler de Neon Abyss: Echoes"
+                >
+                  <img
+                    class="entrada-blog__imagen"
+                    src="img/noticias/entrada-1.jpg"
+                    alt="Partida de Neon Abyss: Echoes en una mazmorra llena de enemigos y explosiones"
+                    width="380"
+                    height="220"
+                  />
+                </a>
 
-  </main>
+                <div class="entrada-blog__contenido">
+                  <p class="fecha">28 de septiembre de 2026 - Por modem</p>
 
-  <!-- ============================== FOOTER ==============================
+                  <h2 class="titulo-h3">
+                    <a href="noticia.html"
+                      >Nuevo tráiler de Neon Abyss: Echoes</a
+                    >
+                  </h2>
+
+                  <p>
+                    Ya puedes descubrir el nuevo tráiler de Neon Abyss: Echoes.
+                    Un adelanto de las nuevas zonas, desafíos y sorpresas que te
+                    esperan en esta nueva aventura.
+                  </p>
+
+                  <a class="enlace" href="noticia.html">
+                    Leer más <span aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </article>
+            </li>
+
+            <!--NOTICIA 2-->
+            <li>
+              <article class="entrada-blog">
+                <a
+                  class="entrada-blog__imagen-enlace"
+                  href="noticia.html"
+                  aria-label="Leer Diario de desarrollo número 3"
+                >
+                  <img
+                    class="entrada-blog__imagen"
+                    src="img/noticias/entrada-2.jpg"
+                    alt="Ilustración de Neon Abyss"
+                    width="380"
+                    height="220"
+                  />
+                </a>
+
+                <div class="entrada-blog__contenido">
+                  <p class="fecha">14 de septiembre de 2026 - Por modem</p>
+                  <h2 class="titulo-h3">
+                    <a href="noticia.html"
+                      >Diario de desarrollo #03: Diseñando nuestro mundo</a
+                    >
+                  </h2>
+
+                  <p>
+                    En este nuevo diario de desarrollo os mostramos cómo damos
+                    vida al mundo de nuestro juego. Desde los primeros bocetos
+                    hasta el diseño de escenarios, cada detalle ayuda a
+                    construir nuestra aventura.
+                  </p>
+                  <a class="enlace" href="noticia.html">
+                    Leer más <span aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </article>
+            </li>
+
+            <!---NOTICIA 3-->
+            <li>
+              <article class="entrada-blog">
+                <a
+                  class="entrada-blog__imagen-enlace"
+                  href="noticia.html"
+                  aria-label="Leer la noticia de IndieDev Day"
+                >
+                  <img
+                    class="entrada-blog__imagen"
+                    src="img/noticias/entrada-3.jpg"
+                    alt="Escenario de videojuego con estatuas iluminadas"
+                    width="380"
+                    height="220"
+                  />
+                </a>
+                <div class="entrada-blog__contenido">
+                  <p class="fecha">2 de septiembre de 2026 - Por modem</p>
+                  <h2 class="titulo-h3">
+                    <a href="noticia.html">Modem estará en IndieDev Day</a>
+                  </h2>
+                  <p>
+                    Este año estaremos en IndieDev Day compartiendo nuestro
+                    proyecto y conociendo a otros desarrolladores. Será una gran
+                    oportunidad para mostrar nuestro trabajo, hablar con la
+                    comunidad y descubrir nuevas ideas del mundo indie.
+                  </p>
+                  <a class="enlace" href="noticia.html">
+                    Leer más <span aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </article>
+            </li>
+            <!--NOTICIA 4-->
+            <li>
+              <article class="entrada-blog">
+                <a
+                  class="entrada-blog__imagen-enlace"
+                  href="noticia.html"
+                  aria-label="Leer la noticia del nuevo proyecto"
+                >
+                  <img
+                    class="entrada-blog__imagen"
+                    src="img/noticias/entrada-4.jpg"
+                    alt="Ilustración promocional de Neon Abyss"
+                    width="380"
+                    height="220"
+                  />
+                </a>
+                <div class="entrada-blog__contenido">
+                  <p class="fecha">18 de agosto de 2026 - Por modem</p>
+                  <h2 class="titulo-h3">
+                    <a href="noticia.html"
+                      >Comienza el desarrollo de nuestro nuevo proyecto</a
+                    >
+                  </h2>
+                  <p>
+                    Después de meses de ideas y prototipos, comenzamos
+                    oficialmente el desarrollo de nuestro nuevo proyecto.
+                    Todavía no podemos contaros mucho, pero pronto compartiremos
+                    las primeras novedades.
+                  </p>
+                  <a class="enlace" href="noticia.html">
+                    Leer más <span aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============================== FOOTER ==============================
        Igual en todas las páginas: NO lo cambies. -->
-  <footer class="footer">
-    <p class="footer__mision">Nuestra misión: crear juegos pequeños, hechos a mano y con mucho cariño, para que cualquiera pueda vivir una gran aventura.</p>
+    <footer class="footer">
+      <p class="footer__mision">
+        Nuestra misión: crear juegos pequeños, hechos a mano y con mucho cariño,
+        para que cualquiera pueda vivir una gran aventura.
+      </p>
 
-    <nav aria-label="Enlaces del pie de página">
-      <ul class="footer__enlaces">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="juegos.html">Juegos</a></li>
-        <li><a href="noticias.html">Noticias</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
+      <nav aria-label="Enlaces del pie de página">
+        <ul class="footer__enlaces">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="juegos.html">Juegos</a></li>
+          <li><a href="noticias.html">Noticias</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <!-- TODO (grupo): poner los enlaces reales de las redes del estudio -->
+      <ul class="redes">
+        <li>
+          <a class="red-social" href="#" aria-label="modem en X"
+            ><span class="icono icono--16 icono--x" aria-hidden="true"></span
+          ></a>
+        </li>
+        <li>
+          <a class="red-social" href="#" aria-label="modem en Instagram"
+            ><span
+              class="icono icono--16 icono--instagram"
+              aria-hidden="true"
+            ></span
+          ></a>
+        </li>
+        <li>
+          <a class="red-social" href="#" aria-label="modem en Facebook"
+            ><span
+              class="icono icono--16 icono--facebook"
+              aria-hidden="true"
+            ></span
+          ></a>
+        </li>
       </ul>
-    </nav>
 
-    <!-- TODO (grupo): poner los enlaces reales de las redes del estudio -->
-    <ul class="redes">
-      <li><a class="red-social" href="#" aria-label="modem en X"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a></li>
-      <li><a class="red-social" href="#" aria-label="modem en Instagram"><span class="icono icono--16 icono--instagram" aria-hidden="true"></span></a></li>
-      <li><a class="red-social" href="#" aria-label="modem en Facebook"><span class="icono icono--16 icono--facebook" aria-hidden="true"></span></a></li>
-    </ul>
-
-    <p class="footer__copyright">© 2026 modem</p>
-  </footer>
-</body>
+      <p class="footer__copyright">© 2026 modem</p>
+    </footer>
+  </body>
 </html>
