@@ -40,15 +40,44 @@
    -------------------------------------------------------------------------- */
 
 .banner {
-  /* tu código aquí */
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 560px;
+  overflow: hidden;
 }
 
 .banner__imagen {
-  /* tu código aquí */
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* recorta la imagen sin deformarla */
 }
 
 .banner__caja {
-  /* tu código aquí */
+  position: relative; /* para quedar encima de la imagen */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* el botón no se estira */
+  gap: var(--espacio-16); /* en Figma son 20 px; no hay variable de 20 px */
+  max-width: 550px;
+  padding: var(--espacio-40);
+  background-color: var(--color-fondo-seccion);
+  border: var(--borde-fino) solid var(--color-borde);
+}
+
+
+/* El título va centrado y el resto del contenido a la izquierda */
+.banner__caja h1 {
+  align-self: stretch;
+  text-align: center;
+}
+
+/* Párrafo limitado a 720 px y centrado */
+.quienes__contenido p {
+  max-width: 720px;
+  margin-inline: auto;
 }
 
 
@@ -64,7 +93,10 @@
    -------------------------------------------------------------------------- */
 
 .quienes__contenido {
-  /* tu código aquí */
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-24);
+  text-align: center;
 }
 
 
@@ -79,7 +111,17 @@
    -------------------------------------------------------------------------- */
 
 .ultimas__contenido {
-  /* tu código aquí */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centra el título y el enlace */
+  gap: var(--espacio-40);
+  text-align: center;
+}
+
+/* La rejilla ocupa todo el ancho; el texto de las tarjetas va a la izquierda */
+.ultimas__contenido .rejilla-noticias {
+  align-self: stretch;
+  text-align: left;
 }
 
 
@@ -90,7 +132,9 @@
    -------------------------------------------------------------------------- */
 
 @media (max-width: 1023px) {
-  /* tu código aquí */
+  .banner {
+    min-height: 440px;
+  }
 }
 
 
@@ -103,5 +147,8 @@
    -------------------------------------------------------------------------- */
 
 @media (max-width: 767px) {
-  /* tu código aquí */
+  .banner__caja {
+    max-width: none; /* ocupa todo el ancho */
+    padding: var(--espacio-24);
+  }
 }
