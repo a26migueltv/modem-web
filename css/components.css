@@ -717,6 +717,12 @@
 }
 
 .tarjeta-juego--invertida {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-48);
+  padding: var(--espacio-32);
+  background-color: var(--color-fondo-seccion);
+  border: var(--borde-fino) solid var(--color-borde);
   flex-direction: row-reverse;
 }
 
