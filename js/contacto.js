@@ -37,7 +37,6 @@
      removeAttribute("aria-invalid") y parrafoError.hidden = true.
    ========================================================================== */
 
-
 /* --------------------------------------------------------------------------
    PASO 1 · Buscar los elementos
    --------------------------------------------------------------------------
@@ -49,6 +48,11 @@
 
 // TU CÓDIGO DEL PASO 1
 
+const formulario = document.getElementById('formulario-contacto');
+const nome = document.getElementById('nombre');
+const email = document.getElementById('email');
+const mensaxe = document.getElementById('mensaje');
+const enviado = document.getElementById('mensaje-enviado');
 
 /* --------------------------------------------------------------------------
    PASO 2 · Dos funciones de ayuda: poner y quitar el error
@@ -69,6 +73,12 @@
 
 // TU CÓDIGO DEL PASO 2
 
+function mostrarError(campo, texto) {
+  if (campo.value.isEmpty()) {
+  }
+}
+
+function quitarError(campo) {}
 
 /* --------------------------------------------------------------------------
    PASO 3 · Una función que diga si un email es válido
@@ -82,8 +92,9 @@
    -------------------------------------------------------------------------- */
 
 // TU CÓDIGO DEL PASO 3
-
-
+function esEmailValido(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
 /* --------------------------------------------------------------------------
    PASO 4 · Validar al enviar
    --------------------------------------------------------------------------
@@ -117,8 +128,12 @@
    -------------------------------------------------------------------------- */
 
 // TU CÓDIGO DEL PASO 4
-
-
+formulario.addEventListener('submit', function (evento) {
+  evento.preventDefault();
+  mostrarError(nome);
+  mostrarError(email);
+  mostrarError(mensaxe);
+});
 /* --------------------------------------------------------------------------
    PASO 5 (opcional, queda muy bien) · Quitar el error mientras se escribe
    --------------------------------------------------------------------------
@@ -127,7 +142,6 @@
    -------------------------------------------------------------------------- */
 
 // TU CÓDIGO DEL PASO 5
-
 
 /* --------------------------------------------------------------------------
    PARA PROBARLO
