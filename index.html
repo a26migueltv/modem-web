@@ -116,7 +116,15 @@
            </section>
          Sustituye esta <section> vacía por la tuya.
          ================================================================= -->
-    <section class="banner">
+    <section class="banner" aria-labelledby="titulo-banner">
+      <img class="banner__imagen" src="img/juegos/banner-inicio.jpg" alt="Hornet, la protagonista de Silksong, con su capa roja y su aguja">
+      <div class="contenedor">
+        <div class="banner__caja">
+          <h1 id="titulo-banner">Hollow Knight<br>Silksong</h1>
+          <p>La actualización 5 de Silksong ya está disponible para los jugadores de PC</p>
+          <button class="boton" type="button" data-demo="Hollow Knight Silksong" data-plataformas="PC">Descargar demo</button>
+        </div>
+      </div>
     </section>
 
 
@@ -143,7 +151,11 @@
              </div>
            </section>
          ================================================================= -->
-    <section class="seccion seccion--oscura quienes">
+    <section class="seccion seccion--oscura quienes" aria-labelledby="titulo-quienes">
+      <div class="contenedor quienes__contenido">
+        <h2 id="titulo-quienes">Quiénes somos</h2>
+        <p>Somos un pequeño estudio independiente que crea juegos con mucho cariño. Descubre nuestras aventuras y prueba la demo gratis.</p>
+      </div>
     </section>
 
 
@@ -196,7 +208,49 @@
              </div>
            </section>
          ================================================================= -->
-    <section class="seccion ultimas">
+    <section class="seccion ultimas" aria-labelledby="titulo-ultimas">
+      <div class="contenedor ultimas__contenido">
+        <h2 id="titulo-ultimas">Últimas noticias</h2>
+        <ul class="rejilla-noticias">
+          <li>
+            <article class="tarjeta-noticia">
+              <img class="tarjeta-noticia__imagen" src="img/noticias/noticia-1.jpg" alt="Hornet, la protagonista de Silksong, con su capa roja y su aguja" width="380" height="220">
+              <div class="tarjeta-noticia__contenido">
+                <span class="etiqueta-categoria">Juegos en tendencia</span>
+                <p class="fecha">12 de marzo de 2026</p>
+                <h3>Silksong próximamente en consolas</h3>
+                <p>La actualización 5 de Silksong ya está disponible para los jugadores de PC y próximamente llegará a las consolas.</p>
+                <a class="enlace" href="noticia.html">Leer más<span class="visualmente-oculto">: Silksong próximamente en consolas</span> →</a>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="tarjeta-noticia">
+              <img class="tarjeta-noticia__imagen" src="img/noticias/noticia-2.jpg" alt="Partida de Neon Abyss: Echoes en una sala llena de enemigos y explosiones" width="380" height="220">
+              <div class="tarjeta-noticia__contenido">
+                <span class="etiqueta-categoria">Anuncios</span>
+                <p class="fecha">28 de septiembre de 2026 - Por modem</p>
+                <h3>Nuevo tráiler de Neon Abyss: Echoes</h3>
+                <p>Descubre el nuevo tráiler de nuestro próximo juego y conoce algunas de las novedades que llegarán a la versión final.</p>
+                <a class="enlace" href="noticia.html">Leer más<span class="visualmente-oculto">: Nuevo tráiler de Neon Abyss: Echoes</span> →</a>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="tarjeta-noticia">
+              <img class="tarjeta-noticia__imagen" src="img/noticias/noticia-3.jpg" alt="Un grupo de aldeanos amenazantes con antorchas rodea a dos personajes en un bosque" width="380" height="220">
+              <div class="tarjeta-noticia__contenido">
+                <span class="etiqueta-categoria">Diario de desarrollo</span>
+                <p class="fecha">14 de septiembre de 2026 - Por modem</p>
+                <h3>Diario de desarrollo #03: Diseñando nuestro mundo</h3>
+                <p>Os contamos cómo estamos creando los escenarios, personajes y criaturas que darán vida a nuestra nueva aventura.</p>
+                <a class="enlace" href="noticia.html">Leer más<span class="visualmente-oculto">: Diario de desarrollo #03: Diseñando nuestro mundo</span> →</a>
+              </div>
+            </article>
+          </li>
+        </ul>
+        <a class="enlace" href="noticias.html">Ver todas las noticias →</a>
+      </div>
     </section>
 
   </main>
