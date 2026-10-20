@@ -50,12 +50,14 @@
        se note al pasar el ratón: por ejemplo, subrayado en hover.
    -------------------------------------------------------------------------- */
 
-.contacto__info {
-  gap: 24px;
+.dato {
+  margin-bottom: 24px;
 }
-
-.contacto__datos {
-  gap: 24px;
+dd a {
+  text-decoration: none;
+}
+dd a:hover {
+  text-decoration: underline;
 }
 
 /* --------------------------------------------------------------------------

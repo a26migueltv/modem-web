@@ -46,7 +46,7 @@
      - el mensaje de enviado  → "mensaje-enviado"
    -------------------------------------------------------------------------- */
 
-// TU CÓDIGO DEL PASO 1
+//PASO 1
 
 const formulario = document.getElementById('formulario-contacto');
 const nome = document.getElementById('nombre');
@@ -71,14 +71,22 @@ const enviado = document.getElementById('mensaje-enviado');
      }
    -------------------------------------------------------------------------- */
 
-// TU CÓDIGO DEL PASO 2
+//PASO 2
 
 function mostrarError(campo, texto) {
-  if (campo.value.isEmpty()) {
-  }
+  campo.closest(".campo").classList.add("campo--error");
+  campo.setAttribute("aria-invalid", "true");
+  const parrafoError = document.getElementById(campo.id + "-error");
+  parrafoError.textContent = texto;
+  parrafoError.hidden = false;
 }
 
-function quitarError(campo) {}
+function quitarError(campo) {
+  campo.closest(".campo").classList.remove("campo--error");
+  campo.setAttribute("aria-invalid", "false");
+  const parrafoError = document.getElementById(campo.id + "-error");
+  parrafoError.hidden = true;
+}
 
 /* --------------------------------------------------------------------------
    PASO 3 · Una función que diga si un email es válido
@@ -91,7 +99,7 @@ function quitarError(campo) {}
      }
    -------------------------------------------------------------------------- */
 
-// TU CÓDIGO DEL PASO 3
+//PASO 3
 function esEmailValido(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
@@ -127,12 +135,40 @@ function esEmailValido(email) {
      });
    -------------------------------------------------------------------------- */
 
-// TU CÓDIGO DEL PASO 4
+//PASO 4
 formulario.addEventListener('submit', function (evento) {
   evento.preventDefault();
-  mostrarError(nome);
-  mostrarError(email);
-  mostrarError(mensaxe);
+  let hayErrores = false;
+  if (nome.value.trim() === '') {
+    mostrarError(nome, "El nombre no puede estar vacío.");
+    hayErrores = true;
+  } else {
+    quitarError(nome);
+  }
+
+  if (email.value.trim() === '') {
+    mostrarError(email, "El email no puede estar vacío.");
+    hayErrores = true;
+  } else if (!esEmailValido(email.value)) {
+    mostrarError(email, "Introduce un email válido.");
+    hayErrores = true;
+  } else {
+    quitarError(email);
+  }
+
+  if (mensaxe.value.trim() === '') {
+    mostrarError(mensaxe, "El mensaje no puede estar vacío.");
+    hayErrores = true;
+  } else {
+    quitarError(mensaxe);
+  }
+
+  if (hayErrores) {
+    formulario.querySelector("[aria-invalid='true']").focus();
+  } else {
+    document.getElementById("mensaje-enviado").hidden = false;
+    formulario.reset();
+  }
 });
 /* --------------------------------------------------------------------------
    PASO 5 (opcional, queda muy bien) · Quitar el error mientras se escribe
