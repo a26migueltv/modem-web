@@ -83,10 +83,11 @@ Cada uno monta **una página principal**. Rellenad la columna «Responsable».
 
 | Página | Archivos que tocas (y solo estos) | Lleva JavaScript | Responsable |
 |---|---|---|---|
-| Inicio | `index.html` · `css/pages/inicio.css` | No (el botón de la demo ya funciona con `data-demo`) | |
-| Juegos | `juegos.html` · `css/pages/juegos.css` | No (los botones de la demo ya funcionan con `data-demo`) | |
-| Noticias | `noticias.html` · `css/pages/noticias.css` · `js/noticias.js` | Sí: filtrar por categoría | |
-| Contacto | `contacto.html` · `css/pages/contacto.css` · `js/contacto.js` | Sí: validar el formulario | |
+| Inicio | `index.html` · `css/pages/inicio.css` | No (el botón de la demo ya funciona con `data-demo`) | Diego |
+| Juegos | `juegos.html` · `css/pages/juegos.css` | No (los botones de la demo ya funcionan con `data-demo`) | Santiago |
+| Noticias | `noticias.html` · `css/pages/noticias.css` · `js/noticias.js` | Sí: filtrar por categoría | Lucas |
+| Contacto | `contacto.html` · `css/pages/contacto.css` · `js/contacto.js` | Sí: validar el formulario | Daniel |
+| Base, catálogo y páginas de detalle | `css/base.css` · `css/components.css` · `componentes.html` · `ficha-juego.html` · `trailer.html` · `noticia.html` · `js/main.js` · `js/modal-demo.js` (y sus CSS/JS) | Sí | Miguel |
 
 ### Lo que ya está hecho (la base)
 
