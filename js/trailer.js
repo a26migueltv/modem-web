@@ -45,13 +45,13 @@ const VIDEOS = {
     duracion: "[0:00]",
   },
   "nueva-bestia": {
-    titulo: "NUEVA BESTIA! Enfrentaos a kezu!",
+    titulo: "¡NUEVA BESTIA! ¡Enfrentaos a Kezu!",
     descripcion: "[Descripción del vídeo]",
     portada: "img/juegos/beast-video-1.jpg",
     duracion: "[2:12]",
   },
   "nueva-dificultad": {
-    titulo: "Nueva dificultad! Adquirid mounstruos aún más peligrosos",
+    titulo: "¡Nueva dificultad! Adquirid monstruos aún más peligrosos",
     descripcion: "[Descripción del vídeo]",
     portada: "img/juegos/beast-video-2.jpg",
     duracion: "[4:51]",
