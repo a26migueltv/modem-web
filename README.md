@@ -72,6 +72,7 @@ modem-web/
 │   └── noticias/   ← imágenes de las noticias
 │
 ├── README.md       ← este archivo
+├── TAREAS.md       ← lo que queda pendiente para el grupo
 └── CLAUDE.md       ← normas para la IA (si usáis Claude u otra IA, que lo lea)
 ```
 
