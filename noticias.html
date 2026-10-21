@@ -181,6 +181,19 @@
       <section class="seccion" aria-labelledby="titulo-noticias">
         <div class="contenedor noticias">
           <h1 id="titulo-noticias">Noticias</h1>
+
+          <!-- Barra de filtros: el activo lleva aria-pressed="true".
+               data-filtro tiene que coincidir con el data-categoria de las
+               noticias (lo usa js/noticias.js). -->
+          <div class="filtros" role="group" aria-label="Filtrar noticias por categoría">
+            <button class="filtro" type="button" data-filtro="todas" aria-pressed="true">Todas</button>
+            <button class="filtro" type="button" data-filtro="anuncios" aria-pressed="false">Anuncios</button>
+            <button class="filtro" type="button" data-filtro="juegos-en-tendencia" aria-pressed="false">Juegos en tendencia</button>
+            <button class="filtro" type="button" data-filtro="actualizaciones" aria-pressed="false">Actualizaciones</button>
+            <button class="filtro" type="button" data-filtro="eventos" aria-pressed="false">Eventos</button>
+            <button class="filtro" type="button" data-filtro="diario-de-desarrollo" aria-pressed="false">Diario de desarrollo</button>
+          </div>
+
           <ul class="lista-entradas">
             <!---NOTICIA 1-->
             <li>
