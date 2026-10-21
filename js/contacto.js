@@ -138,6 +138,8 @@ function esEmailValido(email) {
 //PASO 4
 formulario.addEventListener('submit', function (evento) {
   evento.preventDefault();
+  // Escondemos el mensaje de "enviado" por si se ve de un envío anterior
+  enviado.hidden = true;
   let hayErrores = false;
   if (nome.value.trim() === '') {
     mostrarError(nome, "El nombre no puede estar vacío.");

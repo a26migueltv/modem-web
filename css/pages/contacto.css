@@ -50,13 +50,26 @@
        se note al pasar el ratón: por ejemplo, subrayado en hover.
    -------------------------------------------------------------------------- */
 
-.dato {
-  margin-bottom: 24px;
+/* Título y lista de datos en columna, 24 px entre ellos */
+.contacto__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-24);
 }
-dd a {
+
+/* Los datos en columna, 24 px entre ellos (sin tocar el componente .dato) */
+.contacto__datos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-24);
+}
+
+/* Enlaces mailto: y tel: como texto normal, subrayados al pasar el ratón */
+.contacto__datos a {
   text-decoration: none;
 }
-dd a:hover {
+
+.contacto__datos a:hover {
   text-decoration: underline;
 }
 
@@ -68,7 +81,7 @@ dd a:hover {
    -------------------------------------------------------------------------- */
 
 .contacto__enviado {
-  accent-color: (var(--color-acento));
+  color: var(--color-acento);
 }
 
 /* --------------------------------------------------------------------------
