@@ -27,12 +27,38 @@
        Con que use el color secundario (var(--color-texto-secundario)) basta.
    -------------------------------------------------------------------------- */
 
+/* Título, filtros, lista y enlace en columna, separados 48 px */
 .noticias {
-  /* tu código aquí */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* el enlace "Entradas anteriores" no se estira */
+  gap: var(--espacio-48);
 }
 
+/* La lista ocupa todo el ancho */
+.noticias .lista-entradas {
+  align-self: stretch;
+}
+
+/* Mensaje de "No hay noticias de esta categoría" */
 .noticias__vacio {
-  /* tu código aquí */
+  color: var(--color-texto-secundario);
+}
+
+/* La miniatura va dentro de un enlace a la noticia: el enlace ocupa el
+   sitio de la imagen (320 px, como en Figma) */
+.entrada-blog__imagen-enlace {
+  display: block;
+  flex: 0 0 320px;
+}
+
+/* El título también es un enlace: sin subrayado, salvo al pasar el ratón */
+.entrada-blog__contenido h2 a {
+  text-decoration: none;
+}
+
+.entrada-blog__contenido h2 a:hover {
+  text-decoration: underline;
 }
 
 
@@ -45,6 +71,21 @@
      desplazamiento horizontal.
    -------------------------------------------------------------------------- */
 
+/* Tablet: la miniatura un poco más estrecha (igual que el componente) */
+@media (max-width: 1023px) {
+  .entrada-blog__imagen-enlace {
+    flex-basis: 260px;
+  }
+}
+
 @media (max-width: 767px) {
-  /* tu código aquí */
+  .noticias {
+    gap: var(--espacio-32);
+  }
+
+  /* La miniatura encima, a todo el ancho */
+  .entrada-blog__imagen-enlace {
+    flex-basis: auto;
+    align-self: stretch;
+  }
 }

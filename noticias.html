@@ -32,65 +32,45 @@
     <script src="js/noticias.js" defer></script>
   </head>
   <body>
-    <!-- Enlace para saltar el menú con el teclado (solo se ve al pulsar Tab) -->
-    <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+  <!-- Enlace para saltar el menú con el teclado (solo se ve al pulsar Tab) -->
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
 
-    <!-- ============================== HEADER ==============================
+  <!-- ============================== HEADER ==============================
        Igual en todas las páginas: NO lo cambies.
        La página actual se marca sola en el menú (lo hace js/main.js). -->
-    <header class="header">
-      <div class="header__barra contenedor">
-        <a class="logo" href="index.html">
-          <span class="icono logo__icono" aria-hidden="true"></span>
-          <span class="logo__texto">
-            <span class="logo__nombre">modem</span>
-            <span class="logo__lema">Estudio de videojuegos independiente</span>
-          </span>
-        </a>
+  <header class="header">
+    <div class="header__barra contenedor">
+      <a class="logo" href="index.html">
+        <span class="icono logo__icono" aria-hidden="true"></span>
+        <span class="logo__texto">
+          <span class="logo__nombre">modem</span>
+          <span class="logo__lema">Estudio de videojuegos independiente</span>
+        </span>
+      </a>
 
-        <!-- Botón hamburguesa: solo se ve en móvil -->
-        <button
-          class="menu-boton"
-          type="button"
-          aria-expanded="false"
-          aria-controls="navegacion"
-        >
-          <span class="menu-boton__rayas" aria-hidden="true"></span>
-          <span class="visualmente-oculto">Abrir menú</span>
-        </button>
-      </div>
+      <!-- Botón hamburguesa: solo se ve en móvil -->
+      <button class="menu-boton" type="button" aria-expanded="false" aria-controls="navegacion">
+        <span class="menu-boton__rayas" aria-hidden="true"></span>
+        <span class="visualmente-oculto">Abrir menú</span>
+      </button>
+    </div>
 
-      <nav
-        class="header__nav contenedor"
-        id="navegacion"
-        aria-label="Menú principal"
-      >
-        <ul class="menu">
-          <li><a class="menu__enlace" href="index.html">Inicio</a></li>
-          <li><a class="menu__enlace" href="juegos.html">Juegos</a></li>
-          <li><a class="menu__enlace" href="noticias.html">Noticias</a></li>
-          <li><a class="menu__enlace" href="contacto.html">Contacto</a></li>
-        </ul>
+    <nav class="header__nav contenedor" id="navegacion" aria-label="Menú principal">
+      <ul class="menu">
+        <li><a class="menu__enlace" href="index.html">Inicio</a></li>
+        <li><a class="menu__enlace" href="juegos.html">Juegos</a></li>
+        <li><a class="menu__enlace" href="noticias.html">Noticias</a></li>
+        <li><a class="menu__enlace" href="contacto.html">Contacto</a></li>
+      </ul>
 
-        <!-- TODO (grupo): poner los enlaces reales de las redes del estudio -->
-        <ul class="redes header__redes">
-          <li>
-            <a class="red-social" href="#" aria-label="modem en X"
-              ><img src="img/iconos/brand-x.svg" alt=""></span
-            ></a>
-          </li>
-          <li>
-            <a class="red-social" href="#" aria-label="modem en Instagram"
-              ><img src="img/iconos/brand-instagram.svg" alt=""></a>
-          </li>
-          <li>
-            <a class="red-social" href="#" aria-label="modem en Facebook"
-              ><img src="img/iconos/brand-facebook.svg">
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+      <!-- TODO (grupo): poner los enlaces reales de las redes del estudio -->
+      <ul class="redes header__redes">
+        <li><a class="red-social" href="#" aria-label="modem en X"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a></li>
+        <li><a class="red-social" href="#" aria-label="modem en Instagram"><span class="icono icono--16 icono--instagram" aria-hidden="true"></span></a></li>
+        <li><a class="red-social" href="#" aria-label="modem en Facebook"><span class="icono icono--16 icono--facebook" aria-hidden="true"></span></a></li>
+      </ul>
+    </nav>
+  </header>
 
     <!-- =====================================================================
        NOTICIAS (noticias.html) — PÁGINA PARA MONTAR POR: ________________
@@ -199,12 +179,25 @@
          Sustituye esta <section> vacía por la tuya.
          ================================================================= -->
       <section class="seccion" aria-labelledby="titulo-noticias">
-        <div class="contendor noticias">
+        <div class="contenedor noticias">
           <h1 id="titulo-noticias">Noticias</h1>
+
+          <!-- Barra de filtros: el activo lleva aria-pressed="true".
+               data-filtro tiene que coincidir con el data-categoria de las
+               noticias (lo usa js/noticias.js). -->
+          <div class="filtros" role="group" aria-label="Filtrar noticias por categoría">
+            <button class="filtro" type="button" data-filtro="todas" aria-pressed="true">Todas</button>
+            <button class="filtro" type="button" data-filtro="anuncios" aria-pressed="false">Anuncios</button>
+            <button class="filtro" type="button" data-filtro="juegos-en-tendencia" aria-pressed="false">Juegos en tendencia</button>
+            <button class="filtro" type="button" data-filtro="actualizaciones" aria-pressed="false">Actualizaciones</button>
+            <button class="filtro" type="button" data-filtro="eventos" aria-pressed="false">Eventos</button>
+            <button class="filtro" type="button" data-filtro="diario-de-desarrollo" aria-pressed="false">Diario de desarrollo</button>
+          </div>
+
           <ul class="lista-entradas">
             <!---NOTICIA 1-->
             <li>
-              <article class="entrada-blog">
+              <article class="entrada-blog" data-categoria="anuncios">
                 <a
                   class="entrada-blog__imagen-enlace"
                   href="noticia.html"
@@ -220,6 +213,7 @@
                 </a>
 
                 <div class="entrada-blog__contenido">
+                  <span class="etiqueta-categoria">Anuncios</span>
                   <p class="fecha">28 de septiembre de 2026 - Por modem</p>
 
                   <h2 class="titulo-h3">
@@ -243,7 +237,7 @@
 
             <!--NOTICIA 2-->
             <li>
-              <article class="entrada-blog">
+              <article class="entrada-blog" data-categoria="diario-de-desarrollo">
                 <a
                   class="entrada-blog__imagen-enlace"
                   href="noticia.html"
@@ -259,6 +253,7 @@
                 </a>
 
                 <div class="entrada-blog__contenido">
+                  <span class="etiqueta-categoria">Diario de desarrollo</span>
                   <p class="fecha">14 de septiembre de 2026 - Por modem</p>
                   <h2 class="titulo-h3">
                     <a href="noticia.html"
@@ -281,7 +276,7 @@
 
             <!---NOTICIA 3-->
             <li>
-              <article class="entrada-blog">
+              <article class="entrada-blog" data-categoria="eventos">
                 <a
                   class="entrada-blog__imagen-enlace"
                   href="noticia.html"
@@ -296,9 +291,10 @@
                   />
                 </a>
                 <div class="entrada-blog__contenido">
+                  <span class="etiqueta-categoria">Eventos</span>
                   <p class="fecha">2 de septiembre de 2026 - Por modem</p>
                   <h2 class="titulo-h3">
-                    <a href="noticia.html">Modem estará en IndieDev Day</a>
+                    <a href="noticia.html">modem estará en IndieDev Day</a>
                   </h2>
                   <p>
                     Este año estaremos en IndieDev Day compartiendo nuestro
@@ -314,7 +310,7 @@
             </li>
             <!--NOTICIA 4-->
             <li>
-              <article class="entrada-blog">
+              <article class="entrada-blog" data-categoria="anuncios">
                 <a
                   class="entrada-blog__imagen-enlace"
                   href="noticia.html"
@@ -329,6 +325,7 @@
                   />
                 </a>
                 <div class="entrada-blog__contenido">
+                  <span class="etiqueta-categoria">Anuncios</span>
                   <p class="fecha">18 de agosto de 2026 - Por modem</p>
                   <h2 class="titulo-h3">
                     <a href="noticia.html"
@@ -348,47 +345,38 @@
               </article>
             </li>
           </ul>
+
+          <!-- Mensaje para cuando un filtro no tiene noticias (lo enseña js/noticias.js) -->
+          <p class="noticias__vacio" id="noticias-vacio" role="status" hidden>No hay noticias de esta categoría.</p>
+
+          <!-- TODO (grupo): enlazar las entradas anteriores -->
+          <a class="enlace" href="#">← Entradas anteriores</a>
         </div>
       </section>
     </main>
 
-    <!-- ============================== FOOTER ==============================
+  <!-- ============================== FOOTER ==============================
        Igual en todas las páginas: NO lo cambies. -->
-    <footer class="footer">
-      <p class="footer__mision">
-        Nuestra misión: crear juegos pequeños, hechos a mano y con mucho cariño,
-        para que cualquiera pueda vivir una gran aventura.
-      </p>
+  <footer class="footer">
+    <p class="footer__mision">Nuestra misión: crear juegos pequeños, hechos a mano y con mucho cariño, para que cualquiera pueda vivir una gran aventura.</p>
 
-      <nav aria-label="Enlaces del pie de página">
-        <ul class="footer__enlaces">
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="juegos.html">Juegos</a></li>
-          <li><a href="noticias.html">Noticias</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-      </nav>
-
-      <!-- TODO (grupo): poner los enlaces reales de las redes del estudio -->
-      <ul class="redes">
-        <li>
-          <a class="red-social" href="#" aria-label="modem en X"
-            ><img src="img/iconos/brand-x.svg" alt=""
-          /></a>
-        </li>
-        <li>
-          <a class="red-social" href="#" aria-label="modem en Instagram"
-            ><img src="img/iconos/brand-instagram.svg" />
-          </a>
-        </li>
-        <li>
-          <a class="red-social" href="#" aria-label="modem en Facebook"
-            ><img src="img/iconos/brand-facebook.svg" />
-          </a>
-        </li>
+    <nav aria-label="Enlaces del pie de página">
+      <ul class="footer__enlaces">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="juegos.html">Juegos</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
       </ul>
+    </nav>
 
-      <p class="footer__copyright">© 2026 modem</p>
-    </footer>
-  </body>
+    <!-- TODO (grupo): poner los enlaces reales de las redes del estudio -->
+    <ul class="redes">
+      <li><a class="red-social" href="#" aria-label="modem en X"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a></li>
+      <li><a class="red-social" href="#" aria-label="modem en Instagram"><span class="icono icono--16 icono--instagram" aria-hidden="true"></span></a></li>
+      <li><a class="red-social" href="#" aria-label="modem en Facebook"><span class="icono icono--16 icono--facebook" aria-hidden="true"></span></a></li>
+    </ul>
+
+    <p class="footer__copyright">© 2026 modem</p>
+  </footer>
+</body>
 </html>
