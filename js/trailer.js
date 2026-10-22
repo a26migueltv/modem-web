@@ -21,11 +21,15 @@
 const IDS_YOUTUBE = {
   // "Monster Hunter Wilds - Launch Trailer", del canal oficial "Monster Hunter".
   "trailer": "a_wNFT4j6qI",
-  // TODO (grupo): no se ha encontrado este vídeo en YouTube. Poned su ID.
+  // TODO (grupo): no hay vídeo oficial del Khezu en el canal "Monster Hunter"
+  // (solo vídeos de fans). Buscado el 22/10/2026. Si sale, poned su ID.
   "nueva-bestia": "",
-  // TODO (grupo): no se ha encontrado este vídeo en YouTube. Poned su ID.
+  // TODO (grupo): el vídeo de la nueva dificultad (Arkveld Archtemperado) solo
+  // está resubido por IGN y GameTrailers, no en el canal oficial. Buscado el
+  // 22/10/2026. Decidid si usáis una de esas resubidas o lo dejáis vacío.
   "nueva-dificultad": "",
-  // TODO (grupo): no se ha encontrado este vídeo en YouTube. Poned su ID.
+  // TODO (grupo): no hay vídeo oficial de la actualización 1.042 (solo vídeos
+  // de fans). Buscado el 22/10/2026. Si sale, poned su ID.
   "actualizacion": "",
 };
 
