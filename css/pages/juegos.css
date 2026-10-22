@@ -25,11 +25,15 @@
    -------------------------------------------------------------------------- */
 
 .juegos {
-  /* tu código aquí */
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-48);
 }
 
 .juegos__lista {
-  /* tu código aquí */
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-48);
 }
 
 
