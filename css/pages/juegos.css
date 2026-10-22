@@ -24,12 +24,14 @@
    ¡Y ya está! Es la página con menos CSS.
    -------------------------------------------------------------------------- */
 
+/* Título y lista en columna, separados 48 px (como en Figma) */
 .juegos {
   display: flex;
   flex-direction: column;
   gap: var(--espacio-48);
 }
 
+/* Las 3 tarjetas en columna, también separadas 48 px */
 .juegos__lista {
   display: flex;
   flex-direction: column;
@@ -46,5 +48,8 @@
    -------------------------------------------------------------------------- */
 
 @media (max-width: 767px) {
-  /* tu código aquí */
+  .juegos,
+  .juegos__lista {
+    gap: var(--espacio-32);
+  }
 }

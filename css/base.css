@@ -149,6 +149,14 @@ iframe {
   max-width: 100%;
 }
 
+/* La altura de las imágenes sale de su ancho y su proporción
+   (aspect-ratio), no del atributo height del HTML. Así no se deforman ni
+   se quedan con una altura fija al encoger. */
+img,
+video {
+  height: auto;
+}
+
 /* Los botones y campos usan la fuente de la web (por defecto no lo hacen). */
 button,
 input,

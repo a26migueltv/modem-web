@@ -721,8 +721,11 @@
 }
 
 .tarjeta-juego__imagen {
-  flex: 0 0 520px;
-  width: 520px;
+  /* Imagen y texto se reparten el ancho como en Figma (520 : 568).
+     En 1440 px la imagen mide 520 px; en pantallas algo más estrechas
+     encoge un poco en vez de aplastar el texto. */
+  flex: 520 1 520px;
+  min-width: 0;
   aspect-ratio: 520 / 320;
   object-fit: cover;
   border: var(--borde-fino) solid var(--color-borde);
@@ -733,7 +736,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: var(--espacio-16);
-  flex: 1;
+  flex: 568 1 568px;
   min-width: 0; /* deja que el texto baje de línea en vez de desbordar */
 }
 
@@ -750,8 +753,12 @@
     gap: var(--espacio-24);
   }
 
-  .tarjeta-juego__imagen {
+  .tarjeta-juego__imagen,
+  .tarjeta-juego__info {
     flex-basis: auto;
+  }
+
+  .tarjeta-juego__imagen {
     width: 100%;
   }
 }
