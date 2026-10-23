@@ -1460,12 +1460,18 @@ textarea.campo__control {
   border: 0;
 }
 
-/* Aviso "Vídeo no disponible" */
+/* Aviso "Vídeo no disponible" (cuando el vídeo no tiene ID de YouTube).
+   La guía no tiene este estado; lo decidimos en grupo: la portada sigue
+   detrás con el "Velo del modal", un título H3 y una línea de texto
+   pequeño. No hay botón de play ni controles, así que no se carga nada. */
 .reproductor__aviso {
   position: absolute;
   inset: 0;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacio-12);
   padding: var(--espacio-24);
   background-color: var(--color-velo);
   text-align: center;
