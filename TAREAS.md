@@ -37,9 +37,9 @@ No hay vídeo oficial (canal «Monster Hunter» o Capcom) de estos tres. Buscado
 
 ## 4. Diseño y accesibilidad
 
-- [x] **Contraste de las etiquetas de género**: fondo «Fondo página» (#1d2d3e) en vez de «Caja de imagen». Acento sobre ese fondo: 5,08:1 (antes 4,13:1). **Hay que pasarlo a la guía de Figma.**
+- [x] **Contraste de las etiquetas de género**: fondo «Fondo página» (#1d2d3e) en vez de «Caja de imagen». Acento sobre ese fondo: 5,08:1 (antes 4,13:1). Ya está en la guía de Figma.
 - [x] **Iconos de redes** en SVG dentro del enlace, con el color de la guía («Texto principal» y acento en hover y con el foco).
-- [x] **Estados que no estaban en la guía** (decididos el 23/10/2026; **hay que pasarlos a Figma**): «Vídeo no disponible» del reproductor, enlace de texto desactivado (como el Disabled de los botones) y el aviso «Enlace copiado» de Compartir.
+- [x] **Estados que no estaban en la guía** (decididos el 23/10/2026; ya están en la guía de Figma): «Vídeo no disponible» del reproductor, enlace de texto desactivado (como el Disabled de los botones) y el aviso «Enlace copiado» de Compartir.
 - [x] **Imagen del banner de Inicio**: cambiada por la de Steam de Silksong (1920 px, 233 KB). Ya no se ve borrosa.
 - [x] Las 3 imágenes de más de 500 KB pasan a WebP (`beast-acquirer-savage`, `beast-galeria-2` y `beast-galeria-4`, todas por debajo de 400 KB). Todas las imágenes llevan `width`/`height` y, menos la principal de cada página, `loading="lazy"`.
 - [x] En «Datos de contacto», el teléfono (ficticio, +34 900 000 000) enlaza con `tel:+34900000000`.
