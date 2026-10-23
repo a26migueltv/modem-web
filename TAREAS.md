@@ -3,13 +3,13 @@
 Lista de lo que queda por decidir o hacer en grupo antes (o después) de entregar.
 Cuando terminéis una tarea, marcadla con `[x]`.
 
-Estado a 22 de octubre de 2026: **las 8 páginas están terminadas** y funcionan, sin errores en la consola, sin enlaces rotos y sin desbordes a 1440, 1024, 768 y 375 px.
+Estado a 23 de octubre de 2026: **las 8 páginas están terminadas** y funcionan, sin errores en la consola, sin enlaces rotos y sin desbordes a 1440, 1024, 768 y 375 px.
 
 ---
 
 ## 1. Enlaces reales (decisión del grupo)
 
-Ahora llevan `href="#"` con un comentario `TODO (grupo)` encima. Buscad «TODO» en VS Code (Ctrl/Cmd + Shift + F) para encontrarlos todos.
+Los que faltan llevan `href="#"` con un comentario `TODO (grupo)` encima. Buscad «TODO» en VS Code (Ctrl/Cmd + Shift + F) para encontrarlos todos.
 
 - [x] **Steam** de los 3 juegos y **Epic Games** de Alert of Rainfall (Risk of Rain 2), en `juegos.html`, `ficha-juego.html` y `trailer.html`.
 - [ ] **Epic Games de Beast Acquirer Savage (Monster Hunter Wilds) y Nefarious Pedestrian 4 (Resident Evil 4)**: esos juegos no están en Epic Games Store (comprobado el 21/10/2026). Decidid si se quitan esos botones o se dejan sin enlace.
@@ -22,6 +22,7 @@ Ahora llevan `href="#"` con un comentario `TODO (grupo)` encima. Buscad «TODO»
 En `js/trailer.js`, objeto `IDS_YOUTUBE`:
 
 - [x] Tráiler principal: `a_wNFT4j6qI` («Monster Hunter Wilds - Launch Trailer», canal oficial «Monster Hunter»).
+
 No hay vídeo oficial (canal «Monster Hunter» o Capcom) de estos tres, así que siguen sin ID y sale «Vídeo no disponible». Buscado el 22/10/2026; los detalles están en el TODO de cada uno.
 
 - [ ] «¡NUEVA BESTIA! ¡Enfrentaos a Kezu!»: solo hay vídeos de fans.
