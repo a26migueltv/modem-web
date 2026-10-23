@@ -635,11 +635,16 @@
   gap: var(--espacio-12);
 }
 
+/* Contraste: en la guía el fondo era "Caja de imagen" (#303b46) y el texto
+   en acento solo llegaba a 4,13:1. Para pasar del 4,5:1 sin salir de la
+   paleta, el fondo es "Fondo página" (#1d2d3e): 5,08:1. El borde se queda
+   en "Bordes y separadores" para que la caja se siga viendo sobre las
+   tarjetas. */
 .etiqueta {
   display: inline-block;
   padding: 5px 11px; /* 6 y 12 px menos el borde */
-  background-color: var(--color-caja-imagen);
-  border: var(--borde-fino) solid var(--color-caja-imagen);
+  background-color: var(--color-fondo-pagina);
+  border: var(--borde-fino) solid var(--color-borde);
   color: var(--color-acento);
   font-size: var(--tamano-pequeno);
   line-height: 1.2;

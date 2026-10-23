@@ -46,25 +46,25 @@ const VIDEOS = {
     titulo: "¡Echa un vistazo a la acción de Beast Acquirer Savage!",
     descripcion: "Beast Acquirer Savage es la última entrega hasta la fecha de la saga Beast Acquirer. Nuestro equipo está dándolo todo para traeros el mejor juego de bestias hasta la fecha.",
     portada: "img/juegos/beast-acquirer-savage.jpg",
-    duracion: "[0:00]",
+    duracion: "2:47",
   },
   "nueva-bestia": {
     titulo: "¡NUEVA BESTIA! ¡Enfrentaos a Kezu!",
-    descripcion: "[Descripción del vídeo]",
+    descripcion: "El Kezu llega a Beast Acquirer Savage: una bestia ciega que acecha en las cuevas heladas y paraliza a sus presas con descargas eléctricas. Te enseñamos cómo se mueve y qué materiales consigues al adquirirla.",
     portada: "img/juegos/beast-video-1.jpg",
-    duracion: "[2:12]",
+    duracion: "2:12",
   },
   "nueva-dificultad": {
     titulo: "¡Nueva dificultad! Adquirid monstruos aún más peligrosos",
-    descripcion: "[Descripción del vídeo]",
+    descripcion: "Presentamos el nuevo rango de dificultad: bestias con más vida, ataques nuevos y recompensas exclusivas para quienes se atrevan a enfrentarse a ellas.",
     portada: "img/juegos/beast-video-2.jpg",
-    duracion: "[4:51]",
+    duracion: "4:51",
   },
   "actualizacion": {
     titulo: "Resumen de la actualización (Ver.1.042.00.01 / Demo Version 1.0.1)",
-    descripcion: "[Descripción del vídeo]",
+    descripcion: "Repasamos todo lo que trae la actualización 1.042.00.01 y la versión 1.0.1 de la demo: correcciones de errores, mejoras de rendimiento y ajustes en el equilibrio de las armas.",
     portada: "img/juegos/beast-video-3.jpg",
-    duracion: "[3:05]",
+    duracion: "3:05",
   },
 };
 

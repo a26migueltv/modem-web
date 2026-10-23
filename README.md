@@ -399,6 +399,6 @@ Estas normas hacen que las 8 páginas parezcan hechas por la misma persona.
 - Antes de subir: **consola sin errores rojos**.
 
 ### Accesibilidad (mínimo)
-- Contraste de texto mínimo de 4,5:1. Ojo: la etiqueta de género (acento sobre «Caja de imagen») se queda en 4,13:1, como indica la guía; pendiente de decidir en grupo.
+- Contraste de texto mínimo de 4,5:1. La etiqueta de género lleva fondo «Fondo página» en vez de «Caja de imagen» para llegar a 5,08:1 (en la guía se quedaba en 4,13:1).
 - Todo se tiene que poder usar con el **teclado** (Tab, Enter, Escape) y se tiene que ver siempre dónde está el foco.
 - Los botones que solo tienen un icono llevan `aria-label` (mira las redes sociales en `componentes.html`).

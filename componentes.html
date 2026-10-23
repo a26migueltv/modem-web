@@ -377,7 +377,7 @@
       <!-- ============================== ETIQUETAS ============================== -->
       <section class="catalogo__componente" id="etiquetas" aria-labelledby="titulo-etiquetas">
         <h2 id="titulo-etiquetas">Etiquetas (género del juego)</h2>
-        <p>Etiquetas de género al estilo de Steam. Van en una lista <code>&lt;ul class="etiquetas"&gt;</code>, debajo de las plataformas y encima de los botones. Si no caben, bajan a otra línea solas.</p>
+        <p>Etiquetas de género al estilo de Steam. Van en una lista <code>&lt;ul class="etiquetas"&gt;</code>, debajo de las plataformas y encima de los botones. Si no caben, bajan a otra línea solas. Texto en acento sobre «Fondo página» (5,08:1; con «Caja de imagen», como en la guía, solo llegaba a 4,13:1).</p>
         <h3>Estados</h3>
         <ul class="catalogo__estados">
           <li><span class="etiqueta">Acción</span><span>Normal</span></li>
@@ -476,7 +476,7 @@
                   <span class="icono icono--18 icono--epic" aria-hidden="true"></span>
                   Epic Games<span class="visualmente-oculto"> (se abre en una pestaña nueva)</span>
                 </a>
-                <button class="boton boton--secundario" type="button" data-demo="Beast Acquirer Savage" data-plataformas="PC, Xbox Series X, PS5">Descargar demo</button>
+                <button class="boton boton--secundario" type="button" data-demo="Beast Acquirer Savage" data-plataformas="PC, Xbox Series X, PS5" data-tamano="1850">Descargar demo</button>
               </div>
               <div class="grupo-enlaces">
                 <a class="enlace" href="trailer.html">Ver tráiler</a>
@@ -598,11 +598,11 @@
         <ol class="catalogo__pasos">
           <li>Enlazar el script en el <code>&lt;head&gt;</code>: <code>&lt;script src="js/modal-demo.js" defer&gt;&lt;/script&gt;</code></li>
           <li>Poner en el botón <code>data-demo="Nombre del juego"</code>.</li>
-          <li>Opcional: <code>data-plataformas="PC, Xbox Series X, PS5"</code> (separadas por comas; si no lo pones, sale solo «PC») y <code>data-tamano="850"</code> (megas de la descarga; si no lo pones, sale «[000 MB]» como en Figma).</li>
+          <li>Opcional: <code>data-plataformas="PC, Xbox Series X, PS5"</code> (separadas por comas; si no lo pones, sale solo «PC») y <code>data-tamano="1850"</code> (megas de la descarga; si no lo pones, no se enseña el tamaño).</li>
         </ol>
         <p>Pruébalo con este botón: elige plataforma, mira la barra, cancela, o deja que termine y se descargará un <code>.txt</code>. Se cierra con la X, con «Cerrar», con Escape o pulsando fuera.</p>
         <div class="catalogo__ejemplo">
-          <button class="boton boton--secundario" type="button" data-demo="Beast Acquirer Savage" data-plataformas="PC, Xbox Series X, PS5">Descargar demo</button>
+          <button class="boton boton--secundario" type="button" data-demo="Beast Acquirer Savage" data-plataformas="PC, Xbox Series X, PS5" data-tamano="1850">Descargar demo</button>
         </div>
         <div class="catalogo__codigo"><pre><code></code></pre></div>
 
@@ -623,7 +623,7 @@
                   <label class="opcion-plataforma"><input class="opcion-plataforma__radio" type="radio" name="demo-estatico" tabindex="-1"> PS5</label>
                 </div>
               </div>
-              <p class="modal__nota">Tamaño de la descarga: [000 MB]</p>
+              <p class="modal__nota">Tamaño de la descarga: 1850 MB</p>
               <div class="modal__acciones"><span class="boton">Descargar</span></div>
             </div>
           </div>
@@ -638,7 +638,7 @@
                 <div class="barra-progreso"><div class="barra-progreso__relleno" style="width: 60%"></div></div>
                 <div class="modal__datos-progreso">
                   <span class="modal__porcentaje">60 %</span>
-                  <span class="modal__nota">[000 MB de 000 MB]</span>
+                  <span class="modal__nota">1110 MB de 1850 MB</span>
                 </div>
               </div>
               <div class="modal__acciones"><span class="boton boton--secundario">Cancelar</span></div>
@@ -724,14 +724,14 @@
               </div>
               <div class="dato">
                 <dt>Precio</dt>
-                <dd class="datos-juego__precio">[39,99 €]</dd>
+                <dd class="datos-juego__precio">39,99 €</dd>
               </div>
             </dl>
             <div class="datos-juego__comprar">
               <a class="boton boton--tienda" href="https://store.steampowered.com/app/632360/" target="_blank" rel="noopener"><span class="icono icono--18 icono--steam" aria-hidden="true"></span>Steam<span class="visualmente-oculto"> (se abre en una pestaña nueva)</span></a>
               <a class="boton boton--tienda" href="https://store.epicgames.com/es-ES/p/risk-of-rain-2" target="_blank" rel="noopener"><span class="icono icono--18 icono--epic" aria-hidden="true"></span>Epic Games<span class="visualmente-oculto"> (se abre en una pestaña nueva)</span></a>
             </div>
-            <button class="boton boton--secundario boton--ancho-completo" type="button" data-demo="Beast Acquirer Savage" data-plataformas="PC, Xbox Series X, PS5">Descargar demo</button>
+            <button class="boton boton--secundario boton--ancho-completo" type="button" data-demo="Beast Acquirer Savage" data-plataformas="PC, Xbox Series X, PS5" data-tamano="1850">Descargar demo</button>
           </aside>
         </div>
         <div class="catalogo__codigo"><pre><code></code></pre></div>
@@ -790,7 +790,7 @@
               <span class="miniatura-video__play"><span class="icono icono--20 icono--play" aria-hidden="true"></span></span>
             </span>
             <span class="miniatura-video__titulo">¡NUEVA BESTIA! ¡Enfrentaos a Kezu!</span>
-            <span class="miniatura-video__duracion">[2:12]</span>
+            <span class="miniatura-video__duracion">2:12</span>
           </button>
         </div>
         <div class="catalogo__codigo"><pre><code></code></pre></div>
@@ -809,7 +809,7 @@
             <div class="grupo-botones">
               <a class="boton boton--tienda" href="https://store.steampowered.com/app/632360/" target="_blank" rel="noopener"><span class="icono icono--18 icono--steam" aria-hidden="true"></span>Steam<span class="visualmente-oculto"> (se abre en una pestaña nueva)</span></a>
               <a class="boton boton--tienda" href="https://store.epicgames.com/es-ES/p/risk-of-rain-2" target="_blank" rel="noopener"><span class="icono icono--18 icono--epic" aria-hidden="true"></span>Epic Games<span class="visualmente-oculto"> (se abre en una pestaña nueva)</span></a>
-              <button class="boton boton--secundario" type="button" data-demo="Beast Acquirer Savage" data-plataformas="PC, Xbox Series X, PS5">Descargar demo</button>
+              <button class="boton boton--secundario" type="button" data-demo="Beast Acquirer Savage" data-plataformas="PC, Xbox Series X, PS5" data-tamano="1850">Descargar demo</button>
             </div>
           </div>
         </div>
