@@ -603,6 +603,17 @@
   text-decoration-color: currentColor;
 }
 
+/* Desactivado (cuando todavía no lleva a ningún sitio, como "← Entradas
+   anteriores"). La guía no lo define para el enlace: copiamos el estado
+   Disabled de los botones (texto al 50 %), sin subrayado en hover.
+   Se escribe sin href y con aria-disabled="true":
+     <a class="enlace" aria-disabled="true">← Entradas anteriores</a>     */
+.enlace[aria-disabled="true"] {
+  color: var(--color-texto-deshabilitado);
+  text-decoration-color: transparent;
+  cursor: default;
+}
+
 /* Fila de enlaces separados 24 px ("Ver tráiler   Ver ficha →") */
 .grupo-enlaces {
   display: flex;
@@ -1616,6 +1627,7 @@ textarea.campo__control {
 /* Compartir: "Compartir:" + iconos de redes */
 .compartir {
   display: flex;
+  flex-wrap: wrap; /* el aviso de "Enlace copiado" baja si no cabe */
   align-items: center;
   gap: var(--espacio-16);
 }
@@ -1623,4 +1635,15 @@ textarea.campo__control {
 .compartir__texto {
   color: var(--color-texto-secundario);
   font-size: var(--tamano-pequeno);
+}
+
+/* Aviso "Enlace copiado" (lo escribe js/noticia.js). Mismo estilo que
+   "Compartir:"; si está vacío no ocupa sitio. */
+.compartir__aviso {
+  color: var(--color-texto-secundario);
+  font-size: var(--tamano-pequeno);
+}
+
+.compartir__aviso:empty {
+  display: none;
 }
