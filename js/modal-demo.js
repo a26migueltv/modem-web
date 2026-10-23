@@ -12,8 +12,8 @@
           </button>
         - data-plataformas (opcional): plataformas separadas por comas.
           Si no lo pones, solo sale "PC".
-        - data-tamano (opcional): tamaño de la descarga en MB (ej: "850").
-          Si no lo pones, sale "[000 MB]" como en Figma.
+        - data-tamano (opcional): tamaño de la descarga en MB (ej: "1850").
+          Si no lo pones, no se enseña el tamaño.
    ¡Y ya está! No hace falta escribir el HTML del modal: lo crea este script.
 
    Cómo funciona:
@@ -89,8 +89,11 @@ function abrirModal(boton) {
 
   // Rellenamos los textos del paso 1.
   modal.querySelector("[data-texto='juego']").textContent = juego + " · Demo";
-  modal.querySelector("[data-texto='tamano']").textContent =
-    "Tamaño de la descarga: " + (tamano ? tamano + " MB" : "[000 MB]");
+  // Si el botón no trae data-tamano, las líneas de los megas no se enseñan.
+  const textoTamano = modal.querySelector("[data-texto='tamano']");
+  textoTamano.textContent = "Tamaño de la descarga: " + tamano + " MB";
+  textoTamano.hidden = !tamano;
+  modal.querySelector("[data-texto='megas']").hidden = !tamano;
 
   // Creamos una opción (radio) por cada plataforma. La primera, marcada.
   const lista = modal.querySelector(".modal__lista-opciones");
@@ -292,11 +295,10 @@ function actualizarBarra() {
 
   modal.querySelector("[data-texto='porcentaje']").textContent = progreso + " %";
 
-  let megas = "[000 MB de 000 MB]";
   if (tamano) {
-    megas = Math.round((tamano * progreso) / 100) + " MB de " + tamano + " MB";
+    modal.querySelector("[data-texto='megas']").textContent =
+      Math.round((tamano * progreso) / 100) + " MB de " + tamano + " MB";
   }
-  modal.querySelector("[data-texto='megas']").textContent = megas;
 }
 
 // Para el temporizador (si estaba en marcha).

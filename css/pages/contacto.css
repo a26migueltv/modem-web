@@ -15,16 +15,8 @@
 /* --------------------------------------------------------------------------
    TÍTULO + COLUMNAS
    --------------------------------------------------------------------------
-   La sección ya tiene 72 px arriba y abajo con la clase .seccion.
-     - .contacto: título y columnas en columna, con 48 px entre ellos
-       (display: flex; flex-direction: column; gap: var(--espacio-48)).
-     - .contacto__columnas: dos columnas iguales separadas 80 px.
-       Con grid es muy fácil:
-         display: grid;
-         grid-template-columns: 1fr 1fr;
-         gap: 80px;
-         align-items: start;   ← cada columna con su altura
-       (80 px no está en la escala de espaciados: escríbelo tal cual)
+   Título y columnas separados 48 px. Dos columnas iguales separadas 80 px
+   (80 px no está en la escala de espaciados de la guía).
    -------------------------------------------------------------------------- */
 
 .contacto {
@@ -41,13 +33,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   COLUMNA DERECHA · DATOS DE CONTACTO
-   --------------------------------------------------------------------------
-     - .contacto__info: el título y la lista en columna, 24 px entre ellos.
-     - .contacto__datos: los datos en columna, 24 px entre ellos.
-       (cada .dato ya pone 4 px entre su nombre y su valor)
-     - Los enlaces mailto: y tel: que se vean como texto normal pero que
-       se note al pasar el ratón: por ejemplo, subrayado en hover.
+   COLUMNA DERECHA · DATOS DE CONTACTO (24 px entre título y datos)
    -------------------------------------------------------------------------- */
 
 /* Título y lista de datos en columna, 24 px entre ellos */
@@ -74,10 +60,8 @@
 }
 
 /* --------------------------------------------------------------------------
-   MENSAJE DE "ENVIADO"
-   --------------------------------------------------------------------------
-   No está en Figma. Con poco basta: por ejemplo, el color de acento
-   (var(--color-acento)). Solo se ve cuando contacto.js le quita hidden.
+   MENSAJE DE "ENVIADO" (no está en Figma). Solo se ve cuando contacto.js
+   le quita hidden.
    -------------------------------------------------------------------------- */
 
 .contacto__enviado {
@@ -85,16 +69,13 @@
 }
 
 /* --------------------------------------------------------------------------
-   TABLET Y MÓVIL (hasta 1023 px)
-   --------------------------------------------------------------------------
-   - Las dos columnas pasan a ser una sola (grid-template-columns: 1fr)
-     y la separación baja a 48 px: los datos de contacto quedan debajo
-     del formulario.
+   TABLET Y MÓVIL (hasta 1023 px): una sola columna, los datos de contacto
+   debajo del formulario
    -------------------------------------------------------------------------- */
 
 @media (max-width: 1023px) {
   .contacto__columnas {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: var(--espacio-48);
   }
 }

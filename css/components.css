@@ -415,8 +415,15 @@
    5. REDES SOCIALES
    --------------------------------------------------------------------------
    Círculo de 28 px con borde de 1,5 px e icono de 16 px. Separación 12 px.
-   Hover: borde e icono en acento.
+   Normal: borde e icono en "Texto principal". Hover y foco: en acento.
    Cada enlace lleva aria-label ("modem en X") porque solo tiene un icono.
+
+   El icono es un <svg> escrito dentro del enlace (Tabler Icons, outline).
+   Su trazo usa currentColor, así que cambia de color junto con el borde:
+     <a class="red-social" href="https://x.com" aria-label="modem en X" ...>
+       <svg class="red-social__icono" viewBox="0 0 24 24" aria-hidden="true"
+            focusable="false"><path d="..."/></svg>
+     </a>
    ========================================================================== */
 
 .redes {
@@ -436,8 +443,20 @@
 }
 
 .red-social:hover,
+.red-social:focus-visible,
 .red-social.demo-hover {
   color: var(--color-acento);
+}
+
+/* Icono de 16 px: solo trazo (outline), del color del enlace */
+.red-social__icono {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 
@@ -584,6 +603,17 @@
   text-decoration-color: currentColor;
 }
 
+/* Desactivado (cuando todavía no lleva a ningún sitio, como "← Entradas
+   anteriores"). La guía no lo define para el enlace: copiamos el estado
+   Disabled de los botones (texto al 50 %), sin subrayado en hover.
+   Se escribe sin href y con aria-disabled="true":
+     <a class="enlace" aria-disabled="true">← Entradas anteriores</a>     */
+.enlace[aria-disabled="true"] {
+  color: var(--color-texto-deshabilitado);
+  text-decoration-color: transparent;
+  cursor: default;
+}
+
 /* Fila de enlaces separados 24 px ("Ver tráiler   Ver ficha →") */
 .grupo-enlaces {
   display: flex;
@@ -605,11 +635,16 @@
   gap: var(--espacio-12);
 }
 
+/* Contraste: en la guía el fondo era "Caja de imagen" (#303b46) y el texto
+   en acento solo llegaba a 4,13:1. Para pasar del 4,5:1 sin salir de la
+   paleta, el fondo es "Fondo página" (#1d2d3e): 5,08:1. El borde se queda
+   en "Bordes y separadores" para que la caja se siga viendo sobre las
+   tarjetas. */
 .etiqueta {
   display: inline-block;
   padding: 5px 11px; /* 6 y 12 px menos el borde */
-  background-color: var(--color-caja-imagen);
-  border: var(--borde-fino) solid var(--color-caja-imagen);
+  background-color: var(--color-fondo-pagina);
+  border: var(--borde-fino) solid var(--color-borde);
   color: var(--color-acento);
   font-size: var(--tamano-pequeno);
   line-height: 1.2;
@@ -1430,12 +1465,18 @@ textarea.campo__control {
   border: 0;
 }
 
-/* Aviso "Vídeo no disponible" */
+/* Aviso "Vídeo no disponible" (cuando el vídeo no tiene ID de YouTube).
+   La guía no tiene este estado; lo decidimos en grupo: la portada sigue
+   detrás con el "Velo del modal", un título H3 y una línea de texto
+   pequeño. No hay botón de play ni controles, así que no se carga nada. */
 .reproductor__aviso {
   position: absolute;
   inset: 0;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacio-12);
   padding: var(--espacio-24);
   background-color: var(--color-velo);
   text-align: center;
@@ -1597,6 +1638,7 @@ textarea.campo__control {
 /* Compartir: "Compartir:" + iconos de redes */
 .compartir {
   display: flex;
+  flex-wrap: wrap; /* el aviso de "Enlace copiado" baja si no cabe */
   align-items: center;
   gap: var(--espacio-16);
 }
@@ -1604,4 +1646,15 @@ textarea.campo__control {
 .compartir__texto {
   color: var(--color-texto-secundario);
   font-size: var(--tamano-pequeno);
+}
+
+/* Aviso "Enlace copiado" (lo escribe js/noticia.js). Mismo estilo que
+   "Compartir:"; si está vacío no ocupa sitio. */
+.compartir__aviso {
+  color: var(--color-texto-secundario);
+  font-size: var(--tamano-pequeno);
+}
+
+.compartir__aviso:empty {
+  display: none;
 }

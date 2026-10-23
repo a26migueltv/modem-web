@@ -19,6 +19,7 @@
 
   <!-- JavaScript ("defer" = se ejecuta cuando el HTML ya está cargado) -->
   <script src="js/main.js" defer></script>
+  <script src="js/noticia.js" defer></script>
 </head>
 <body>
   <!-- Enlace para saltar el menú con el teclado (solo se ve al pulsar Tab) -->
@@ -52,11 +53,10 @@
         <li><a class="menu__enlace" href="contacto.html">Contacto</a></li>
       </ul>
 
-      <!-- TODO (grupo): poner los enlaces reales de las redes del estudio -->
       <ul class="redes header__redes">
-        <li><a class="red-social" href="#" aria-label="modem en X"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a></li>
-        <li><a class="red-social" href="#" aria-label="modem en Instagram"><span class="icono icono--16 icono--instagram" aria-hidden="true"></span></a></li>
-        <li><a class="red-social" href="#" aria-label="modem en Facebook"><span class="icono icono--16 icono--facebook" aria-hidden="true"></span></a></li>
+        <li><a class="red-social" href="https://x.com" target="_blank" rel="noopener" aria-label="modem en X (se abre en una pestaña nueva)"><svg class="red-social__icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4l11.733 16h4.267l-11.733 -16l-4.267 0"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg></a></li>
+        <li><a class="red-social" href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="modem en Instagram (se abre en una pestaña nueva)"><svg class="red-social__icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4l0 -10"/><path d="M8.5 12a3.5 3.5 0 1 0 7 0a3.5 3.5 0 0 0 -7 0"/><path d="M17 7v.01"/></svg></a></li>
+        <li><a class="red-social" href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="modem en Facebook (se abre en una pestaña nueva)"><svg class="red-social__icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"/></svg></a></li>
       </ul>
     </nav>
   </header>
@@ -86,7 +86,7 @@
           <h2 class="titulo-h3">Presentamos el nuevo tráiler</h2>
           <p>Después de varias semanas de trabajo, nos alegra compartir por fin el primer tráiler de Neon Abyss: Echoes. En este adelanto podéis descubrir nuevas zonas, enemigos y algunos de los desafíos que encontraréis durante la aventura.</p>
 
-          <img class="articulo__imagen-intermedia" src="img/noticias/noticia-abierta-intermedia.jpg" alt="Combate en Neon Abyss: Echoes con disparos de energía azul en una sala morada" width="800" height="360">
+          <img class="articulo__imagen-intermedia" src="img/noticias/noticia-abierta-intermedia.jpg" alt="Combate en Neon Abyss: Echoes con disparos de energía azul en una sala morada" width="800" height="360" loading="lazy">
 
           <h2 class="titulo-h3">Una nueva aventura</h2>
           <p>Neon Abyss: Echoes amplía el universo del juego con nuevos escenarios y encuentros que pondrán a prueba las habilidades de los jugadores. Seguimos trabajando para pulir cada detalle y ofrecer una experiencia llena de acción, exploración y sorpresas.</p>
@@ -96,12 +96,17 @@
 
         <div class="compartir">
           <span class="compartir__texto">Compartir:</span>
-          <!-- TODO (grupo): poner los enlaces para compartir la noticia -->
+          <!-- Los enlaces llevan la dirección de la web publicada por si no
+               carga el JavaScript. js/noticia.js los cambia por la dirección
+               de la página actual y, en el móvil, abre el menú de compartir
+               del sistema (navigator.share). -->
           <ul class="redes">
-            <li><a class="red-social" href="#" aria-label="Compartir en X"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a></li>
-            <li><a class="red-social" href="#" aria-label="Compartir en Instagram"><span class="icono icono--16 icono--instagram" aria-hidden="true"></span></a></li>
-            <li><a class="red-social" href="#" aria-label="Compartir en Facebook"><span class="icono icono--16 icono--facebook" aria-hidden="true"></span></a></li>
+            <li><a class="red-social" href="https://x.com/intent/post?url=https%3A%2F%2Fa26migueltv.github.io%2Fmodem-web%2Fnoticia.html" target="_blank" rel="noopener" data-compartir="x" aria-label="Compartir en X (se abre en una pestaña nueva)"><svg class="red-social__icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4l11.733 16h4.267l-11.733 -16l-4.267 0"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg></a></li>
+            <li><a class="red-social" href="https://www.instagram.com" target="_blank" rel="noopener" data-compartir="instagram" aria-label="Compartir en Instagram (se abre en una pestaña nueva)"><svg class="red-social__icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4l0 -10"/><path d="M8.5 12a3.5 3.5 0 1 0 7 0a3.5 3.5 0 0 0 -7 0"/><path d="M17 7v.01"/></svg></a></li>
+            <li><a class="red-social" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fa26migueltv.github.io%2Fmodem-web%2Fnoticia.html" target="_blank" rel="noopener" data-compartir="facebook" aria-label="Compartir en Facebook (se abre en una pestaña nueva)"><svg class="red-social__icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"/></svg></a></li>
           </ul>
+          <!-- Aviso de "Enlace copiado" (Instagram no tiene enlace para compartir) -->
+          <p class="compartir__aviso" id="compartir-aviso" role="status"></p>
         </div>
       </article>
 
@@ -111,7 +116,7 @@
         <ul class="rejilla-noticias">
           <li>
             <article class="tarjeta-noticia">
-              <img class="tarjeta-noticia__imagen" src="img/noticias/entrada-2.jpg" alt="Personajes de Neon Abyss posando bajo el logotipo del juego" width="380" height="220">
+              <img class="tarjeta-noticia__imagen" src="img/noticias/entrada-2.jpg" alt="Personajes de Neon Abyss posando bajo el logotipo del juego" width="380" height="220" loading="lazy">
               <div class="tarjeta-noticia__contenido">
                 <span class="etiqueta-categoria">Diario de desarrollo</span>
                 <p class="fecha">14 de septiembre de 2026 - Por modem</p>
@@ -123,7 +128,7 @@
           </li>
           <li>
             <article class="tarjeta-noticia">
-              <img class="tarjeta-noticia__imagen" src="img/noticias/entrada-3.jpg" alt="Un templo oscuro con estatuas iluminadas por antorchas" width="380" height="220">
+              <img class="tarjeta-noticia__imagen" src="img/noticias/entrada-3.jpg" alt="Un templo oscuro con estatuas iluminadas por antorchas" width="380" height="220" loading="lazy">
               <div class="tarjeta-noticia__contenido">
                 <span class="etiqueta-categoria">Eventos</span>
                 <p class="fecha">2 de septiembre de 2026 - Por modem</p>
@@ -135,7 +140,7 @@
           </li>
           <li>
             <article class="tarjeta-noticia">
-              <img class="tarjeta-noticia__imagen" src="img/noticias/entrada-4.jpg" alt="Personaje con máscara de neón junto al logotipo de Neon Abyss 2" width="380" height="220">
+              <img class="tarjeta-noticia__imagen" src="img/noticias/entrada-4.jpg" alt="Personaje con máscara de neón junto al logotipo de Neon Abyss 2" width="380" height="220" loading="lazy">
               <div class="tarjeta-noticia__contenido">
                 <span class="etiqueta-categoria">Anuncios</span>
                 <p class="fecha">18 de agosto de 2026 - Por modem</p>
@@ -165,11 +170,10 @@
       </ul>
     </nav>
 
-    <!-- TODO (grupo): poner los enlaces reales de las redes del estudio -->
     <ul class="redes">
-      <li><a class="red-social" href="#" aria-label="modem en X"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a></li>
-      <li><a class="red-social" href="#" aria-label="modem en Instagram"><span class="icono icono--16 icono--instagram" aria-hidden="true"></span></a></li>
-      <li><a class="red-social" href="#" aria-label="modem en Facebook"><span class="icono icono--16 icono--facebook" aria-hidden="true"></span></a></li>
+      <li><a class="red-social" href="https://x.com" target="_blank" rel="noopener" aria-label="modem en X (se abre en una pestaña nueva)"><svg class="red-social__icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4l11.733 16h4.267l-11.733 -16l-4.267 0"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg></a></li>
+      <li><a class="red-social" href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="modem en Instagram (se abre en una pestaña nueva)"><svg class="red-social__icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4l0 -10"/><path d="M8.5 12a3.5 3.5 0 1 0 7 0a3.5 3.5 0 0 0 -7 0"/><path d="M17 7v.01"/></svg></a></li>
+      <li><a class="red-social" href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="modem en Facebook (se abre en una pestaña nueva)"><svg class="red-social__icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"/></svg></a></li>
     </ul>
 
     <p class="footer__copyright">© 2026 modem</p>

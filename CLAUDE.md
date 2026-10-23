@@ -31,7 +31,7 @@ el <head>, el header y el footer de cualquier página, img/, README.md y este ar
 - Responsive con @media (max-width: 1023px) y (max-width: 767px).
 - JS: const/let, addEventListener, dataset, atributo hidden. Sin errores en consola.
 - "Descargar demo": basta con data-demo="Nombre" (+ data-plataformas opcional); js/modal-demo.js hace el resto.
-- No cambies textos, nombres ni imágenes de los juegos sin que lo pida el grupo. Los textos entre corchetes son relleno.
+- No cambies textos, nombres ni imágenes de los juegos sin que lo pida el grupo.
 - Comentarios claros en español: el código lo leen compañeros que están aprendiendo.
 
 ## Decisiones tomadas por el grupo
@@ -45,16 +45,24 @@ Respétalas. Si algo de esto cambia, lo decide el jefe de grupo y se actualiza a
   | Alert of Rainfall | Risk of Rain 2 | https://store.steampowered.com/app/632360/ | https://store.epicgames.com/es-ES/p/risk-of-rain-2 |
 - **Enlaces de tienda**: solo enlaces comprobados, con `target="_blank" rel="noopener"` y el texto oculto
   `<span class="visualmente-oculto"> (se abre en una pestaña nueva)</span>`.
-- **Si un juego no está en una tienda** (Steam o Epic): NO te inventes el enlace. El botón se queda con `href="#"`
-  y un comentario `TODO (grupo)` que diga que no está y la fecha en que se comprobó.
+- **Si un juego no está en una tienda** (Steam o Epic): NO te inventes el enlace. Se quita ese botón
+  (decidido el 23/10/2026). No debe quedar ningún `href="#"` en la web.
+- **Redes del estudio**: de momento enlazan a la portada de cada red (https://x.com, https://www.instagram.com,
+  https://www.facebook.com) con `target="_blank" rel="noopener"`. Los iconos son `<svg class="red-social__icono">`
+  dentro del enlace, en «Texto principal» y acento en hover y foco, como en la guía (no hay blanco en la paleta).
+- **Enlace desactivado** (p. ej. «← Entradas anteriores» mientras no haya más entradas): sin `href` y con
+  `aria-disabled="true"`; se ve como el Disabled de los botones.
 - **Vídeos de YouTube** (`IDS_YOUTUBE` en js/trailer.js): solo del canal oficial del juego o de su editora
   (por ejemplo «Monster Hunter» o Capcom). Si no se puede comprobar, el ID se queda vacío ("") con su TODO
   y el reproductor enseña «Vídeo no disponible». NO te inventes IDs. Las resubidas de medios (IGN, GameTrailers)
-  no cuentan como oficiales salvo que el grupo lo decida.
+  no cuentan como oficiales salvo que el grupo lo decida. Los vídeos sin ID siguen en «Más vídeos»: en el
+  reproductor enseñan la portada con el velo y el aviso, sin play ni controles.
 - **Banner de Inicio**: img/juegos/banner-inicio.jpg es la imagen de Steam de Hollow Knight: Silksong
   (library_hero, 1920 × 620 px), porque la de Figma solo medía 850 px y se veía borrosa.
-- **Imágenes**: JPG de 500 KB como máximo.
-- **Erratas de Figma**: se corrigen en la web (ya está hecho); los textos entre corchetes siguen siendo relleno.
+- **Imágenes**: JPG o WebP de 500 KB como máximo, con `width`/`height` y `loading="lazy"` (menos la principal de cada página).
+- **Etiqueta de género**: fondo «Fondo página» para llegar a 5,08:1 (en la guía, «Caja de imagen» daba 4,13:1).
+- **Erratas de Figma**: se corrigen en la web (ya está hecho). Los textos entre corchetes ya se han cambiado por
+  datos inventados (fecha y precio —19,99 €— de la ficha, duraciones y descripciones de los vídeos, `data-tamano` de las demos).
 - **Lista de pendientes**: TAREAS.md. Cuando se cierre algo, se marca con [x] allí.
 
 ## Git

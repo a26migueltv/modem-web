@@ -63,121 +63,17 @@
         <li><a class="menu__enlace" href="contacto.html">Contacto</a></li>
       </ul>
 
-      <!-- TODO (grupo): poner los enlaces reales de las redes del estudio -->
       <ul class="redes header__redes">
-        <li><a class="red-social" href="#" aria-label="modem en X"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a></li>
-        <li><a class="red-social" href="#" aria-label="modem en Instagram"><span class="icono icono--16 icono--instagram" aria-hidden="true"></span></a></li>
-        <li><a class="red-social" href="#" aria-label="modem en Facebook"><span class="icono icono--16 icono--facebook" aria-hidden="true"></span></a></li>
+        <li><a class="red-social" href="https://x.com" target="_blank" rel="noopener" aria-label="modem en X (se abre en una pestaña nueva)"><svg class="red-social__icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4l11.733 16h4.267l-11.733 -16l-4.267 0"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg></a></li>
+        <li><a class="red-social" href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="modem en Instagram (se abre en una pestaña nueva)"><svg class="red-social__icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4l0 -10"/><path d="M8.5 12a3.5 3.5 0 1 0 7 0a3.5 3.5 0 0 0 -7 0"/><path d="M17 7v.01"/></svg></a></li>
+        <li><a class="red-social" href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="modem en Facebook (se abre en una pestaña nueva)"><svg class="red-social__icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"/></svg></a></li>
       </ul>
     </nav>
   </header>
 
-    <!-- =====================================================================
-       NOTICIAS (noticias.html) — PÁGINA PARA MONTAR POR: ________________
-       ---------------------------------------------------------------------
-       Pantalla de Figma: "01 · Pantallas" → "Noticias · Escritorio".
-       Un solo bloque (blog en una columna):
-         título "Noticias" → barra de filtros → lista de 4 entradas →
-         enlace "← Entradas anteriores".
-       Cómo trabajar:
-         - Escribe el HTML DENTRO de la <section>, debajo del comentario.
-         - Copia los componentes de componentes.html.
-         - La colocación va en css/pages/noticias.css.
-         - El filtro por categoría va en js/noticias.js (ya enlazado en el
-           <head>): allí tienes los pasos explicados.
-         - El header y el footer ya están: no los toques.
-       ===================================================================== -->
+    <!-- NOTICIAS (Figma: "01 · Pantallas" → "Noticias · Escritorio").
+         Maquetación en css/pages/noticias.css y filtro en js/noticias.js. -->
     <main id="contenido">
-      <!-- =================================================================
-         BLOQUE ÚNICO · BLOG DE NOTICIAS
-         -----------------------------------------------------------------
-         Orden y separación (48 px entre cada cosa):
-           1. Título <h1>: "Noticias" (estilo H1, a la izquierda).
-           2. Barra de filtros (componente "Filtros").
-           3. Lista de entradas (componente "Entrada de blog").
-           4. Enlace "← Entradas anteriores" (componente "Enlace de texto").
-              Todavía no hay entradas anteriores: pon href="#" y encima el
-              comentario  TODO (grupo): enlazar las entradas anteriores
-
-         ---- 2. FILTROS ----
-         Copia el bloque entero de "Filtros" de componentes.html. Son 6
-         botones, en este orden: Todas · Anuncios · Juegos en tendencia ·
-         Actualizaciones · Eventos · Diario de desarrollo.
-           - "Todas" empieza activo: aria-pressed="true".
-           - Los demás: aria-pressed="false".
-           - Cada botón lleva data-filtro con su categoría en minúsculas y
-             con guiones: todas, anuncios, juegos-en-tendencia,
-             actualizaciones, eventos, diario-de-desarrollo.
-
-         ---- 3. LISTA DE ENTRADAS ----
-         <ul class="lista-entradas"> con un <li> por entrada. Dentro, el
-         <article class="entrada-blog"> del componente. La línea separadora
-         y los 40 px entre entradas ya los pone el CSS.
-
-         ⚠️ MUY IMPORTANTE para el filtro: cada <article> lleva
-            data-categoria con su categoría, ESCRITA IGUAL que el
-            data-filtro de su botón. Ejemplo:
-              <article class="entrada-blog" data-categoria="anuncios">
-         Títulos de las entradas: <h2 class="titulo-h3"> (son h2 porque
-         van debajo del h1, pero en Figma se ven como un H3).
-         Todos los "Leer más →" van a noticia.html, con el
-         <span class="visualmente-oculto"> del título de la noticia.
-
-         Las 4 entradas, en este orden:
-           1) Imagen: img/noticias/entrada-1.jpg
-                alt="Partida de Neon Abyss: Echoes en una mazmorra llena de enemigos y explosiones"
-              Categoría: Anuncios  →  data-categoria="anuncios"
-              Fecha: 28 de septiembre de 2026 - Por modem
-              Título: Nuevo tráiler de Neon Abyss: Echoes
-              Texto: Ya puedes descubrir el nuevo tráiler de Neon Abyss:
-                Echoes. Un adelanto de las nuevas zonas, desafíos y
-                sorpresas que te esperan en esta nueva aventura.
-           2) Imagen: img/noticias/entrada-2.jpg
-                alt="Personajes de Neon Abyss posando bajo el logotipo del juego"
-              Categoría: Diario de desarrollo  →  data-categoria="diario-de-desarrollo"
-              Fecha: 14 de septiembre de 2026 - Por modem
-              Título: Diario de desarrollo #03: Diseñando nuestro mundo
-              Texto: En este nuevo diario de desarrollo os mostramos cómo
-                damos vida al mundo de nuestro juego. Desde los primeros
-                bocetos hasta el diseño de escenarios, cada detalle ayuda a
-                construir nuestra aventura.
-           3) Imagen: img/noticias/entrada-3.jpg
-                alt="Un templo oscuro con estatuas iluminadas por antorchas"
-              Categoría: Eventos  →  data-categoria="eventos"
-              Fecha: 2 de septiembre de 2026 - Por modem
-              Título: modem estará en IndieDev Day
-              Texto: Este año estaremos en IndieDev Day compartiendo nuestro
-                proyecto y conociendo a otros desarrolladores. Será una gran
-                oportunidad para mostrar nuestro trabajo, hablar con la
-                comunidad y descubrir nuevas ideas del mundo indie.
-           4) Imagen: img/noticias/entrada-4.jpg
-                alt="Personaje con máscara de neón junto al logotipo de Neon Abyss 2"
-              Categoría: Anuncios  →  data-categoria="anuncios"
-              Fecha: 18 de agosto de 2026 - Por modem
-              Título: Comienza el desarrollo de nuestro nuevo proyecto
-              Texto: Después de meses de ideas y prototipos, comenzamos
-                oficialmente el desarrollo de nuestro nuevo proyecto.
-                Todavía no podemos contaros mucho, pero pronto compartiremos
-                las primeras novedades.
-
-         Nota: no hay entradas de "Juegos en tendencia" ni de
-         "Actualizaciones". Al pulsar esos filtros la lista se queda
-         vacía: añade debajo de la lista este párrafo oculto, que
-         noticias.js enseñará cuando no haya resultados:
-           <p class="noticias__vacio" id="noticias-vacio" role="status" hidden>No hay noticias de esta categoría.</p>
-
-         Estructura que te proponemos:
-           <section class="seccion" aria-labelledby="titulo-noticias">
-             <div class="contenedor noticias">
-               <h1 id="titulo-noticias">Noticias</h1>
-               <div class="filtros" ...> ...6 botones... </div>
-               <ul class="lista-entradas"> ...4 entradas... </ul>
-               <p class="noticias__vacio" ... hidden>...</p>
-               <a class="enlace" href="#">← Entradas anteriores</a>
-             </div>
-           </section>
-         Sustituye esta <section> vacía por la tuya.
-         ================================================================= -->
       <section class="seccion" aria-labelledby="titulo-noticias">
         <div class="contenedor noticias">
           <h1 id="titulo-noticias">Noticias</h1>
@@ -195,7 +91,7 @@
           </div>
 
           <ul class="lista-entradas">
-            <!---NOTICIA 1-->
+            <!-- Noticia 1 -->
             <li>
               <article class="entrada-blog" data-categoria="anuncios">
                 <a
@@ -235,7 +131,7 @@
               </article>
             </li>
 
-            <!--NOTICIA 2-->
+            <!-- Noticia 2 -->
             <li>
               <article class="entrada-blog" data-categoria="diario-de-desarrollo">
                 <a
@@ -248,8 +144,7 @@
                     src="img/noticias/entrada-2.jpg"
                     alt="Ilustración de Neon Abyss"
                     width="380"
-                    height="220"
-                  />
+                    height="220" loading="lazy" />
                 </a>
 
                 <div class="entrada-blog__contenido">
@@ -274,7 +169,7 @@
               </article>
             </li>
 
-            <!---NOTICIA 3-->
+            <!-- Noticia 3 -->
             <li>
               <article class="entrada-blog" data-categoria="eventos">
                 <a
@@ -287,8 +182,7 @@
                     src="img/noticias/entrada-3.jpg"
                     alt="Escenario de videojuego con estatuas iluminadas"
                     width="380"
-                    height="220"
-                  />
+                    height="220" loading="lazy" />
                 </a>
                 <div class="entrada-blog__contenido">
                   <span class="etiqueta-categoria">Eventos</span>
@@ -308,7 +202,7 @@
                 </div>
               </article>
             </li>
-            <!--NOTICIA 4-->
+            <!-- Noticia 4 -->
             <li>
               <article class="entrada-blog" data-categoria="anuncios">
                 <a
@@ -321,8 +215,7 @@
                     src="img/noticias/entrada-4.jpg"
                     alt="Ilustración promocional de Neon Abyss"
                     width="380"
-                    height="220"
-                  />
+                    height="220" loading="lazy" />
                 </a>
                 <div class="entrada-blog__contenido">
                   <span class="etiqueta-categoria">Anuncios</span>
@@ -349,8 +242,10 @@
           <!-- Mensaje para cuando un filtro no tiene noticias (lo enseña js/noticias.js) -->
           <p class="noticias__vacio" id="noticias-vacio" role="status" hidden>No hay noticias de esta categoría.</p>
 
-          <!-- TODO (grupo): enlazar las entradas anteriores -->
-          <a class="enlace" href="#">← Entradas anteriores</a>
+          <!-- Todavía no hay entradas anteriores: el enlace está desactivado
+               (sin href y con aria-disabled). Cuando las haya, poned su href
+               y quitad aria-disabled. -->
+          <a class="enlace" aria-disabled="true">← Entradas anteriores</a>
         </div>
       </section>
     </main>
@@ -369,11 +264,10 @@
       </ul>
     </nav>
 
-    <!-- TODO (grupo): poner los enlaces reales de las redes del estudio -->
     <ul class="redes">
-      <li><a class="red-social" href="#" aria-label="modem en X"><span class="icono icono--16 icono--x" aria-hidden="true"></span></a></li>
-      <li><a class="red-social" href="#" aria-label="modem en Instagram"><span class="icono icono--16 icono--instagram" aria-hidden="true"></span></a></li>
-      <li><a class="red-social" href="#" aria-label="modem en Facebook"><span class="icono icono--16 icono--facebook" aria-hidden="true"></span></a></li>
+      <li><a class="red-social" href="https://x.com" target="_blank" rel="noopener" aria-label="modem en X (se abre en una pestaña nueva)"><svg class="red-social__icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4l11.733 16h4.267l-11.733 -16l-4.267 0"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg></a></li>
+      <li><a class="red-social" href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="modem en Instagram (se abre en una pestaña nueva)"><svg class="red-social__icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4l0 -10"/><path d="M8.5 12a3.5 3.5 0 1 0 7 0a3.5 3.5 0 0 0 -7 0"/><path d="M17 7v.01"/></svg></a></li>
+      <li><a class="red-social" href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="modem en Facebook (se abre en una pestaña nueva)"><svg class="red-social__icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"/></svg></a></li>
     </ul>
 
     <p class="footer__copyright">© 2026 modem</p>
