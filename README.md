@@ -63,6 +63,7 @@ modem-web/
 │   ├── contacto.js      ← validación del formulario (para el grupo: pasos explicados)
 │   ├── ficha-juego.js   ← galería de la ficha       (ya hecho)
 │   ├── trailer.js       ← vídeos del tráiler        (ya hecho)
+│   ├── noticia.js       ← compartir la noticia      (ya hecho)
 │   └── catalogo.js      ← solo para componentes.html
 │
 ├── img/
@@ -376,7 +377,7 @@ Estas normas hacen que las 8 páginas parezcan hechas por la misma persona.
 - **Títulos en orden**: un solo `<h1>` por página, luego `<h2>` y luego `<h3>`. Si un título tiene que *verse* de otro tamaño, usa las clases `titulo-h1`, `titulo-h2` o `titulo-h3`.
 - **Todas las imágenes con `alt`**, que describa la imagen. Si es decorativa (no aporta información), `alt=""`.
 - **Nada de estilos en línea** (`style="..."`). Todo el estilo va en el CSS. (Única excepción: el ancho de la barra de progreso, que lo cambia el JavaScript.)
-- Los enlaces que aún no existen (Steam, Epic, redes) llevan `href="#"` y encima `<!-- TODO (grupo): ... -->`.
+- No dejéis enlaces con `href="#"`. Si un juego no está en una tienda, se quita ese botón. Si un enlace todavía no lleva a ningún sitio, se desactiva: sin `href` y con `aria-disabled="true"`.
 
 ### CSS
 - **Usa siempre las variables** de `base.css`: `var(--color-acento)`, `var(--espacio-24)`, `var(--tamano-h2)`... **Nunca un color suelto** (`#00a3f9`).
