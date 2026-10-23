@@ -1156,6 +1156,20 @@ textarea.campo__control {
   color: var(--color-acento);
 }
 
+/* Iconos del modal (X de cerrar y check): 20 px, solo trazo, del color del
+   elemento que los contiene. Van como <svg> escrito en el HTML del modal y
+   no con la máscara de .icono, porque la máscara no se pinta si la página
+   se abre con doble clic (file://): Chrome bloquea esas imágenes. */
+.modal__icono {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 /* ---------- Opción de plataforma ----------
    Es un radio de verdad (<input type="radio">) dentro de un <label>, así
    funciona con el teclado (flechas) y con lectores de pantalla.
