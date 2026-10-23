@@ -55,28 +55,38 @@
 /* ==========================================================================
    1. ICONOS
    --------------------------------------------------------------------------
-   Los iconos son los SVG de img/iconos/. Los pintamos con una "máscara":
-   el SVG decide la FORMA y el color lo pone "currentColor", que es el color
-   del texto del elemento. Así el icono cambia de color solo cuando el botón
-   cambia de estado (hover, pulsado...).
+   Cada icono es un <svg> escrito en el HTML, copiado de img/iconos/
+   (Tabler Icons outline y, las tiendas, Simple Icons). Va escrito en el
+   HTML y no como imagen de fondo o máscara para que se vea también al
+   abrir la página con doble clic (file://).
 
-   Uso:  <span class="icono icono--steam" aria-hidden="true"></span>
-   (aria-hidden="true" porque el icono es decorativo: el texto o el
-    aria-label del botón ya dicen lo que hace).
+   El color sale de "currentColor", que es el color del texto del elemento:
+   así el icono cambia de color solo cuando el botón cambia de estado.
+
+   Uso (aria-hidden porque el texto o el aria-label ya dicen lo que hace):
+     <svg class="icono icono--20 icono--play" viewBox="0 0 24 24"
+          aria-hidden="true" focusable="false"><path d="..."/></svg>
+   Los modificadores con nombre (icono--play, icono--steam...) solo dicen
+   qué icono es. Copia el código de componentes.html.
    ========================================================================== */
 
+/* Iconos de trazo (Tabler Icons): grosor 2 sobre 24 px, como en la guía */
 .icono {
   display: inline-block;
   flex-shrink: 0;
   width: 24px;
   height: 24px;
-  background-color: currentColor;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-size: contain;
-  mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Iconos de relleno (Simple Icons: Steam y Epic Games) */
+.icono--relleno {
+  fill: currentColor;
+  stroke: none;
 }
 
 /* Tamaños de la guía */
@@ -84,56 +94,6 @@
 .icono--18 { width: 18px; height: 18px; }
 .icono--20 { width: 20px; height: 20px; }
 .icono--36 { width: 36px; height: 36px; }
-
-/* Un modificador por cada SVG de img/iconos/ */
-.icono--x {
-  -webkit-mask-image: url("../img/iconos/brand-x.svg");
-  mask-image: url("../img/iconos/brand-x.svg");
-}
-.icono--instagram {
-  -webkit-mask-image: url("../img/iconos/brand-instagram.svg");
-  mask-image: url("../img/iconos/brand-instagram.svg");
-}
-.icono--facebook {
-  -webkit-mask-image: url("../img/iconos/brand-facebook.svg");
-  mask-image: url("../img/iconos/brand-facebook.svg");
-}
-.icono--steam {
-  -webkit-mask-image: url("../img/iconos/tienda-steam.svg");
-  mask-image: url("../img/iconos/tienda-steam.svg");
-}
-.icono--epic {
-  -webkit-mask-image: url("../img/iconos/tienda-epicgames.svg");
-  mask-image: url("../img/iconos/tienda-epicgames.svg");
-}
-.icono--play {
-  -webkit-mask-image: url("../img/iconos/player-play.svg");
-  mask-image: url("../img/iconos/player-play.svg");
-}
-.icono--pausa {
-  -webkit-mask-image: url("../img/iconos/player-pause.svg");
-  mask-image: url("../img/iconos/player-pause.svg");
-}
-.icono--volumen {
-  -webkit-mask-image: url("../img/iconos/volume.svg");
-  mask-image: url("../img/iconos/volume.svg");
-}
-.icono--pantalla-completa {
-  -webkit-mask-image: url("../img/iconos/maximize.svg");
-  mask-image: url("../img/iconos/maximize.svg");
-}
-.icono--cerrar {
-  -webkit-mask-image: url("../img/iconos/x.svg");
-  mask-image: url("../img/iconos/x.svg");
-}
-.icono--check {
-  -webkit-mask-image: url("../img/iconos/check.svg");
-  mask-image: url("../img/iconos/check.svg");
-}
-.icono--descargar {
-  -webkit-mask-image: url("../img/iconos/download.svg");
-  mask-image: url("../img/iconos/download.svg");
-}
 
 
 /* ==========================================================================
@@ -151,11 +111,17 @@
   text-decoration: none;
 }
 
+/* Icono del logo: <svg> escrito en el HTML (img/logo/modem-icono-blanco.svg),
+   de trazo y del color del texto */
 .logo__icono {
+  flex-shrink: 0;
   width: 54px;
   height: 48px;
-  -webkit-mask-image: url("../img/logo/modem-icono-blanco.svg");
-  mask-image: url("../img/logo/modem-icono-blanco.svg");
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .logo__texto {
@@ -418,12 +384,8 @@
    Normal: borde e icono en "Texto principal". Hover y foco: en acento.
    Cada enlace lleva aria-label ("modem en X") porque solo tiene un icono.
 
-   El icono es un <svg> escrito dentro del enlace (Tabler Icons, outline).
-   Su trazo usa currentColor, así que cambia de color junto con el borde:
-     <a class="red-social" href="https://x.com" aria-label="modem en X" ...>
-       <svg class="red-social__icono" viewBox="0 0 24 24" aria-hidden="true"
-            focusable="false"><path d="..."/></svg>
-     </a>
+   El icono es un <svg class="icono icono--16 ..."> dentro del enlace: su
+   trazo usa currentColor, así que cambia de color junto con el borde.
    ========================================================================== */
 
 .redes {
@@ -448,16 +410,6 @@
   color: var(--color-acento);
 }
 
-/* Icono de 16 px: solo trazo (outline), del color del enlace */
-.red-social__icono {
-  width: 16px;
-  height: 16px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
 
 
 /* ==========================================================================
@@ -543,10 +495,11 @@
 
 /* ---------- Botón de tienda (Steam / Epic Games) ----------
    Mismos colores que el botón principal, con icono de 18 px.
-   Uso: <a class="boton boton--tienda" href="#">
-          <span class="icono icono--18 icono--steam" aria-hidden="true"></span>
+   Uso: <a class="boton boton--tienda" href="https://store..." ...>
+          <svg class="icono icono--18 icono--steam icono--relleno" ...>...</svg>
           Steam
-        </a>                                                              */
+        </a>
+   (copia el código completo de componentes.html)                         */
 .boton--tienda {
   padding-inline: 23px; /* 24 px de la guía menos el borde */
 }
@@ -1156,19 +1109,6 @@ textarea.campo__control {
   color: var(--color-acento);
 }
 
-/* Iconos del modal (X de cerrar y check): 20 px, solo trazo, del color del
-   elemento que los contiene. Van como <svg> escrito en el HTML del modal y
-   no con la máscara de .icono, porque la máscara no se pinta si la página
-   se abre con doble clic (file://): Chrome bloquea esas imágenes. */
-.modal__icono {
-  width: 20px;
-  height: 20px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
 
 /* ---------- Opción de plataforma ----------
    Es un radio de verdad (<input type="radio">) dentro de un <label>, así

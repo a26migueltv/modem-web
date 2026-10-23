@@ -138,7 +138,7 @@ function crearModal() {
       <div class="modal__cabecera">
         <h2 class="titulo-h3" id="modal-titulo-1">Descargar demo</h2>
         <button class="modal__cerrar" type="button" data-cerrar aria-label="Cerrar">
-          <svg class="modal__icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg>
+          <svg class="icono icono--20 icono--cerrar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg>
         </button>
       </div>
       <p data-texto="juego"></p>
@@ -157,7 +157,7 @@ function crearModal() {
       <div class="modal__cabecera">
         <h2 class="titulo-h3" id="modal-titulo-2">Descargando</h2>
         <button class="modal__cerrar" type="button" data-cerrar aria-label="Cerrar">
-          <svg class="modal__icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg>
+          <svg class="icono icono--20 icono--cerrar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg>
         </button>
       </div>
       <p data-texto="plataforma"></p>
@@ -181,12 +181,12 @@ function crearModal() {
       <div class="modal__cabecera">
         <h2 class="titulo-h3" id="modal-titulo-3">Completada</h2>
         <button class="modal__cerrar" type="button" data-cerrar aria-label="Cerrar">
-          <svg class="modal__icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg>
+          <svg class="icono icono--20 icono--cerrar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg>
         </button>
       </div>
       <div class="modal__mensaje">
         <span class="modal__icono-ok" aria-hidden="true">
-          <svg class="modal__icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12l5 5l10 -10"/></svg>
+          <svg class="icono icono--20 icono--check" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12l5 5l10 -10"/></svg>
         </span>
         <p data-texto="completada"></p>
       </div>
