@@ -74,22 +74,33 @@
       <a class="enlace" href="juegos.html">← Volver a Juegos</a>
 
       <!-- REPRODUCTOR: portada + botón de play. Al pulsar play, trailer.js
-           cambia la portada por el vídeo de YouTube. -->
-      <div class="reproductor" id="reproductor" tabindex="-1">
-        <img class="reproductor__portada" id="video-portada" src="img/juegos/beast-acquirer-savage.webp" alt="" width="1200" height="675">
-        <button class="reproductor__play" id="video-play" type="button">
-          <span class="reproductor__circulo"><svg class="icono icono--36 icono--play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 4v16l13 -8l-13 -8"/></svg></span>
-          <span class="visualmente-oculto">Reproducir el vídeo</span>
-        </button>
-        <!-- Controles: de momento solo son visuales (el vídeo de YouTube
-             trae sus propios controles) -->
-        <div class="reproductor__controles" aria-hidden="true">
-          <svg class="icono icono--20 icono--play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 4v16l13 -8l-13 -8"/></svg>
-          <span>0:00 / 0:00</span>
-          <div class="barra-progreso"><div class="barra-progreso__relleno"></div></div>
-          <svg class="icono icono--20 icono--volumen" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 8a5 5 0 0 1 0 8"/><path d="M17.7 5a9 9 0 0 1 0 14"/><path d="M6 15h-2a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h2l3.5 -4.5a.8 .8 0 0 1 1.5 .5v14a.8 .8 0 0 1 -1.5 .5l-3.5 -4.5"/></svg>
-          <svg class="icono icono--20 icono--pantalla-completa" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 8v-2a2 2 0 0 1 2 -2h2"/><path d="M4 16v2a2 2 0 0 0 2 2h2"/><path d="M16 4h2a2 2 0 0 1 2 2v2"/><path d="M16 20h2a2 2 0 0 0 2 -2v-2"/></svg>
+           cambia la portada por el vídeo de YouTube.
+           Si la página se abre con doble clic (file://), YouTube no deja
+           ver el vídeo dentro de la página: trailer.js enseña la miniatura
+           de YouTube y el play y "Ver en YouTube" lo abren en otra pestaña. -->
+      <div class="trailer__video">
+        <div class="reproductor" id="reproductor" tabindex="-1">
+          <img class="reproductor__portada" id="video-portada" src="img/juegos/beast-acquirer-savage.webp" alt="" width="1200" height="675">
+          <button class="reproductor__play" id="video-play" type="button">
+            <span class="reproductor__circulo"><svg class="icono icono--36 icono--play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 4v16l13 -8l-13 -8"/></svg></span>
+            <span class="visualmente-oculto">Reproducir el vídeo</span>
+          </button>
+          <!-- Solo con file://. Con el teclado se usa "Ver en YouTube" (abajo),
+               por eso este no recibe el foco. -->
+          <a class="reproductor__play" id="video-play-youtube" href="https://www.youtube.com/watch?v=a_wNFT4j6qI" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" hidden>
+            <span class="reproductor__circulo"><svg class="icono icono--36 icono--play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 4v16l13 -8l-13 -8"/></svg></span>
+          </a>
+          <!-- Controles: de momento solo son visuales (el vídeo de YouTube
+               trae sus propios controles) -->
+          <div class="reproductor__controles" aria-hidden="true">
+            <svg class="icono icono--20 icono--play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 4v16l13 -8l-13 -8"/></svg>
+            <span>0:00 / 0:00</span>
+            <div class="barra-progreso"><div class="barra-progreso__relleno"></div></div>
+            <svg class="icono icono--20 icono--volumen" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 8a5 5 0 0 1 0 8"/><path d="M17.7 5a9 9 0 0 1 0 14"/><path d="M6 15h-2a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h2l3.5 -4.5a.8 .8 0 0 1 1.5 .5v14a.8 .8 0 0 1 -1.5 .5l-3.5 -4.5"/></svg>
+            <svg class="icono icono--20 icono--pantalla-completa" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 8v-2a2 2 0 0 1 2 -2h2"/><path d="M4 16v2a2 2 0 0 0 2 2h2"/><path d="M16 4h2a2 2 0 0 1 2 2v2"/><path d="M16 20h2a2 2 0 0 0 2 -2v-2"/></svg>
+          </div>
         </div>
+        <a class="enlace" id="video-enlace-youtube" href="https://www.youtube.com/watch?v=a_wNFT4j6qI" target="_blank" rel="noopener" hidden>Ver en YouTube →<span class="visualmente-oculto"> (se abre en una pestaña nueva)</span></a>
       </div>
 
       <!-- DATOS DEL VÍDEO -->

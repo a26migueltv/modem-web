@@ -20,6 +20,18 @@
   align-self: stretch;
 }
 
+/* Reproductor y, debajo, "Ver en YouTube" (solo con file://), a 16 px */
+.trailer__video {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espacio-16);
+}
+
+.trailer__video .reproductor {
+  align-self: stretch;
+}
+
 /* "Más vídeos": título y fila separados 24 px */
 .trailer__mas {
   display: flex;
