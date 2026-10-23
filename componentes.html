@@ -455,7 +455,7 @@
         <p>Jerarquía de acciones: Steam y Epic son los botones principales, «Descargar demo» es secundario y «Ver tráiler» y «Ver ficha →» son enlaces de texto. El botón «Descargar demo» abre el modal solo con poner <code>data-demo</code> (mira <a class="enlace" href="#modal">Modal</a>).</p>
         <div class="catalogo__ejemplo">
           <article class="tarjeta-juego">
-            <img class="tarjeta-juego__imagen" src="img/juegos/beast-acquirer-savage.jpg" alt="Una bestia marina gigante emerge entre las olas" width="520" height="320">
+            <img class="tarjeta-juego__imagen" src="img/juegos/beast-acquirer-savage.webp" alt="Una bestia marina gigante emerge entre las olas" width="520" height="320" loading="lazy">
             <div class="tarjeta-juego__info">
               <h2>Beast Acquirer Savage</h2>
               <p>Un juego de mundo abierto en el que te encargas de adquirir bestias que amenazan con destruir el ecosistema, usando partes de las propias bestias.</p>
@@ -497,7 +497,7 @@
           <ul class="rejilla-noticias">
             <li>
               <article class="tarjeta-noticia">
-                <img class="tarjeta-noticia__imagen" src="img/noticias/noticia-2.jpg" alt="Partida de Neon Abyss: Echoes en una sala llena de enemigos y explosiones" width="380" height="220">
+                <img class="tarjeta-noticia__imagen" src="img/noticias/noticia-2.jpg" alt="Partida de Neon Abyss: Echoes en una sala llena de enemigos y explosiones" width="380" height="220" loading="lazy">
                 <div class="tarjeta-noticia__contenido">
                   <span class="etiqueta-categoria">Anuncios</span>
                   <p class="fecha">28 de septiembre de 2026 - Por modem</p>
@@ -521,7 +521,7 @@
           <ul class="lista-entradas">
             <li>
               <article class="entrada-blog" data-categoria="anuncios">
-                <img class="entrada-blog__imagen" src="img/noticias/entrada-1.jpg" alt="Partida de Neon Abyss: Echoes en una sala llena de enemigos y explosiones" width="320" height="200">
+                <img class="entrada-blog__imagen" src="img/noticias/entrada-1.jpg" alt="Partida de Neon Abyss: Echoes en una sala llena de enemigos y explosiones" width="320" height="200" loading="lazy">
                 <div class="entrada-blog__contenido">
                   <span class="etiqueta-categoria">Anuncios</span>
                   <p class="fecha">28 de septiembre de 2026 - Por modem</p>
@@ -681,7 +681,7 @@
         <p>Cabecera de la ficha de juego: imagen oscurecida con el velo y el nombre del juego encima. La imagen lleva <code>alt=""</code> porque es decorativa (el nombre ya está en el título).</p>
         <div class="catalogo__ejemplo">
           <div class="banner-juego">
-            <img class="banner-juego__imagen" src="img/juegos/beast-acquirer-savage.jpg" alt="" width="1200" height="280">
+            <img class="banner-juego__imagen" src="img/juegos/beast-acquirer-savage.webp" alt="" width="1200" height="280" loading="lazy">
             <h1 class="banner-juego__titulo">Beast Acquirer Savage</h1>
           </div>
         </div>
@@ -695,10 +695,10 @@
         <p>Imagen principal y 4 miniaturas. Cada miniatura es un <code>&lt;button&gt;</code> con <code>data-imagen</code> (la imagen grande que enseña) y la elegida lleva <code>aria-pressed="true"</code>. El cambio de imagen lo hace <code>js/ficha-juego.js</code> (en esta página de catálogo no funciona).</p>
         <div class="catalogo__ejemplo catalogo__ejemplo--estrecho">
           <div class="galeria">
-            <img class="galeria__principal" src="img/juegos/beast-acquirer-savage.jpg" alt="Una bestia marina gigante emerge entre las olas" width="720" height="405">
+            <img class="galeria__principal" src="img/juegos/beast-acquirer-savage.webp" alt="Una bestia marina gigante emerge entre las olas" width="720" height="405" loading="lazy">
             <ul class="galeria__miniaturas">
-              <li><button class="galeria__miniatura" type="button" data-imagen="img/juegos/beast-acquirer-savage.jpg" aria-pressed="true"><img src="img/juegos/beast-acquirer-savage.jpg" alt="Una bestia marina gigante emerge entre las olas" width="171" height="96"></button></li>
-              <li><button class="galeria__miniatura" type="button" data-imagen="img/juegos/beast-galeria-2.jpg" aria-pressed="false"><img src="img/juegos/beast-galeria-2.jpg" alt="Una tienda con forma de criatura en un campamento del desierto" width="171" height="96"></button></li>
+              <li><button class="galeria__miniatura" type="button" data-imagen="img/juegos/beast-acquirer-savage.webp" aria-pressed="true"><img src="img/juegos/beast-acquirer-savage.webp" alt="Una bestia marina gigante emerge entre las olas" width="171" height="96" loading="lazy"></button></li>
+              <li><button class="galeria__miniatura" type="button" data-imagen="img/juegos/beast-galeria-2.webp" aria-pressed="false"><img src="img/juegos/beast-galeria-2.webp" alt="Una tienda con forma de criatura en un campamento del desierto" width="171" height="96" loading="lazy"></button></li>
             </ul>
           </div>
         </div>
@@ -761,7 +761,7 @@
         <p>Portada 16:9 con el botón de play y la barra de controles. En <code>trailer.html</code>, al pulsar play, <code>js/trailer.js</code> cambia la portada por el vídeo de YouTube. Aquí el play es un enlace que lleva a la página del tráiler (como en la ficha de juego).</p>
         <div class="catalogo__ejemplo catalogo__ejemplo--estrecho">
           <div class="reproductor">
-            <img class="reproductor__portada" src="img/juegos/beast-acquirer-savage.jpg" alt="" width="1200" height="675">
+            <img class="reproductor__portada" src="img/juegos/beast-acquirer-savage.webp" alt="" width="1200" height="675" loading="lazy">
             <a class="reproductor__play" href="trailer.html">
               <span class="reproductor__circulo"><span class="icono icono--36 icono--play" aria-hidden="true"></span></span>
               <span class="visualmente-oculto">Ver el tráiler de Beast Acquirer Savage</span>
@@ -786,7 +786,7 @@
         <div class="catalogo__ejemplo catalogo__ejemplo--estrecho">
           <button class="miniatura-video" type="button" data-video="1">
             <span class="miniatura-video__imagen">
-              <img src="img/juegos/beast-video-1.jpg" alt="" width="384" height="216">
+              <img src="img/juegos/beast-video-1.jpg" alt="" width="384" height="216" loading="lazy">
               <span class="miniatura-video__play"><span class="icono icono--20 icono--play" aria-hidden="true"></span></span>
             </span>
             <span class="miniatura-video__titulo">¡NUEVA BESTIA! ¡Enfrentaos a Kezu!</span>

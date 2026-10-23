@@ -45,7 +45,7 @@ const VIDEOS = {
   "trailer": {
     titulo: "¡Echa un vistazo a la acción de Beast Acquirer Savage!",
     descripcion: "Beast Acquirer Savage es la última entrega hasta la fecha de la saga Beast Acquirer. Nuestro equipo está dándolo todo para traeros el mejor juego de bestias hasta la fecha.",
-    portada: "img/juegos/beast-acquirer-savage.jpg",
+    portada: "img/juegos/beast-acquirer-savage.webp",
     duracion: "2:47",
   },
   "nueva-bestia": {
