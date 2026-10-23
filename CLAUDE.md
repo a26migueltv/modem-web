@@ -48,8 +48,11 @@ Respétalas. Si algo de esto cambia, lo decide el jefe de grupo y se actualiza a
 - **Si un juego no está en una tienda** (Steam o Epic): NO te inventes el enlace. Se quita ese botón
   (decidido el 23/10/2026). No debe quedar ningún `href="#"` en la web.
 - **Redes del estudio**: de momento enlazan a la portada de cada red (https://x.com, https://www.instagram.com,
-  https://www.facebook.com) con `target="_blank" rel="noopener"`. Los iconos son `<svg class="red-social__icono">`
+  https://www.facebook.com) con `target="_blank" rel="noopener"`. Los iconos son `<svg class="icono icono--16 ...">`
   dentro del enlace, en «Texto principal» y acento en hover y foco, como en la guía (no hay blanco en la paleta).
+- **Iconos y logo**: siempre `<svg>` escrito en el HTML (clase `icono icono--<tamaño> icono--<nombre>`, y
+  `icono--relleno` en Steam y Epic), copiado de componentes.html. Nada de `mask-image` ni imágenes de fondo:
+  no se ven al abrir la página con doble clic (file://).
 - **Enlace desactivado** (p. ej. «← Entradas anteriores» mientras no haya más entradas): sin `href` y con
   `aria-disabled="true"`; se ve como el Disabled de los botones.
 - **Vídeos de YouTube** (`IDS_YOUTUBE` en js/trailer.js): solo del canal oficial del juego o de su editora
@@ -69,3 +72,5 @@ Respétalas. Si algo de esto cambia, lo decide el jefe de grupo y se actualiza a
 - Cada persona trabaja en su rama (pagina-inicio, pagina-juegos, pagina-noticias, pagina-contacto). Nunca en main.
 - Commits pequeños con mensajes "Página: qué se ha hecho". Se une a main por Pull Request; la acepta el jefe de grupo.
 - No hagas commit, push ni merge sin que la persona lo pida.
+- Sin firmas de IA: no añadas la línea «Co-Authored-By» en los commits ni «🤖 Generated with Claude Code»
+  (ni nada parecido) en las Pull Requests.

@@ -7,6 +7,10 @@
    2. Al pulsar un vídeo de "Más vídeos": ese vídeo pasa al reproductor
       (portada, título, descripción y vídeo) y el que estaba arriba pasa a
       ocupar su sitio en la fila.
+   3. Si la página se abre con doble clic (file://), no se carga el vídeo:
+      YouTube exige saber desde qué web se ve (el "referer") y con file://
+      no lo hay, así que da el "Error 153". En su lugar sale la miniatura
+      del vídeo y el play y "Ver en YouTube" lo abren en otra pestaña.
    ========================================================================== */
 
 
@@ -80,6 +84,11 @@ const controles = reproductor.querySelector(".reproductor__controles");
 const titulo = document.getElementById("video-titulo");
 const descripcion = document.getElementById("video-descripcion");
 const miniaturas = document.querySelectorAll(".miniatura-video");
+const playYoutube = document.getElementById("video-play-youtube");
+const enlaceYoutube = document.getElementById("video-enlace-youtube");
+
+// ¿Se ha abierto la página con doble clic? (file:// en vez de http://)
+const sinServidor = location.protocol === "file:";
 
 // El vídeo que está ahora en el reproductor.
 let videoActual = "trailer";
@@ -109,6 +118,8 @@ botonPlay.addEventListener("click", function () {
   video.src = "https://www.youtube-nocookie.com/embed/" + idYoutube + "?autoplay=1&rel=0";
   video.title = VIDEOS[videoActual].titulo;
   video.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+  // YouTube necesita saber desde qué web se ve el vídeo (si no, "Error 153").
+  video.referrerPolicy = "strict-origin-when-cross-origin";
   video.allowFullscreen = true;
   reproductor.append(video);
   video.focus();
@@ -153,13 +164,15 @@ miniaturas.forEach(function (miniatura) {
     // ...y el que estaba arriba pasa a esta miniatura.
     ponerEnMiniatura(miniatura, videoAnterior);
 
-    // Llevamos el foco al reproductor: al play si se puede ver el vídeo o,
-    // si no, al aviso. Así la página sube hasta arriba y el usuario de
-    // teclado sabe qué ha pasado.
-    if (IDS_YOUTUBE[videoNuevo]) {
-      botonPlay.focus();
-    } else {
+    // Llevamos el foco al reproductor: al play (o a "Ver en YouTube" con
+    // file://) si se puede ver el vídeo o, si no, al aviso. Así la página
+    // sube hasta arriba y el usuario de teclado sabe qué ha pasado.
+    if (!IDS_YOUTUBE[videoNuevo]) {
       reproductor.focus();
+    } else if (sinServidor) {
+      enlaceYoutube.focus();
+    } else {
+      botonPlay.focus();
     }
   });
 });
@@ -178,6 +191,8 @@ function ponerEnReproductor(clave) {
   portada.hidden = false;
   botonPlay.hidden = false;
   controles.hidden = false;
+  playYoutube.hidden = true;
+  enlaceYoutube.hidden = true;
 
   portada.src = datos.portada;
   titulo.textContent = datos.titulo;
@@ -186,7 +201,28 @@ function ponerEnReproductor(clave) {
   // Si este vídeo no tiene ID, en vez del play sale el aviso.
   if (!IDS_YOUTUBE[clave]) {
     mostrarNoDisponible();
+  } else if (sinServidor) {
+    mostrarEnlaceYoutube(IDS_YOUTUBE[clave]);
   }
+}
+
+
+// Con file://: la miniatura de YouTube de portada y el play y "Ver en
+// YouTube" como enlaces al vídeo, que se abre en otra pestaña.
+function mostrarEnlaceYoutube(idYoutube) {
+  const direccion = "https://www.youtube.com/watch?v=" + idYoutube;
+  portada.src = "https://i.ytimg.com/vi/" + idYoutube + "/hqdefault.jpg";
+  botonPlay.hidden = true;
+  playYoutube.href = direccion;
+  playYoutube.hidden = false;
+  enlaceYoutube.href = direccion;
+  enlaceYoutube.hidden = false;
+}
+
+
+// Al cargar la página con file://, preparamos el vídeo que está arriba.
+if (sinServidor && IDS_YOUTUBE[videoActual]) {
+  mostrarEnlaceYoutube(IDS_YOUTUBE[videoActual]);
 }
 
 
