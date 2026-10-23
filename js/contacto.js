@@ -8,13 +8,14 @@
        campo--error, aria-invalid y mensaje debajo) y no se envía.
      - Si todo está bien, sale el mensaje de "enviado" y se vacía el
        formulario. (No hay servidor: no se envía de verdad a ningún sitio.)
+   Mientras se escribe, el error de un campo se quita en cuanto está bien.
    ========================================================================== */
 
 // Elementos del formulario
 const formulario = document.getElementById('formulario-contacto');
-const nome = document.getElementById('nombre');
+const nombre = document.getElementById('nombre');
 const email = document.getElementById('email');
-const mensaxe = document.getElementById('mensaje');
+const mensaje = document.getElementById('mensaje');
 const enviado = document.getElementById('mensaje-enviado');
 
 // Pone un campo en estado de error con su mensaje.
@@ -45,11 +46,11 @@ formulario.addEventListener('submit', function (evento) {
   // Escondemos el mensaje de "enviado" por si se ve de un envío anterior
   enviado.hidden = true;
   let hayErrores = false;
-  if (nome.value.trim() === '') {
-    mostrarError(nome, "El nombre no puede estar vacío.");
+  if (nombre.value.trim() === '') {
+    mostrarError(nombre, "El nombre no puede estar vacío.");
     hayErrores = true;
   } else {
-    quitarError(nome);
+    quitarError(nombre);
   }
 
   if (email.value.trim() === '') {
@@ -62,18 +63,37 @@ formulario.addEventListener('submit', function (evento) {
     quitarError(email);
   }
 
-  if (mensaxe.value.trim() === '') {
-    mostrarError(mensaxe, "El mensaje no puede estar vacío.");
+  if (mensaje.value.trim() === '') {
+    mostrarError(mensaje, "El mensaje no puede estar vacío.");
     hayErrores = true;
   } else {
-    quitarError(mensaxe);
+    quitarError(mensaje);
   }
 
   // Con errores, el foco va al primer campo mal para corregirlo.
   if (hayErrores) {
     formulario.querySelector("[aria-invalid='true']").focus();
   } else {
-    document.getElementById("mensaje-enviado").hidden = false;
+    enviado.hidden = false;
     formulario.reset();
   }
+});
+
+
+// Mientras se escribe, quitamos el error en cuanto el campo ya está bien
+// (no vacío y, en el email, con un formato válido). Solo se comprueba si
+// el campo tenía error: no queremos marcar errores antes de pulsar "Enviar".
+[nombre, email, mensaje].forEach(function (campo) {
+  campo.addEventListener("input", function () {
+    if (campo.getAttribute("aria-invalid") !== "true") {
+      return;
+    }
+
+    const valor = campo.value.trim();
+    const estaBien = campo === email ? esEmailValido(valor) : valor !== "";
+
+    if (estaBien) {
+      quitarError(campo);
+    }
+  });
 });
