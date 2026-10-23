@@ -42,13 +42,12 @@ No hay vídeo oficial (canal «Monster Hunter» o Capcom) de estos tres. Buscado
 - [x] **Estados que no estaban en la guía** (decididos el 23/10/2026; **hay que pasarlos a Figma**): «Vídeo no disponible» del reproductor, enlace de texto desactivado (como el Disabled de los botones) y el aviso «Enlace copiado» de Compartir.
 - [x] **Imagen del banner de Inicio**: cambiada por la de Steam de Silksong (1920 px, 233 KB). Ya no se ve borrosa.
 - [x] Las 3 imágenes de más de 500 KB pasan a WebP (`beast-acquirer-savage`, `beast-galeria-2` y `beast-galeria-4`, todas por debajo de 400 KB). Todas las imágenes llevan `width`/`height` y, menos la principal de cada página, `loading="lazy"`.
-- [x] En «Datos de contacto», el teléfono enlaza con `tel:+34666666666`.
+- [x] En «Datos de contacto», el teléfono (ficticio, +34 900 000 000) enlaza con `tel:+34900000000`.
 
 ## 5. Limpieza
 
 - [x] Quitados los comentarios de instrucciones de `index.html`, `juegos.html`, `noticias.html` y `contacto.html` (y de sus CSS y JS). Quedan solo comentarios que explican cada bloque.
-- [ ] Opcional: en `js/contacto.js` las variables `nome` y `mensaxe` están en gallego; la norma dice español (`nombre`, `mensaje`).
-- [ ] Opcional: el «Paso 5» de `js/contacto.js` (quitar el error mientras se escribe) no está hecho.
+- [x] `js/contacto.js`: variables en castellano (`nombre`, `mensaje`) y hecho el «Paso 5» (el error se quita mientras se escribe).
 
 ## 6. Para entregar (jefe de grupo)
 

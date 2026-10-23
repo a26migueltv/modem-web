@@ -62,7 +62,7 @@ Respétalas. Si algo de esto cambia, lo decide el jefe de grupo y se actualiza a
 - **Imágenes**: JPG o WebP de 500 KB como máximo, con `width`/`height` y `loading="lazy"` (menos la principal de cada página).
 - **Etiqueta de género**: fondo «Fondo página» para llegar a 5,08:1 (en la guía, «Caja de imagen» daba 4,13:1).
 - **Erratas de Figma**: se corrigen en la web (ya está hecho). Los textos entre corchetes ya se han cambiado por
-  datos inventados (fecha y precio de la ficha, duraciones y descripciones de los vídeos, `data-tamano` de las demos).
+  datos inventados (fecha y precio —19,99 €— de la ficha, duraciones y descripciones de los vídeos, `data-tamano` de las demos).
 - **Lista de pendientes**: TAREAS.md. Cuando se cierre algo, se marca con [x] allí.
 
 ## Git
