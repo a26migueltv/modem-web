@@ -415,8 +415,15 @@
    5. REDES SOCIALES
    --------------------------------------------------------------------------
    Círculo de 28 px con borde de 1,5 px e icono de 16 px. Separación 12 px.
-   Hover: borde e icono en acento.
+   Normal: borde e icono en "Texto principal". Hover y foco: en acento.
    Cada enlace lleva aria-label ("modem en X") porque solo tiene un icono.
+
+   El icono es un <svg> escrito dentro del enlace (Tabler Icons, outline).
+   Su trazo usa currentColor, así que cambia de color junto con el borde:
+     <a class="red-social" href="https://x.com" aria-label="modem en X" ...>
+       <svg class="red-social__icono" viewBox="0 0 24 24" aria-hidden="true"
+            focusable="false"><path d="..."/></svg>
+     </a>
    ========================================================================== */
 
 .redes {
@@ -436,8 +443,20 @@
 }
 
 .red-social:hover,
+.red-social:focus-visible,
 .red-social.demo-hover {
   color: var(--color-acento);
+}
+
+/* Icono de 16 px: solo trazo (outline), del color del enlace */
+.red-social__icono {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 
