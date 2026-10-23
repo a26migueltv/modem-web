@@ -72,3 +72,5 @@ Respétalas. Si algo de esto cambia, lo decide el jefe de grupo y se actualiza a
 - Cada persona trabaja en su rama (pagina-inicio, pagina-juegos, pagina-noticias, pagina-contacto). Nunca en main.
 - Commits pequeños con mensajes "Página: qué se ha hecho". Se une a main por Pull Request; la acepta el jefe de grupo.
 - No hagas commit, push ni merge sin que la persona lo pida.
+- Sin firmas de IA: no añadas la línea «Co-Authored-By» en los commits ni «🤖 Generated with Claude Code»
+  (ni nada parecido) en las Pull Requests.
