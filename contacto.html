@@ -104,81 +104,11 @@
       </nav>
     </header>
 
-    <!-- =====================================================================
-       CONTACTO (contacto.html) — PÁGINA PARA MONTAR POR: ________________
-       ---------------------------------------------------------------------
-       Pantalla de Figma: "01 · Pantallas" → "Contacto · Escritorio".
-       Un solo bloque en pantalla dividida:
-         título "Contacto" → dos columnas: formulario (izquierda) y
-         datos de contacto (derecha).
-       Cómo trabajar:
-         - Escribe el HTML DENTRO de la <section>, debajo del comentario.
-         - Copia los componentes de componentes.html.
-         - La colocación va en css/pages/contacto.css.
-         - La validación del formulario va en js/contacto.js (ya enlazado
-           en el <head>): allí tienes los pasos explicados.
-         - El header y el footer ya están: no los toques.
-       ===================================================================== -->
+    <!-- CONTACTO (Figma: "01 · Pantallas" → "Contacto · Escritorio").
+       Maquetación en css/pages/contacto.css y validación en js/contacto.js. -->
     <main id="contenido">
-      <!-- =================================================================
-         BLOQUE ÚNICO · CONTACTO
-         -----------------------------------------------------------------
-         - Título <h1>: "Contacto" (estilo H1, a la izquierda).
-         - 48 px entre el título y las columnas.
-         - Dos columnas de 560 px, separadas 80 px.
-
-         ---- COLUMNA IZQUIERDA · FORMULARIO ----
-         Copia el bloque entero de "Formulario" de componentes.html.
-         Ya trae los 3 campos con sus <label>, sus mensajes de error
-         ocultos y el botón principal "Enviar". Textos de Figma:
-           - Nombre   → placeholder="Nombre Apellido"
-           - Email    → placeholder="correo@ejemplo.com"
-           - Mensaje  → placeholder="Hola, me gustaría saber más sobre vuestros juegos."
-           - Botón principal "Enviar" (type="submit"), alineado a la
-             izquierda, 24 px debajo del último campo.
-         Cambios que tienes que hacer al copiarlo:
-           - Ponle al <form> un id="formulario-contacto" (lo usa contacto.js).
-           - Debajo del botón, añade el mensaje de "enviado" (oculto):
-               <p class="contacto__enviado" id="mensaje-enviado" role="status" hidden>¡Mensaje enviado! Te responderemos pronto.</p>
-             role="status" hace que el lector de pantalla lo lea en voz alta.
-             (Este mensaje no está en Figma: el texto lo podéis cambiar.)
-         Los mensajes de error de Figma son:
-           - Email mal escrito: "Introduce un email válido."
-           - Mensaje vacío:     "El mensaje no puede estar vacío."
-         (están en js/contacto.js)
-
-         ---- COLUMNA DERECHA · DATOS DE CONTACTO ----
-           - Título: <h2 class="titulo-h3">Datos de contacto</h2>
-             (es un h2, pero en Figma se ve como un H3).
-           - Los datos en una lista <dl class="contacto__datos">, usando el
-             componente "dato" de "Datos del juego" (componentes.html):
-               <div class="dato">
-                 <dt>Email</dt>
-                 <dd><a href="mailto:contacto@modem.example">contacto@modem.example</a></dd>
-               </div>
-             Datos, en este orden:
-               Email      → contacto@modem.example  (enlace mailto:)
-               Ubicación  → Rúa San Clemente s/n 15705
-               Teléfono   → 666 66 66 66  (enlace tel:666666666)
-               Redes      → los 3 iconos del componente "Redes sociales"
-                            (dentro del <dd>)
-           - 24 px entre el título y cada dato.
-
-         Estructura que te proponemos:
-           <section class="seccion" aria-labelledby="titulo-contacto">
-             <div class="contenedor contacto">
-               <h1 id="titulo-contacto">Contacto</h1>
-               <div class="contacto__columnas">
-                 <form class="formulario" id="formulario-contacto" ...> ... </form>
-                 <div class="contacto__info">
-                   <h2 class="titulo-h3">Datos de contacto</h2>
-                   <dl class="contacto__datos"> ... </dl>
-                 </div>
-               </div>
-             </div>
-           </section>
-         Sustituye esta <section> vacía por la tuya.
-         ================================================================= -->
+      <!-- Pantalla dividida: formulario a la izquierda (lo valida
+           js/contacto.js) y datos de contacto a la derecha. -->
       <section class="seccion" aria-labelledby="titulo-contacto">
         <div class="contenedor contacto">
           <h1 id="titulo-contacto">Contacto</h1>

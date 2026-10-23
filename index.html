@@ -61,60 +61,12 @@
     </nav>
   </header>
 
-  <!-- =====================================================================
-       INICIO (index.html) — PÁGINA PARA MONTAR POR: ________________
-       ---------------------------------------------------------------------
-       Pantalla de Figma: "01 · Pantallas" → "Inicio · Escritorio".
-       Tiene 3 bloques, uno debajo de otro:
-         1. Banner con el juego destacado (imagen a pantalla completa)
-         2. Quiénes somos
-         3. Últimas noticias
-       Cómo trabajar:
-         - Escribe el HTML DENTRO de cada <section>, debajo de su comentario.
-         - Copia los componentes de componentes.html (no inventes clases
-           para cosas que ya existen).
-         - La colocación (layout) va en css/pages/inicio.css: allí tienes
-           explicado qué maquetar.
-         - El header y el footer ya están: no los toques.
-       ===================================================================== -->
+  <!-- INICIO (Figma: "01 · Pantallas" → "Inicio · Escritorio").
+       Maquetación en css/pages/inicio.css. -->
   <main id="contenido">
 
-    <!-- =================================================================
-         BLOQUE 1 · BANNER DEL JUEGO DESTACADO
-         -----------------------------------------------------------------
-         Qué es: una imagen grande que ocupa todo el ancho de la pantalla
-         (560 px de alto) y, encima, a la izquierda, una caja oscura con
-         el nombre del juego, una frase y el botón de la demo.
-
-         Imagen: img/juegos/banner-inicio.jpg
-           alt="Hornet, la protagonista de Silksong, con su capa roja y su aguja"
-           (ojo: en Figma la imagen solo mide 850 px de ancho y se ve algo
-            borrosa a pantalla completa; si encontráis una más grande, mejor)
-
-         Caja de contenido (550 px de ancho, en el contenedor de 1200 px):
-           - Título: <h1> "Hollow Knight Silksong" (es el título principal
-             de la página, por eso es h1). En Figma va centrado y en dos
-             líneas: "Hollow Knight" / "Silksong".
-           - Párrafo: "La actualización 5 de Silksong ya está disponible
-             para los jugadores de PC"
-           - Botón PRINCIPAL "Descargar demo" (componente Botones):
-             <button class="boton" type="button" data-demo="Hollow Knight Silksong" data-plataformas="PC" data-tamano="760">Descargar demo</button>
-             Con data-demo ya abre el modal de descarga (el script
-             js/modal-demo.js ya está enlazado en el <head>).
-
-         Estructura que te proponemos (clases de tu página: .banner...):
-           <section class="banner" aria-labelledby="titulo-banner">
-             <img class="banner__imagen" src="..." alt="...">
-             <div class="contenedor">
-               <div class="banner__caja">
-                 <h1 id="titulo-banner">...</h1>
-                 <p>...</p>
-                 <button class="boton" ...>Descargar demo</button>
-               </div>
-             </div>
-           </section>
-         Sustituye esta <section> vacía por la tuya.
-         ================================================================= -->
+    <!-- BANNER: juego destacado con la imagen a pantalla completa.
+         "Descargar demo" abre el modal de descarga (js/modal-demo.js). -->
     <section class="banner" aria-labelledby="titulo-banner">
       <img class="banner__imagen" src="img/juegos/banner-inicio.jpg" width="1920" height="620" alt="Hornet, la protagonista de Silksong, con su capa roja y su aguja">
       <div class="contenedor">
@@ -127,29 +79,7 @@
     </section>
 
 
-    <!-- =================================================================
-         BLOQUE 2 · QUIÉNES SOMOS
-         -----------------------------------------------------------------
-         Qué es: un bloque con el fondo más oscuro y el texto CENTRADO.
-           - Título <h2>: "Quiénes somos"
-           - Párrafo (máximo 720 px de ancho): "Somos un pequeño estudio
-             independiente que crea juegos con mucho cariño. Descubre
-             nuestras aventuras y prueba la demo gratis."
-           - 24 px entre el título y el párrafo.
-
-         Clases que ya existen (componente "Contenedor y secciones"):
-           .seccion          → 72 px arriba y abajo
-           .seccion--oscura  → fondo "Fondo secciones y tarjetas"
-           .contenedor       → centra a 1200 px
-
-         Estructura que te proponemos:
-           <section class="seccion seccion--oscura quienes" aria-labelledby="titulo-quienes">
-             <div class="contenedor quienes__contenido">
-               <h2 id="titulo-quienes">Quiénes somos</h2>
-               <p>...</p>
-             </div>
-           </section>
-         ================================================================= -->
+    <!-- QUIÉNES SOMOS -->
     <section class="seccion seccion--oscura quienes" aria-labelledby="titulo-quienes">
       <div class="contenedor quienes__contenido">
         <h2 id="titulo-quienes">Quiénes somos</h2>
@@ -158,55 +88,9 @@
     </section>
 
 
-    <!-- =================================================================
-         BLOQUE 3 · ÚLTIMAS NOTICIAS
-         -----------------------------------------------------------------
-         Qué es: título centrado, 3 tarjetas de noticia en fila y debajo
-         el enlace "Ver todas las noticias →", también centrado.
-         40 px entre el título, las tarjetas y el enlace.
-
-         Componentes (copiar de componentes.html):
-           - "Tarjeta de noticia": la lista <ul class="rejilla-noticias">
-             ya coloca las tarjetas de 3 en 3 (y 2 o 1 en tablet y móvil).
-             Cada tarjeta lleva su "Etiqueta de categoría".
-           - "Enlace de texto" para "Ver todas las noticias →" (href="noticias.html").
-           - Todos los "Leer más →" van a noticia.html. Acuérdate del
-             <span class="visualmente-oculto"> con el título de la noticia.
-           - Título de la sección: <h2> "Últimas noticias".
-             Títulos de las tarjetas: <h3>.
-
-         Las 3 tarjetas, en este orden:
-           1) Imagen: img/noticias/noticia-1.jpg
-                alt="Hornet, la protagonista de Silksong, con su capa roja y su aguja"
-              Categoría: Juegos en tendencia
-              Fecha: 12 de marzo de 2026
-              Título: Silksong próximamente en consolas
-              Texto: La actualización 5 de Silksong ya está disponible para
-                los jugadores de PC y próximamente llegará a las consolas.
-           2) Imagen: img/noticias/noticia-2.jpg
-                alt="Partida de Neon Abyss: Echoes en una sala llena de enemigos y explosiones"
-              Categoría: Anuncios
-              Fecha: 28 de septiembre de 2026 - Por modem
-              Título: Nuevo tráiler de Neon Abyss: Echoes
-              Texto: Descubre el nuevo tráiler de nuestro próximo juego y
-                conoce algunas de las novedades que llegarán a la versión final.
-           3) Imagen: img/noticias/noticia-3.jpg
-                alt="Un grupo de aldeanos amenazantes con antorchas rodea a dos personajes en un bosque"
-              Categoría: Diario de desarrollo
-              Fecha: 14 de septiembre de 2026 - Por modem
-              Título: Diario de desarrollo #03: Diseñando nuestro mundo
-              Texto: Os contamos cómo estamos creando los escenarios,
-                personajes y criaturas que darán vida a nuestra nueva aventura.
-
-         Estructura que te proponemos:
-           <section class="seccion ultimas" aria-labelledby="titulo-ultimas">
-             <div class="contenedor ultimas__contenido">
-               <h2 id="titulo-ultimas">Últimas noticias</h2>
-               <ul class="rejilla-noticias"> ...3 tarjetas... </ul>
-               <a class="enlace" href="noticias.html">Ver todas las noticias →</a>
-             </div>
-           </section>
-         ================================================================= -->
+    <!-- ÚLTIMAS NOTICIAS: las 3 más recientes. Todos los "Leer más" llevan
+         a noticia.html; el título escondido (visualmente-oculto) dice a
+         qué noticia va cada uno. -->
     <section class="seccion ultimas" aria-labelledby="titulo-ultimas">
       <div class="contenedor ultimas__contenido">
         <h2 id="titulo-ultimas">Últimas noticias</h2>
